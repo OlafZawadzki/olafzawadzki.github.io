@@ -1,5 +1,5 @@
 .banner {
-    background-image: url('banner-bg-jesien.webp'); /* nazwa pliku tła */
+    background-image: url('lód.webp.webp'); /* nazwa pliku tła */
     background-size: cover;
     background-position: center;
     color: white;
@@ -13,6 +13,7 @@ body {
     padding: 0;
     background-color: white;
     overflow-x: hidden;
+
 }
 
 header {
@@ -318,6 +319,7 @@ footer {
     padding: 20px 0;
     text-align: center;
     font-family: Arial, sans-serif;
+    
 }
 
 .footer-content {
@@ -487,7 +489,7 @@ footer {
     position: absolute;
     width: 50px;
     height: 50px;
-    background-image: url('leaves.webp'); /* Podmień na swoją grafikę liścia */
+    background-image: url('leaf.webp'); /* Podmień na swoją grafikę liścia */
     background-size: contain;
     background-repeat: no-repeat;
     opacity: 0.8;
@@ -553,6 +555,7 @@ footer {
 
 
 .gallery {
+    align-content: center;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 10px;
@@ -560,8 +563,7 @@ footer {
     max-width: 1200px;
     width: 100%;
     box-sizing: border-box;
-    justify-content: center; /* Centruje wszystkie wiersze, w tym ostatni */
-}
+    }
 
 .gallery img {
     width: 100%;
@@ -569,6 +571,7 @@ footer {
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
+    
 }
 
 .gallery img:hover {
@@ -578,7 +581,7 @@ footer {
 .audio-player {
     text-align: center;
     padding: 20px;
-    background: #fff;
+
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
@@ -600,3 +603,4 @@ audio {
     text-decoration: underline;
     border-color: rgb(96, 30, 158); /* Zmienia kolor ramki po najechaniu */
   }
+
