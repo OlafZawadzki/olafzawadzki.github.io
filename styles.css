@@ -589,3 +589,14 @@ audio {
     max-width: 300px;
     outline: none;
 }
+
+.artby{
+    text-align: center;
+    color: blueviolet;
+
+}
+.artby:hover {
+    color: rgb(96, 30, 158);
+    text-decoration: underline;
+    border-color: rgb(96, 30, 158); /* Zmienia kolor ramki po najechaniu */
+  }
