@@ -37,3 +37,5 @@ function createLeaf() {
 
 // Twórz liście co 500ms
 setInterval(createLeaf, 300);
+
+

@@ -39,7 +39,7 @@ header {
   
   /* Suwak przy najechaniu */
   ::-webkit-scrollbar-thumb:hover {
-    background: #e4ae1c;
+    background: #0073b1;
   }
 
 nav {
@@ -206,7 +206,7 @@ font-style: bold;
 .onas-social-links a {
     margin-right: 10px;
     text-decoration: none;
-    color: #e4ae1c;
+    color: #0073b1;
 }
 
 .onas-social-links a:hover {
@@ -286,7 +286,7 @@ font-style: bold;
 }
 
 .privacy-notice a {
-    color: #f0ca62;
+    color: #6f9ee6d5;
     text-decoration: none;
 }
 
@@ -297,14 +297,14 @@ font-style: bold;
 .privacy-notice button {
     margin-top: 10px;
     padding: 10px 20px;
-    background-color: #e4ae1c;
+    background-color: #1b55add5;
     border: none;
     color: white;
     cursor: pointer;
 }
 
 .privacy-notice button:hover {
-    background-color: #8a6910;
+    background-color: #0e5280;
 }
 
 .hidden {
@@ -351,13 +351,13 @@ footer {
 }
 
 .footer-content .social-media li a:hover {
-    color: #ff5733; /* Change to desired hover color */
+    color: #266fddd5; /* Change to desired hover color */
 }
 
 .buy-button {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #e4ae1c;
+    background-color: #1b55add5;
     color: white;
     text-align: center;
     text-decoration: none;
@@ -366,7 +366,7 @@ footer {
 }
 
 .buy-button:hover {
-    background-color: #7c5f0f;
+    background-color: #0e5280;
 }
 
 
@@ -384,7 +384,7 @@ footer {
     position: absolute;
     width: 150px;
     height: 150px;
-    opacity: 0.6;
+    opacity: 1;
     z-index: 0.6;
   }
   
@@ -449,7 +449,7 @@ footer {
     transition: background-color 0.3s ease;
 }
 .invite a:hover {
-    background-color: #80610e;
+    background-color: #0e5280;
     
 }
 
@@ -546,3 +546,46 @@ footer {
     background-color:#ffffff;
   }
 
+.separatorsecond{
+    color: white; /* lub transparent */
+    font-size: 16px; /* Dodaj inne style, jeśli potrzebne */
+}
+
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    padding: 20px;
+    max-width: 1200px;
+    width: 100%;
+    box-sizing: border-box;
+    justify-content: center; /* Centruje wszystkie wiersze, w tym ostatni */
+}
+
+.gallery img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+}
+
+.audio-player {
+    text-align: center;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+audio {
+    margin: 10px 0;
+    width: 100%;
+    max-width: 300px;
+    outline: none;
+}
