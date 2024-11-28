@@ -604,3 +604,53 @@ audio {
     border-color: rgb(96, 30, 158); /* Zmienia kolor ramki po najechaniu */
   }
 
+
+
+
+
+
+
+
+
+
+
+
+  
+/* Style dla bloga */
+#blog {
+    padding: 20px;
+}
+
+#blog article {
+    margin-bottom: 20px;
+}
+
+#blog h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+#blog h3 {
+    font-size: 1.5em;
+    margin: 10px 0;
+}
+
+#blog p {
+    font-size: 1.1em;
+    color: #555;
+}
+
+#blog a {
+    text-decoration: none;
+    color: #007BFF;
+}
+
+#blog a:hover {
+    text-decoration: underline;
+}
+
+/* Dodatkowe style dla postów */
+#blog article {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+}

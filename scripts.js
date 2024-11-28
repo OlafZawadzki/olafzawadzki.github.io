@@ -39,3 +39,15 @@ function createLeaf() {
 setInterval(createLeaf, 300);
 
 
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('Blog załadowany!');
+});
+s
