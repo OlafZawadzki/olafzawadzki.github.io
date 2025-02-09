@@ -13,30 +13,30 @@ document.addEventListener("DOMContentLoaded", function() {
         localStorage.setItem('cookiesAccepted', 'true');
     });
 });
-function createLeaf() {
-    const leaf = document.createElement('div');
-    leaf.classList.add('leaf');
+// function createLeaf() {
+   // const leaf = document.createElement('div');
+    //leaf.classList.add('leaf');
 
     // Ustaw losową pozycję startową z góry
     
-    leaf.style.left = Math.random() * window.innerWidth - 50 + 'px';
-    leaf.style.top = '-50px'; // Ustawiamy liść, aby zaczynał nad ekranem
-    leaf.style.maxWidth = Window.innerWidth
-    leaf.style.animationDuration = (Math.random() * 8 + 15) + 's'; // Czas spadania (3-8s)
-    leaf.style.animationName = 'fall';
+    //leaf.style.left = Math.random() * window.innerWidth - 50 + 'px';
+    //leaf.style.top = '-50px'; // Ustawiamy liść, aby zaczynał nad ekranem
+    //leaf.style.maxWidth = Window.innerWidth
+    //leaf.style.animationDuration = (Math.random() * 8 + 15) + 's'; // Czas spadania (3-8s)
+    //leaf.style.animationName = 'fall';
 
   
 
-    document.body.appendChild(leaf);
+    //document.body.appendChild(leaf);
 
     // Usuń liść po zakończeniu animacji
-    leaf.addEventListener('animationend', () => {
-        leaf.remove();
-    });
-}
+    //leaf.addEventListener('animationend', () => {
+      //  leaf.remove();
+    //});
+//}
 
 // Twórz liście co 500ms
-setInterval(createLeaf, 300);
+//setInterval(createLeaf, 300);
 
 
 
