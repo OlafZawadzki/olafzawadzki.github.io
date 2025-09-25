@@ -1,0 +1,7 @@
+title: Mój Blog
+baseurl: "https://www.hexitrely.pl//blog" # jeśli repozytorium jest w podfolderze, np. /blog
+url: "hexitrely.pl" # adres witryny, może zostać pusty dla localhost
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
