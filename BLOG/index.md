@@ -1,15 +1,13 @@
+
+
 ---
 layout: default
-title: The Hexit Echo
+title: All Posts
 ---
-# The Hexit Echo!
-
-## All Posts:
+# All Posts
 
 <ul>
-{% for post in site.pages %}
-  {% if post.path contains 'blogs/' %}
-    <li><a href="{{ post.url }}">{{ post.title }}</a></li>
-  {% endif %}
+{% for post in site.posts %}
+  <li><a href="{{ post.url }}">{{ post.title }}</a></li>
 {% endfor %}
 </ul>
