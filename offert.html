@@ -1,146 +1,244 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>H3XI7</title>   <!-- tu tytułs trony ale na pasku w przeglądarce  -->
+    <title>Services - Hexit Rely</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="H3xit.html">
-                <img src="logohexit.webp" alt="hexit Logo" class="logo" >   <!--  tu logo -->
+    <header class="modern-header">
+        <nav class="nav-container">
+            <div class="nav-brand">
+                <a href="index.html">
+                    <img src="logohexit.webp" alt="Hexit Rely Logo" class="logo">
                 </a>
-            <ul>                                                                                <!-- podmień na linki swoje aby podpiąć sociale do menu  -->
-                <li><a href="https://linktr.ee/hexitrely">Bio</a></li>
-                <li><a href="https://open.spotify.com/artist/4hcXADTFvPXtRxVTGYXW4I?si=PtVSpKbdTgS1t2JG468iXA&nd=1">Spotify</a></li>
-                <li><a href="https://maps.app.goo.gl/71z3TfWLPRXDnVmP6">Contact</a></li>
-                <li><a href="offert.html">Offert</a></li>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html#about">About</a></li>
                 <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="offert.html" class="active">Services</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
             </ul>
+            <div class="nav-socials">
+                <a href="https://open.spotify.com/artist/4hcXADTFvPXtRxVTGYXW4I?si=PtVSpKbdTgS1t2JG468iXA&nd=1" target="_blank" class="social-link">
+                    <img src="spotify.webp" alt="Spotify" class="social-icon">
+                </a>
+                <a href="https://www.instagram.com/hexit_official" target="_blank" class="social-link">
+                    <img src="instagram.webp" alt="Instagram" class="social-icon">
+                </a>
+                <a href="https://www.youtube.com/channel/UCIpPTE3HsmUSAb-yfNybvSA" target="_blank" class="social-link">
+                    <img src="youtube.webp" alt="YouTube" class="social-icon">
+                </a>
+            </div>
         </nav>
-
-
-    
     </header>
-    <section class="banner">
-        <h1>Olaf "Hexit Rely" Zawadzki</h1>  <!--  tytuł na zdjeciu -->
-    </section>
-   
-    <section class="owners">
-        <h2>About Me</h2>
-    </section>
-    
-    <div class="light-point"></div><!--  Light point -->
 
-    <section class="founders">
-        <div class="founder">
-            <img src="hexit.webp" alt="Olaf Hexit Rely Zawadzki">                          <!-- opis siebie  -->
-            <p class="name">Olaf "Hexit Rely" Zawadzki</p>
-            <a class="teaminfo">Music producer, Sound Designer</a>
-            <p></p>
+    <main>
+        <section class="services-hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Professional Audio Services</h1>
+                    <p class="hero-subtitle">From game soundtracks to music production, I bring your audio vision to life</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="services-overview">
+            <div class="container">
+                <h2 class="section-title">What I Offer</h2>
+                <div class="services-grid">
+                    <div class="service-overview-card">
+                        <div class="service-icon">🎵</div>
+                        <h3>Game Audio</h3>
+                        <p>Complete audio solutions for games including soundtracks, sound effects, and interactive audio systems.</p>
+                    </div>
+                    <div class="service-overview-card">
+                        <div class="service-icon">🎧</div>
+                        <h3>Music Production</h3>
+                        <p>Professional music production, mixing, and mastering services for all genres and styles.</p>
+                    </div>
+                    <div class="service-overview-card">
+                        <div class="service-icon">🔊</div>
+                        <h3>Sound Design</h3>
+                        <p>Custom sound design and audio assets for games, films, and multimedia projects.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="services-detailed">
+            <div class="container">
+                <h2 class="section-title">What I Offer</h2>
+                <div class="services-detailed-grid">
+                    <div class="service-detailed-card">
+                        <div class="service-icon">🎵</div>
+                        <h3>Game Audio Production</h3>
+                        <p>Complete audio solutions for games including dynamic soundtracks, interactive music systems, and immersive soundscapes that enhance gameplay experience.</p>
+                        <ul class="service-features">
+                            <li>Original game soundtracks</li>
+                            <li>Interactive music systems</li>
+                            <li>Ambient soundscapes</li>
+                            <li>Dynamic audio implementation</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-detailed-card">
+                        <div class="service-icon">🎧</div>
+                        <h3>Music Production & Mixing</h3>
+                        <p>Professional music production services from composition to final mastering, covering all genres with a focus on electronic and cinematic music.</p>
+                        <ul class="service-features">
+                            <li>Original compositions</li>
+                            <li>Professional mixing & mastering</li>
+                            <li>Genre versatility</li>
+                            <li>Collaborative approach</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-detailed-card">
+                        <div class="service-icon">🔊</div>
+                        <h3>Sound Design</h3>
+                        <p>Custom sound effects and audio assets for games, films, and multimedia projects. From subtle ambient sounds to dramatic impact effects.</p>
+                        <ul class="service-features">
+                            <li>Custom sound effects</li>
+                            <li>Foley and ambient sounds</li>
+                            <li>UI/UX audio design</li>
+                            <li>Atmospheric soundscapes</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-detailed-card">
+                        <div class="service-icon">🎮</div>
+                        <h3>Interactive Audio Systems</h3>
+                        <p>Advanced audio programming and implementation for games, including adaptive music systems and real-time audio processing.</p>
+                        <ul class="service-features">
+                            <li>Adaptive music systems</li>
+                            <li>Real-time audio processing</li>
+                            <li>Audio middleware integration</li>
+                            <li>Performance optimization</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="process-section">
+            <div class="container">
+                <h2 class="section-title">How It Works</h2>
+                <div class="process-steps">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <h3>Consultation</h3>
+                        <p>We discuss your project requirements, timeline, and vision to ensure perfect alignment.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <h3>Production</h3>
+                        <p>I create your audio content with regular updates and collaboration throughout the process.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <h3>Review & Refine</h3>
+                        <p>We review the work together and make any necessary adjustments to perfect the final product.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <h3>Delivery</h3>
+                        <p>Receive your high-quality audio files in your preferred format, ready for use.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials-section">
+            <div class="container">
+                <h2 class="section-title">What Clients Say</h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"Hexit delivered an incredible soundtrack for our game. The music perfectly captured the atmosphere we were looking for."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <strong>Game Developer</strong>
+                            <span>Indie Studio</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"Professional, creative, and easy to work with. The final mix exceeded our expectations."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <strong>Music Producer</strong>
+                            <span>Electronic Artist</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"The sound design work was outstanding. Every detail was carefully crafted to enhance the user experience."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <strong>Content Creator</strong>
+                            <span>YouTube Channel</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Ready to Bring Your Project to Life?</h2>
+                    <p>Let's discuss your audio needs and create something amazing together.</p>
+                    <div class="cta-buttons">
+                        <a href="https://linktr.ee/hexitrely" class="btn btn-primary btn-large">Start Your Project</a>
+                        <a href="portfolio.html" class="btn btn-secondary btn-large">View My Work</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="modern-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="logohexit.webp" alt="Hexit Rely" class="footer-logo">
+                    <p>Creating immersive sound experiences</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>Navigation</h4>
+                        <ul>
+                            <li><a href="index.html#about">About</a></li>
+                            <li><a href="portfolio.html">Portfolio</a></li>
+                            <li><a href="offert.html">Services</a></li>
+                            <li><a href="index.html#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Connect</h4>
+                        <ul>
+                            <li><a href="https://open.spotify.com/artist/4hcXADTFvPXtRxVTGYXW4I?si=PtVSpKbdTgS1t2JG468iXA&nd=1" target="_blank">Spotify</a></li>
+                            <li><a href="https://www.instagram.com/hexit_official" target="_blank">Instagram</a></li>
+                            <li><a href="https://www.youtube.com/channel/UCIpPTE3HsmUSAb-yfNybvSA" target="_blank">YouTube</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Hexit Rely. All rights reserved.</p>
+            </div>
         </div>
-    </section>
-   
+    </footer>
 
-    <div class="menusocials">                                                                          <!-- socialmedia pod spoti -->
-        <a href="https://www.instagram.com/hexit_official" class="instagram" target="_blank">
-            <img src="instagram.webp" alt="instagram">
-        </a>
-        <a href="https://www.tiktok.com/@hexit_official" class="tt" target="_blank">
-            <img src="tiktok.webp" alt="tiktok">
-        </a>
-        <a href="https://open.spotify.com/artist/4hcXADTFvPXtRxVTGYXW4I?si=PtVSpKbdTgS1t2JG468iXA&nd=1" class="Spoti" target="_blank">
-            <img src="spotify.webp" alt="Spoti">
-        </a>
-        <a href="https://www.youtube.com/channel/UCIpPTE3HsmUSAb-yfNybvSA" class="yt" target="_blank">
-            <img src="youtube.webp" alt="YouTube">
-        </a>
-    </div>
-
-
-    <div class="separatorsecond">-</div>
-    
-<div class="separatorsecond">-</div>
-
-    <div class="offer-container">
-        <!-- Mix Mastering -->
-        <div class="offer-tile mint">
-          <h2>🎶BASIC🎶</h2>
-          <h3>Mix And Mastering.</h3>
-          <p>Whats included:</p>
-          <ul>
-            <li>Basic Correction</li>
-            <li>Final Mix & Mastering  with effects</li>
-            <li>5 corrections included in the price</li>
-          </ul>
-          <p class="price">PRICE: 100 PLN</p>
-          <p class="price">ps. Send me link to your track upladed on wetransfer.com</p>
-          <a href="https://pay.sumup.com/b2c/Q6KEWYNZ" class="buy-button">BUY</a>
-        </div>
-      
-        <!-- Instrumental -->
-        <div class="offer-tile blue">
-          <h2>🎹MEDIUM🎹</h2>
-          <h3>Mix And Mastering for you.</h3>
-          <p>Whats included:</p>
-          <ul>
-            <li>Everythink from BASIC</li>
-            <li>Individual approach</li>
-            <li>Full Supprt</li>
-            <li>5 corrections included in the price</li>
-          </ul>
-          <p class="price">Price? individual pricing from PLN 100 and up</p>
-          <a href="#" class="buy-button">Wyślij Wiadomość</a>
-        </div>
-      
-        <!-- All in One -->
-        <div class="offer-tile gold">
-          <h2>🎵PRO🎵</h2>
-          <h3>Track Specific for you</h3>
-          <p>Whats included:</p>
-          <ul>
-            <li>Everythink from MEDIUM</li>
-            <li>Active cooperation</li>
-            <li>unlimited previews</li>
-            <li>5 corrections included in the price</li>
-          </ul>
-          <p class="price">Price? individual pricing from 250 PLN and up</p>
-          <a href="#" class="buy-button">Wyślij Wiadomość</a>
-        </div>
-      </div>
-      
-
-    
     <div class="privacy-notice" id="privacyNotice">
-        <p>Our website uses cookies to improve the quality of services. Read ours <a href="polityka.html">Privacy Policy</a>.</p>            <!-- musze ci podrzucić stronke o polityce ale to musze ja zrobić  -->
+        <p>This website uses cookies to improve your experience. <a href="polityka.html">Privacy Policy</a></p>
         <button id="acceptButton">Accept</button>
     </div>
 
-
-  
-
-<div class="separatorsecond">-</div>
-
-  
-  
-    <div class="separatorsecond">-</div>
-    <div class="separatorsecond">-</div>
-    <div class="separatorsecond">-</div>
-    <div class="separatorsecond">-</div>
-    <div class="separatorsecond">-</div>
-    <div class="separatorsecond">-</div>
     <script src="scripts.js"></script>
-
-    <footer>
-        <div class="footer-content">
-            <p>&copy; 2024 Nox & HEXIT. All rights reserved.</p>                                            <!-- znowu sociale  -->
-            <ul class="social-media">
-                <li><a href="https://www.instagram.com/hexit_official">Instagram</a></li>
-                <li><a href="https://www.youtube.com/channel/UCIpPTE3HsmUSAb-yfNybvSA">Youtube</a></li>
-            </ul>
-        </div>
-    </footer>
 </body>
 </html>

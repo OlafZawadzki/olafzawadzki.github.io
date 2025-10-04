@@ -1,16 +1,92 @@
 document.addEventListener("DOMContentLoaded", function() {
+    // Cookie notice functionality
     var acceptButton = document.getElementById('acceptButton');
     var privacyNotice = document.getElementById('privacyNotice');
 
-    // Sprawdzenie, czy użytkownik zaakceptował ciasteczka
-    if (localStorage.getItem('cookiesAccepted') === 'true') {
-        privacyNotice.classList.add('hidden');
+    if (acceptButton && privacyNotice) {
+        // Check if user has already accepted cookies
+        if (localStorage.getItem('cookiesAccepted') === 'true') {
+            privacyNotice.classList.add('hidden');
+        }
+
+        acceptButton.addEventListener('click', function() {
+            privacyNotice.classList.add('hidden');
+            localStorage.setItem('cookiesAccepted', 'true');
+        });
     }
 
-    acceptButton.addEventListener('click', function() {
-        // Ukrycie powiadomienia i zapisanie stanu w localStorage
-        privacyNotice.classList.add('hidden');
-        localStorage.setItem('cookiesAccepted', 'true');
+    // Smooth scrolling for anchor links (but not mailto links)
+    document.querySelectorAll('a[href^="#"]:not([href^="mailto:"])').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // Ensure mailto links work properly
+    document.querySelectorAll('a[href^="mailto:"]').forEach(mailtoLink => {
+        mailtoLink.addEventListener('click', function(e) {
+            // Don't prevent default for mailto links
+            console.log('Mailto link clicked:', this.href);
+        });
+    });
+
+    // Add scroll effect to header
+    const header = document.querySelector('.modern-header');
+    if (header) {
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(17, 24, 39, 0.98)';
+                header.style.backdropFilter = 'blur(20px)';
+            } else {
+                header.style.background = 'rgba(17, 24, 39, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            }
+        });
+    }
+
+    // Add fade-in animation to elements
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in-up');
+            }
+        });
+    }, observerOptions);
+
+    // Observe all sections for animation
+    document.querySelectorAll('section').forEach(section => {
+        observer.observe(section);
+    });
+
+    // Add hover effects to project cards
+    document.querySelectorAll('.project-card').forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-8px) scale(1.02)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+        });
+    });
+
+    // Add click tracking for portfolio items
+    document.querySelectorAll('.work-item, .project-card').forEach(item => {
+        item.addEventListener('click', function() {
+            // Track portfolio item clicks
+            console.log('Portfolio item clicked:', this.querySelector('h3')?.textContent);
+        });
     });
 });
 // function createLeaf() {
@@ -49,6 +125,59 @@ document.addEventListener("DOMContentLoaded", function() {
 
 document.addEventListener('DOMContentLoaded', () => {
     console.log('Blog załadowany!');
+});
+
+// Lightbox functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightbox-image');
+    const lightboxTitle = document.getElementById('lightbox-title');
+    const lightboxClose = document.getElementById('lightbox-close');
+
+    // Add click handlers to work item images
+    const workItems = document.querySelectorAll('.work-item img');
+    
+    workItems.forEach(img => {
+        img.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const src = this.src;
+            const alt = this.alt;
+            const title = this.closest('.work-item').querySelector('h3').textContent;
+            
+            lightboxImage.src = src;
+            lightboxImage.alt = alt;
+            lightboxTitle.textContent = title;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+    });
+    
+    // Close lightbox
+    if (lightboxClose) {
+        lightboxClose.addEventListener('click', closeLightbox);
+    }
+    
+    if (lightbox) {
+        lightbox.addEventListener('click', function(e) {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+    }
+    
+    // Close with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && lightbox && lightbox.classList.contains('active')) {
+            closeLightbox();
+        }
+    });
+
+    function closeLightbox() {
+        if (lightbox) {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+    }
 });
 
 
