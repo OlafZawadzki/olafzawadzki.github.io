@@ -1,137 +1,185 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forest Maze</title>  <!-- tu tytułs trony ale na pasku w przeglądarce  -->
+    <title>Forest Maze - Olaf Hexit Rely Zawadzki</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="index.html">
-                <img src="logohexit.webp" alt="Nox Audios Logo" class="logo" > <!--  tu logo -->
+    <header class="modern-header">
+        <nav class="nav-container">
+            <div class="nav-brand">
+                <a href="index.html">
+                    <img src="logohexit.webp" alt="Olaf Hexit Rely Zawadzki" class="logo">
                 </a>
-            <ul>
-                <li><a href="index.html">Home</a></li>             <!-- podmień na linki swoje aby podpiąć sociale do menu  -->
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
                 <li><a href="https://linktr.ee/hexitrely">Bio</a></li>
                 <li><a href="https://maps.app.goo.gl/71z3TfWLPRXDnVmP6">Contact</a></li>
-                <li><a href="offert.html">Offert</a></li>
-                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="offert.html">Services</a></li>
+                <li><a href="portfolio.html" class="active">Portfolio</a></li>
             </ul>
+            <div class="nav-socials">
+                <a href="https://www.instagram.com/hexitrely/" class="social-link" aria-label="Instagram">
+                    <img src="instagram.webp" alt="Instagram" class="social-icon">
+                </a>
+                <a href="https://www.youtube.com/@hexitrely" class="social-link" aria-label="YouTube">
+                    <img src="youtube.webp" alt="YouTube" class="social-icon">
+                </a>
+                <a href="https://www.tiktok.com/@hexitrely" class="social-link" aria-label="TikTok">
+                    <img src="tiktok.webp" alt="TikTok" class="social-icon">
+                </a>
+                <a href="https://open.spotify.com/artist/hexitrely" class="social-link" aria-label="Spotify">
+                    <img src="spotify.webp" alt="Spotify" class="social-icon">
+                </a>
+            </div>
         </nav>
-
-
-    
     </header>
-    <section class="banner">
-        <h1>Forest Maze</h1>
-    </section>
-   
 
-    <section class="team">
+    <main>
+        <section class="hero-section">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1 class="hero-title">Forest Maze</h1>
+                        <p class="hero-subtitle">Nature-inspired sound design for a magical forest adventure game</p>
+                        <div class="hero-buttons">
+                            <a href="https://keyess.itch.io/forestmaze" class="btn btn-primary btn-large">Play on Itch.io</a>
+                            <a href="portfolio.html" class="btn btn-secondary btn-large">Back to Portfolio</a>
+                        </div>
+                    </div>
+                    <div class="hero-image">
+                        <img src="hexit/forestmaze/forestmazelogo.webp" alt="Forest Maze" class="profile-image">
+                    </div>
+                </div>
+            </div>
+        </section>
 
+        <section class="about-section">
+            <div class="container">
+                <h2 class="section-title">About the Sound Design</h2>
+                <div class="about-content">
+                    <div class="about-description">
+                        <p>All sounds in this game were created by me and my friend Dawid Blacharski. We started from scratch, crafting immersive nature sounds including trees, footsteps, magical elements, pickups, clicks, items, and much more.</p>
+                        <p>Below you can listen to the sounds I created for this enchanting forest adventure.</p>
+                    </div>
+                    <div class="about-image">
+                        <img src="hexit/forestmaze/forestmaze.png" alt="Forest Maze Gameplay" class="about-img">
+                    </div>
+                </div>
+            </div>
+        </section>
 
+        <section class="audio-showcase">
+            <div class="container">
+                <h2 class="section-title">Sound Effects</h2>
+                <div class="audio-grid">
+                    <div class="audio-item">
+                        <h3>Pickup Sound</h3>
+                        <p>Item collection sound effect</p>
+                        <audio controls style="width: 100%; margin-top: 1rem;">
+                            <source src="hexit/forestmaze/Pikcu v2.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                    <div class="audio-item">
+                        <h3>Cork Sound</h3>
+                        <p>Environmental interaction sound</p>
+                        <audio controls style="width: 100%; margin-top: 1rem;">
+                            <source src="hexit/forestmaze/korki poco komu programiści.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                    <div class="audio-item">
+                        <h3>Item Pickup</h3>
+                        <p>Another pickup variation</p>
+                        <audio controls style="width: 100%; margin-top: 1rem;">
+                            <source src="hexit/forestmaze/item pickum poco kompu programisci.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                    <div class="audio-item">
+                        <h3>End Track</h3>
+                        <p>Level completion sound</p>
+                        <audio controls style="width: 100%; margin-top: 1rem;">
+                            <source src="hexit/forestmaze/end of track.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <div class="team-member">
-            <img src="hexit/forestmaze/forestmazelogo.webp" alt="Forest Maze">
-            <p class="name">Forest Maze</p>
-            <a class="teaminfo">JellyJam 2024</a>
-            <div class="separator"></div>
-            <a href="https://keyess.itch.io/forestmaze"  class="buy-button">Play</a>
-        </div>
+        <section class="audio-showcase" style="background: var(--bg-primary);">
+            <div class="container">
+                <h2 class="section-title">Soundtrack</h2>
+                <div class="audio-grid">
+                    <div class="audio-item">
+                        <h3>Magical Ambient</h3>
+                        <p>Atmospheric background music</p>
+                        <audio controls style="width: 100%; margin-top: 1rem;">
+                            <source src="hexit/forestmaze/Ambent magiczny poco komu rpogramisci.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-
-        <div class="indexpromo-image-section">
-            <img src="hexit/forestmaze/forestmaze.png" alt="Obrazek bez tła">
-          </div>
-
-    </section>
-
-    <section id="about-nox">
-        <div class="nox-team-description">
-            <h2>About Sound Design</h2>
-            <p>
-               All Sounds in this game were made by me and my friend Dawid Blacharski. 
-               We started from scratch, making sounds of nature, trees, steps, some magic, pickups, clicks, items, and alot more play the game and check by your self. Below you can listen sounds made by me :]
-            </p>
-        </div>
-    </section>
-
+        <section class="gallery-section">
+            <div class="container">
+                <h2 class="section-title">Game Screenshots</h2>
+                <div class="compact-gallery">
+                    <img src="hexit/forestmaze/fm1.webp" alt="Forest Maze Screenshot 1">
+                    <img src="hexit/forestmaze/fm2.webp" alt="Forest Maze Screenshot 2">
+                    <img src="hexit/forestmaze/fm3.webp" alt="Forest Maze Screenshot 3">
+                </div>
+            </div>
+        </section>
+    </main>
 
     <div class="privacy-notice" id="privacyNotice">
-        <p>Our website uses cookies to improve the quality of services. Read ours <a href="polityka.html">Privacy Policy</a>.</p>
+        <p>Our website uses cookies to improve the quality of services. Read our <a href="polityka.html">Privacy Policy</a>.</p>
         <button id="acceptButton">Accept</button>
     </div>
-    <div class="separatorsecond">-</div>
-
-    <div class="audio-player">
-        <h1>Sounds</h1>
-        <audio controls>
-            <source src="hexit/forestmaze/Pikcu v2.wav" type="audio/mpeg">
-            Twoja przeglądarka nie obsługuje elementu audio.
-        </audio>
-
-        <audio controls>
-            <source src="hexit/forestmaze/korki poco komu programiści.wav" type="audio/mpeg">
-            Twoja przeglądarka nie obsługuje elementu audio.
-        </audio>
-
-        <audio controls>
-            <source src="hexit/forestmaze/item pickum poco kompu programisci.wav" type="audio/mpeg">
-            Twoja przeglądarka nie obsługuje elementu audio.
-        </audio>
-
-        <audio controls>
-            <source src="hexit/forestmaze/end of track.wav" type="audio/mpeg">
-            Twoja przeglądarka nie obsługuje elementu audio.
-        </audio>
-
-        
-        <h1>Sound Track</h1>
-
-        <audio controls>
-            <source src="hexit/forestmaze/Ambent magiczny poco komu rpogramisci.wav" type="audio/mpeg">
-            Twoja przeglądarka nie obsługuje elementu audio.
-        </audio>
-
-
-
-        <div class="separatorsecond">-</div>
-
-    <div class="gallery">
-        <img src="hexit/forestmaze/fm1.webp" alt="Forest Maze">
-        <img src="hexit/forestmaze/fm2.webp" alt="Forest Maze">
-        <img src="hexit/forestmaze/fm3.webp" alt="Forest Maze">
-
-
-    </div>
-
-
-
-    <div class="separatorsecond">-</div>
-
-    <div class="separatorsecond">-</div>
-
-
-
-
-
 
     <script src="scripts.js"></script>
 
-    <footer>
-        <div class="footer-content">
-            <p>&copy; 2024 Nox. All rights reserved.</p>
-            <ul class="social-media">
-                <li><a href="https://www.instagram.com/noxaudios/">Instagram</a></li>
-                <li><a href="https://www.youtube.com/@noxaudiosofficial/featured">Youtube</a></li>
-            </ul>
+    <footer class="modern-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="logohexit.webp" alt="Olaf Hexit Rely Zawadzki" class="footer-logo">
+                    <p>Sound Designer & Composer</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>Navigation</h4>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="portfolio.html">Portfolio</a></li>
+                            <li><a href="offert.html">Services</a></li>
+                            <li><a href="https://linktr.ee/hexitrely">Bio</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Social Media</h4>
+                        <ul>
+                            <li><a href="https://www.instagram.com/hexitrely/">Instagram</a></li>
+                            <li><a href="https://www.youtube.com/@hexitrely">YouTube</a></li>
+                            <li><a href="https://www.tiktok.com/@hexitrely">TikTok</a></li>
+                            <li><a href="https://open.spotify.com/artist/hexitrely">Spotify</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Olaf Hexit Rely Zawadzki. All rights reserved.</p>
+            </div>
         </div>
     </footer>
-
-
-
-
 </body>
 </html>

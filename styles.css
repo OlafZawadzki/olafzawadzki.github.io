@@ -1759,38 +1759,86 @@ text-align: center;
     text-align: center;
 }
 
-/* Legacy styles for compatibility */
-.banner {
-    background-image: url('banner-bg-jesien.webp');
-    background-size: cover;
-    background-position: center;
-    color: white;
-    text-align: center;
-    padding: 2rem 0;
+/* Compact Gallery Styles */
+.compact-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-4);
+    margin-top: var(--space-8);
+    padding: var(--space-6);
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--border-color);
 }
 
-.owners {
-    text-align: center;
-    font-style: bold;
-}
-
-.founders {
-  display: flex;
-    justify-content: space-around;
-    padding: 2rem 0;
-}
-
-.founder {
-    text-align: center;
-    font-style: bold;
-}
-
-.founder img {
-    width: 150px;
+.compact-gallery img {
+    width: 100%;
     height: 150px;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.compact-gallery img:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-lg);
+}
+
+.gallery-section {
+    padding: var(--space-12) 0;
+    background: var(--bg-secondary);
+}
+
+.gallery-section .section-title {
+    margin-bottom: var(--space-6);
+    font-size: var(--font-size-2xl);
+}
+
+/* Audio player styling */
+audio {
+    width: 100%;
+    margin-top: var(--space-4);
+    border-radius: var(--radius-md);
+}
+
+audio::-webkit-media-controls-panel {
+    background-color: var(--bg-tertiary);
+}
+
+audio::-webkit-media-controls-play-button,
+audio::-webkit-media-controls-pause-button {
+    background-color: var(--primary-color);
     border-radius: 50%;
 }
 
+/* Project card hover effects */
+.project-card:hover .project-overlay {
+    opacity: 1;
+}
+
+.project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.project-overlay h3 {
+    color: white;
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Legacy styles for compatibility - cleaned up */
 .name {
     font-weight: bold;
 }
@@ -1798,17 +1846,4 @@ text-align: center;
 .separatorsecond {
     color: var(--bg-primary);
     font-size: 16px;
-}
-
-.light-point {
-    width: 1000px;
-    height: 1000px;
-    background: radial-gradient(circle, rgba(173, 255, 235, 0.3) 0%, rgba(173, 255, 235, 0) 80%);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-30%, -50%);
-    opacity: 0.2;
-    pointer-events: none;
-    filter: blur(150px);
 }
