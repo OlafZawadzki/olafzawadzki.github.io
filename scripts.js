@@ -88,6 +88,33 @@ document.addEventListener("DOMContentLoaded", function() {
             console.log('Portfolio item clicked:', this.querySelector('h3')?.textContent);
         });
     });
+
+    // Copy email button on contact page
+    const copyEmailBtn = document.getElementById('copyEmailBtn');
+    if (copyEmailBtn) {
+        copyEmailBtn.addEventListener('click', async function() {
+            const email = this.getAttribute('data-email');
+            try {
+                await navigator.clipboard.writeText(email);
+                this.textContent = 'Copied!';
+                setTimeout(() => {
+                    this.textContent = 'Copy Email';
+                }, 1500);
+            } catch (e) {
+                // Fallback: create a temporary input
+                const temp = document.createElement('input');
+                temp.value = email;
+                document.body.appendChild(temp);
+                temp.select();
+                document.execCommand('copy');
+                document.body.removeChild(temp);
+                this.textContent = 'Copied!';
+                setTimeout(() => {
+                    this.textContent = 'Copy Email';
+                }, 1500);
+            }
+        });
+    }
 });
 // function createLeaf() {
    // const leaf = document.createElement('div');
