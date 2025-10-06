@@ -64,7 +64,14 @@ body {
     color: var(--text-primary);
     line-height: 1.6;
     overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
+main {
+    flex: 1 0 auto;
+}
+
 
 /* Container */
 .container {
@@ -609,6 +616,71 @@ text-align: center;
     margin-bottom: var(--space-6);
 }
 
+.contact-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    justify-content: center;
+}
+
+/* Business Card Page */
+.business-card-hero {
+    padding: 170px 0 100px;
+    background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+}
+
+.business-card {
+    max-width: 720px;
+    margin: 0 auto;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-2xl);
+    padding: var(--space-8);
+    box-shadow: var(--shadow-xl);
+}
+
+.business-card-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-6);
+    margin-bottom: var(--space-6);
+}
+
+.business-card-avatar {
+    width: 84px;
+    height: 84px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: var(--shadow-md);
+}
+
+.business-card-name {
+    font-size: var(--font-size-3xl);
+    font-weight: 700;
+    margin-bottom: var(--space-2);
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.business-card-role {
+    color: var(--text-secondary);
+}
+
+.business-card-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    margin-top: var(--space-6);
+}
+
+.business-card-meta {
+    margin-top: var(--space-6);
+    color: var(--text-muted);
+    font-size: var(--font-size-sm);
+}
+
 .social-links {
     display: flex;
     justify-content: center;
@@ -768,6 +840,22 @@ text-align: center;
         flex-direction: column;
         text-align: center;
     }
+
+    /* Business card responsive */
+    .business-card-hero {
+        padding: 150px 0 80px;
+    }
+    .business-card-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    .business-card-avatar {
+        width: 72px;
+        height: 72px;
+    }
+    .business-card-actions {
+        justify-content: center;
+    }
 }
 
 @media (max-width: 480px) {
@@ -783,6 +871,20 @@ text-align: center;
     .btn {
         width: 100%;
         max-width: 300px;
+    }
+
+    /* Business card small screens */
+    .business-card-hero {
+        padding: 140px 0 72px;
+    }
+    .business-card {
+        padding: var(--space-6);
+        margin: 0 var(--space-4);
+    }
+    .business-card-actions {
+        gap: var(--space-3);
+        flex-direction: column;
+        align-items: stretch;
     }
 }
 
