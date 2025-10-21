@@ -236,6 +236,8 @@ document.addEventListener("DOMContentLoaded", () => {
   document
     .getElementById("contact-form")
     .addEventListener("submit", sendEmail);
+    form.reset();
+
 })
 
 

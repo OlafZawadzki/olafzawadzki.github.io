@@ -2021,9 +2021,4 @@ audio::-webkit-media-controls-pause-button {
 #status-message {
   margin-top: 10px;
   font-size: 0.9rem;
-<<<<<<< Updated upstream
-=======
-  color: #00ffff; /* widoczny na ciemnym tle */
-  word-wrap: break-word;
->>>>>>> Stashed changes
 }
