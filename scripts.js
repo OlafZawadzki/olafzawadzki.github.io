@@ -225,10 +225,10 @@ const sendEmail = async (event) => {
       "service_kf463es",
       "template_q83n3iv",
       form,
-      document.getElementById("contact-form").reset();
 
     );
     console.log("Email sent successfully!", response);
+    document.getElementById("contact-form").reset();
   } catch (error) {
     console.error("Failed to send email:", error);
   }
