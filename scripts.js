@@ -225,6 +225,8 @@ const sendEmail = async (event) => {
       "service_kf463es",
       "template_q83n3iv",
       form,
+      document.getElementById("contact-form").reset();
+
     );
     console.log("Email sent successfully!", response);
   } catch (error) {
@@ -236,7 +238,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document
     .getElementById("contact-form")
     .addEventListener("submit", sendEmail);
-    form.reset();
+    
 
 })
 
