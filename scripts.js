@@ -210,4 +210,34 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
+
+
+
+emailjs.init("KhhpDMoVBpGtqgSjM");
+
+const sendEmail = async (event) => {
+  event.preventDefault();
+
+  const form = event.target;
+
+  try {
+    const response = await emailjs.sendForm(
+      "service_kf463es",
+      "template_q83n3iv",
+      form,
+    );
+    console.log("Email sent successfully!", response);
+  } catch (error) {
+    console.error("Failed to send email:", error);
+  }
+};
+
+document.addEventListener("DOMContentLoaded", () => {
+  document
+    .getElementById("contact-form")
+    .addEventListener("submit", sendEmail);
+})
+
+
+
   

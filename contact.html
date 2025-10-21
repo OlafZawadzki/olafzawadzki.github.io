@@ -49,7 +49,6 @@
                         </div>
                     </div>
                     <div class="business-card-actions">
-                        <button id="copyEmailBtn" type="button" class="btn btn-primary" data-email="hexitcontact@gmail.com">Copy Email</button>
                         <a href="https://wa.me/+48537730422" target="_blank" rel="noopener" class="btn btn-secondary">WhatsApp</a>
                         <a href="https://share.google/nJk1HgfMYc8RhnCv5" target="_blank" rel="noopener" class="btn btn-secondary">Google Company</a>
                         <a href="portfolio.html" class="btn btn-secondary">Portfolio</a>
@@ -57,6 +56,33 @@
                     <div class="business-card-meta">
                         <span>Based in Poland • Remote worldwide</span>
                     </div>
+<section class="contact-container">
+  <h2>Contact Me</h2>
+  <p>Fill out the form below and I’ll get back to you soon.</p>
+
+  <form id="contact-form">
+    <!-- name="from_name" odpowiada zmiennej w EmailJS -->
+    <input type="text" name="from_name" placeholder="Your name" required />
+
+    <!-- name="reply_to" odpowiada zmiennej w EmailJS -->
+    <input type="email" name="reply_to" placeholder="Your email" required />
+
+    <!-- name="message" odpowiada zmiennej w EmailJS -->
+    <textarea name="message" placeholder="Your message" rows="5" required></textarea>
+
+    <button type="submit">Send Message</button>
+  </form>
+
+  <p id="status-message"></p>
+</section>
+
+<!-- EmailJS SDK -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+
+
+
+
                 </div>
             </div>
         </section>
