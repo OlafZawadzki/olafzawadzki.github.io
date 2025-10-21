@@ -1952,6 +1952,7 @@ audio::-webkit-media-controls-pause-button {
 
 
 
+/* Kontener formularza */
 .contact-container {
   background: #121927;
   padding: 30px;
@@ -1961,23 +1962,46 @@ audio::-webkit-media-controls-pause-button {
   max-width: 400px;
   margin: 50px auto;
   text-align: center;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
 }
 
+/* Nagłówek */
 .contact-container h2 {
   color: #ffffff;
+  margin-bottom: 15px;
 }
 
-input, textarea {
+/* Podtytuł / opis */
+.contact-container p {
+  color: #ccc;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+}
+
+/* Inputy i textarea */
+.contact-container input,
+.contact-container textarea {
   width: 100%;
   margin-bottom: 10px;
   padding: 10px;
   border: none;
   border-radius: 5px;
-  background: #7574748f;
+  background: #2a2a2a;
   color: #fff;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
 }
 
-button {
+/* Efekt focus */
+.contact-container input:focus,
+.contact-container textarea:focus {
+  outline: none;
+  border: 1px solid #ffffff;
+  box-shadow: 0 0 8px rgba(0, 255, 255, 0.4);
+}
+
+/* Przycisk */
+.contact-container button {
   background: #ffffff;
   color: #000;
   padding: 10px 20px;
@@ -1985,13 +2009,21 @@ button {
   border-radius: 5px;
   cursor: pointer;
   transition: 0.2s;
+  font-weight: bold;
 }
 
-button:hover {
-  background: #ffffff;
+/* Hover przycisku */
+.contact-container button:hover {
+  background: #00cccc;
 }
 
+/* Status wiadomości */
 #status-message {
   margin-top: 10px;
   font-size: 0.9rem;
+<<<<<<< Updated upstream
+=======
+  color: #00ffff; /* widoczny na ciemnym tle */
+  word-wrap: break-word;
+>>>>>>> Stashed changes
 }
