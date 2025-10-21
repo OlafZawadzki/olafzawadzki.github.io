@@ -1949,3 +1949,49 @@ audio::-webkit-media-controls-pause-button {
     color: var(--bg-primary);
     font-size: 16px;
 }
+
+
+
+.contact-container {
+  background: #121927;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+  width: 90%;
+  max-width: 400px;
+  margin: 50px auto;
+  text-align: center;
+}
+
+.contact-container h2 {
+  color: #ffffff;
+}
+
+input, textarea {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background: #7574748f;
+  color: #fff;
+}
+
+button {
+  background: #ffffff;
+  color: #000;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: #ffffff;
+}
+
+#status-message {
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
