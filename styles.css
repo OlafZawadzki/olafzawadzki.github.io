@@ -933,6 +933,7 @@ text-align: center;
 .releases-section {
     padding: var(--space-20) 0;
     background: var(--bg-primary);
+    scale: 80%;
 }
 
 .releases-grid {
@@ -1173,6 +1174,30 @@ text-align: center;
     display: inline-block;
     background: var(--gradient-primary);
     color: white;
+    padding: var(--space-1) var(--space-3);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-xs);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.project-tagred {
+    display: inline-block;
+    background: var(--gradient-primary);
+    color: rgb(245, 8, 8);
+    padding: var(--space-1) var(--space-3);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-xs);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.project-taggreen {
+    display: inline-block;
+    background: var(--gradient-primary);
+    color: rgb(0, 255, 55);
     padding: var(--space-1) var(--space-3);
     border-radius: var(--radius-sm);
     font-size: var(--font-size-xs);
@@ -2022,3 +2047,68 @@ audio::-webkit-media-controls-pause-button {
   margin-top: 10px;
   font-size: 0.9rem;
 }
+
+
+.skills-section {
+  background-color: #1F2937;
+  color: #eee;
+  padding: 40px;
+  border-radius: 16px;
+  max-width: 600px;
+  margin: 0 auto;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+}
+
+.skills-section h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+  color: #ccc;
+  letter-spacing: 1px;
+}
+
+.skill {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.skill-name {
+  flex: 1;
+  margin-left: 10px;
+  font-size: 1.1rem;
+  color: #ddd;
+}
+
+.icon {
+  font-size: 1.3rem;
+  color: #999;
+  width: 30px;
+  text-align: center;
+}
+
+.dots {
+  display: flex;
+  gap: 6px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #494949;
+  transition: background 0.3s ease;
+}
+
+.dot.filled {
+  background-color: #ccc;
+}
+
+.skill:hover .dot.filled {
+  background-color: #fff;
+}
+
+
