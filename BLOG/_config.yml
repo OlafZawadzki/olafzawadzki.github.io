@@ -1,7 +1,0 @@
-title: The Hexit Echo
-baseurl: "https://www.hexitrely.pl/blog/blogs" # jeśli repozytorium jest w podfolderze, np. /blog
-url: "hexitrely.pl" # adres witryny, może zostać pusty dla localhost
-markdown: kramdown
-theme: minima
-plugins:
-  - jekyll-feed

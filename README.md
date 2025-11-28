@@ -1,2 +1,0 @@
-# olafzawadzki.github.io
-web
