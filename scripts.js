@@ -237,10 +237,30 @@ const sendEmail = async (event) => {
 document.addEventListener("DOMContentLoaded", () => {
   document
     .getElementById("contact-form")
-    .addEventListener("submit", sendEmail);
-    
+    ?.addEventListener("submit", sendEmail);
 
-})
+  // Portfolio tab switching
+  const tabButtons = document.querySelectorAll(".portfolio-tab-btn");
+  const tabPanes = document.querySelectorAll(".tab-pane");
+
+  if (tabButtons.length > 0 && tabPanes.length > 0) {
+    tabButtons.forEach(button => {
+      button.addEventListener("click", function() {
+        const targetTab = this.getAttribute("data-tab");
+        
+        tabButtons.forEach(btn => btn.classList.remove("active"));
+        tabPanes.forEach(pane => pane.classList.remove("active"));
+        
+        this.classList.add("active");
+        const activePane = document.getElementById(targetTab);
+        if (activePane) {
+          activePane.classList.add("active");
+        }
+      });
+    });
+  }
+});
+
 
 
 

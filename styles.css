@@ -2111,4 +2111,63 @@ audio::-webkit-media-controls-pause-button {
   background-color: #fff;
 }
 
+/* Portfolio Tabs & Filter Styles */
+.portfolio-tabs-nav {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-12);
+  flex-wrap: wrap;
+}
+
+.portfolio-tab-btn {
+  background-color: var(--bg-tertiary);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+  padding: var(--space-3) var(--space-8);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.portfolio-tab-btn:hover {
+  color: var(--text-primary);
+  border-color: var(--primary-color);
+  background-color: var(--bg-secondary);
+  transform: translateY(-2px);
+}
+
+.portfolio-tab-btn.active {
+  background: var(--gradient-primary);
+  color: white;
+  border-color: transparent;
+  box-shadow: var(--shadow-md);
+}
+
+.tab-pane {
+  display: none;
+  animation: fadeInTab 0.4s ease forwards;
+}
+
+.tab-pane.active {
+  display: block;
+}
+
+@keyframes fadeInTab {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
 
