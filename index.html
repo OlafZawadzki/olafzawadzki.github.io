@@ -1,260 +1,1210 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hexit Rely - Music Producer & Sound Designer</title>
+
+    <!-- SEO Meta Tags -->
+    <title>HEXIT RELY | Olaf Zawadzki — Producent Muzyczny, Sound Designer & Twórca</title>
+    <meta name="description"
+        content="Oficjalna strona Olafa 'Hexit Rely' Zawadzkiego. Autorska produkcja muzyczna, sound design, projekty muzyczne NOX, oprogramowanie audio Samplix oraz kanał gamingowy Its Hexit IRL (Minecraft survival & zapisy VOD).">
+    <meta name="keywords"
+        content="Olaf Zawadzki, Hexit Rely, producent muzyczny, sound design, produkcja muzyki, projekty NOX, Samplix, Ableton Live, FL Studio, synteza dźwięku, Its Hexit IRL, Minecraft survival, pluginy Minecraft, zapisy VOD">
+    <meta name="author" content="Olaf 'Hexit Rely' Zawadzki">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://hexitrely.pl/">
+
+    <!-- Open Graph / Facebook / Discord -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://hexitrely.pl/">
+    <meta property="og:title" content="HEXIT RELY | Olaf Zawadzki — Producent Muzyczny & Twórca">
+    <meta property="og:description"
+        content="Dźwięk, software i transparentny proces twórczy. Poznaj Samplix, autorską muzykę, streamy na żywo i projekty.">
+    <meta property="og:image" content="https://hexitrely.pl/hexit/Fotos26/hexit-face.jpg">
+    <meta property="og:site_name" content="HEXIT RELY">
+    <meta property="og:locale" content="pl_PL">
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://hexitrely.pl/">
+    <meta name="twitter:title" content="HEXIT RELY | Olaf Zawadzki">
+    <meta name="twitter:description"
+        content="Producent muzyczny, sound designer, twórca oprogramowania Samplix i streamer.">
+    <meta name="twitter:image" content="https://hexitrely.pl/hexit/Fotos26/hexit-face.jpg">
+
+    <!-- Stylesheets & Fonts -->
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/ico" href="logohexit.ico">
-    <meta name="description" content="Hexit Rely – Sound Designer and Music Producer specializing in immersive soundscapes, game audio, and electronic music.">
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-PJ4M5RMJ');</script>
-<!-- End Google Tag Manager -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- JSON-LD Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://hexitrely.pl/#person",
+          "name": "Olaf Zawadzki",
+          "alternateName": "Hexit Rely",
+          "url": "https://hexitrely.pl/",
+          "image": "https://hexitrely.pl/hexit/Fotos26/hexit-face.jpg",
+          "jobTitle": "Producent Muzyczny, Sound Designer & Programista",
+          "description": "Producent muzyczny, sound designer, twórca narzędzia audio Samplix oraz streamer.",
+          "sameAs": [
+            "https://www.youtube.com/channel/UCIpPTE3HsmUSAb-yfNybvSA",
+            "https://www.youtube.com/@HexitIrl",
+            "https://open.spotify.com/artist/4hcXADTFvPXtRxVTGYXW4I",
+            "https://www.instagram.com/hexit_official",
+            "https://www.tiktok.com/@hexit_official",
+            "https://discord.gg/BbrtEFCeJb",
+            "https://github.com/hexittests",
+            "https://samplix.hexitrely.pl/",
+            "https://4noxwav.com/",
+            "https://noxaudios.github.io/portfolio-muzyczne.html",
+            "https://noxaudios.github.io/portfolio.html"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://hexitrely.pl/#website",
+          "url": "https://hexitrely.pl/",
+          "name": "HEXIT RELY",
+          "publisher": {
+            "@id": "https://hexitrely.pl/#person"
+          },
+          "inLanguage": "pl-PL"
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "Samplix",
+          "operatingSystem": "Windows, macOS",
+          "applicationCategory": "MultimediaApplication",
+          "url": "https://samplix.hexitrely.pl/",
+          "author": {
+            "@id": "https://hexitrely.pl/#person"
+          },
+          "description": "Autorskie narzędzie dla producentów muzycznych do szybkiego indeksowania, tagowania i analizy próbek audio."
+        }
+      ]
+    }
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-PJ4M5RMJ');</script>
+    <!-- End Google Tag Manager -->
 </head>
+
 <body>
     <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PJ4M5RMJ"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PJ4M5RMJ" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- Header & Czysta, Profesjonalna Nawigacja -->
     <header class="modern-header">
-        <nav class="nav-container">
-            <div class="nav-brand">
-                <a href="index.html">
-                    <img src="logohexit.webp" alt="Hexit Rely Logo" class="logo">
-                </a>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="#about">About</a></li>
-                <li><a href="portfolio.html">Portfolio Game Dev</a></li>
-                <li><a href="portfolio-muzyczne.html">Portfolio Muzyczne</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="contact.html">Contact</a></li>
+        <nav class="nav-container" aria-label="Główna nawigacja">
+            <a href="index.html" class="nav-brand">
+                <img src="logohexit.webp" alt="Hexit Rely Logo" class="logo">
+                <span class="brand-title">HEXIT <span class="brand-accent">RELY</span></span>
+            </a>
+
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="active">Start</a></li>
+                <li><a href="about.html">O mnie</a></li>
+                <li><a href="index.html#projekty">Projekty</a></li>
+
+                <!--<li><a href="blog.html" class="active">Blog</a></li>-->
+                <li><a href="index.html#kontakt">Kontakt</a></li>
+                <li class="nav-dropdown">
+                    <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                        Portfolio ↗ <span class="dropdown-arrow">▼</span>
+                    </button>
+                    <ul class="nav-dropdown-menu">
+                        <li>
+                            <a href="https://noxaudios.github.io/portfolio.html" target="_blank" rel="noopener">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16" style="vertical-align: -2px; margin-right: 6px;"><path d="M1.5 4A1.5 1.5 0 0 0 0 5.5v5A1.5 1.5 0 0 0 1.5 12h13a1.5 1.5 0 0 0 1.5-1.5v-5A1.5 1.5 0 0 0 14.5 4h-13zM6 8.5H4.5V10h-1V8.5H2v-1h1.5V6h1v1.5H6v1zM10.5 7a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm2.5 2.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg>Game Dev
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://noxaudios.github.io/portfolio-muzyczne.html" target="_blank"
+                                rel="noopener">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16" style="vertical-align: -2px; margin-right: 6px;"><path d="M9 13c0 1.105-1.12 2-2.5 2S4 14.105 4 13s1.12-2 2.5-2 2.5.895 2.5 2z"/><path fill-rule="evenodd" d="M9 3v10H8V3h1z"/><path d="M8 2.82a1 1 0 0 1 .804-.98l3-.6A1 1 0 0 1 13 2.22V4L8 5V2.82z"/></svg>Muzyka
+                            </a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
-            <div class="nav-socials">
-                <a href="https://open.spotify.com/artist/4hcXADTFvPXtRxVTGYXW4I?si=PtVSpKbdTgS1t2JG468iXA&nd=1" target="_blank" class="social-link">
-                    <img src="spotify.webp" alt="Spotify" class="social-icon">
-                </a>
-                <a href="https://www.instagram.com/hexit_official" target="_blank" class="social-link">
-                    <img src="instagram.webp" alt="Instagram" class="social-icon">
-                </a>
-                <a href="https://www.youtube.com/channel/UCIpPTE3HsmUSAb-yfNybvSA" target="_blank" class="social-link">
-                    <img src="youtube.webp" alt="YouTube" class="social-icon">
-                </a>
+
+            <div class="nav-actions">
+
+                <div class="nav-socials">
+                    <a href="https://www.youtube.com/channel/UCIpPTE3HsmUSAb-yfNybvSA" target="_blank" rel="noopener"
+                        class="social-link" title="YouTube — Hexit Rely (Muzyka & Studio)">
+                        <img src="youtube.webp" alt="YouTube" class="social-icon">
+                    </a>
+                    <a href="https://open.spotify.com/artist/4hcXADTFvPXtRxVTGYXW4I" target="_blank" rel="noopener"
+                        class="social-link" title="Spotify — Olaf Zawadzki / Hexit Rely">
+                        <img src="spotify.svg" alt="Spotify" class="social-icon">
+                    </a>
+                    <a href="https://www.tiktok.com/@hexit_official" target="_blank" rel="noopener" class="social-link"
+                        title="TikTok @hexit_official">
+                        <img src="tiktok.webp" alt="TikTok" class="social-icon">
+                    </a>
+                    <a href="https://www.instagram.com/hexit_official" target="_blank" rel="noopener"
+                        class="social-link" title="Instagram @hexit_official">
+                        <img src="instagram.webp" alt="Instagram" class="social-icon">
+                    </a>
+                </div>
+
+                <button class="nav-toggle" id="navToggle" aria-label="Otwórz menu nawigacji">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
         </nav>
     </header>
+    <div class="nav-overlay" id="navOverlay"></div>
 
     <main>
-        <section class="hero-section">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1 class="hero-title">Creating Immersive Sound Experiences</h1>
-                    <p class="hero-subtitle">Music Producer & Sound Designer specializing in game audio, electronic music, and custom soundscapes</p>
-                    <div class="hero-buttons">
-                        <a href="portfolio.html" class="btn btn-primary">View Portfolio</a>
-                        <a href="contact.html" class="btn btn-secondary">Get In Touch</a>
-                    </div>
-                </div>
-                <div class="hero-image">
-                    <img src="hexit/profilowe mk2137-min.png" alt="Hexit Rely" class="profile-image">
-                </div>
-            </div>
-        </section>
-        <section id="about" class="about-section">
+        <!-- Hero Section: Kim jestem i czym żyję -->
+        <section class="hero-section" id="hero">
             <div class="container">
-                <div class="about-content">
-                    <div class="about-text">
-                        <h2 class="section-title">About Me</h2>
-                        <p class="about-description">
-                            I'm Olaf "Hexit Rely" Zawadzki, a passionate music producer and sound designer with over 7 years of experience creating immersive audio experiences. I specialize in game audio, electronic music production, and custom sound design for various media projects.
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <div class="hero-badge-wrap">
+                            <span class="creator-tag">Producent Muzyczny &amp; Sound Designer</span>
+                            <span class="now-tag">Projekty NOX &amp; Samplix</span>
+                        </div>
+                        <h1 class="hero-title">Produkcja Muzyczna, Sound Design &amp; Autorskie Projekty Audio.</h1>
+                        <p class="hero-subtitle">
+                            Cześć! Nazywam się Olaf "Hexit Rely" Zawadzki. Mój świat to autorska produkcja muzyczna,
+                            kompozycja, hybrydowy sound design (projekty NOX), tworzenie narzędzi audio Samplix oraz
+                            gaming i nocne streamy na kanale <em>Its Hexit IRL</em>.
                         </p>
-                        <p class="about-description">
-                            My work combines technical expertise with creative vision to bring projects to life through sound. From epic game soundtracks to ambient soundscapes, I craft audio that enhances storytelling and creates memorable experiences.
-                        </p>
-                        <div class="skills-grid">
-                            <div class="skill-item">
-                                <h3>Game Audio</h3>
-                                <p>Soundtracks, SFX, and interactive audio systems</p>
-                            </div>
-                            <div class="skill-item">
-                                <h3>Music Production</h3>
-                                <p>Electronic, ambient, and cinematic compositions</p>
-                            </div>
-                            <div class="skill-item">
-                                <h3>Sound Design</h3>
-                                <p>Custom audio assets and atmospheric soundscapes</p>
+                        <div class="hero-buttons">
+                            <a href="#laboratorium" class="btn btn-primary btn-large">Poznaj warsztat &amp;
+                                projekty</a>
+                            <a href="https://open.spotify.com/artist/4hcXADTFvPXtRxVTGYXW4I" target="_blank"
+                                rel="noopener" class="btn btn-secondary btn-large">Posłuchaj na Spotify ↗</a>
+                        </div>
+
+                        <!-- Hub Social Mediów & Platform Muzycznych -->
+                        <div class="hero-social-hub">
+                            <span class="hub-label">Bądź na bieżąco &bull; Moje platformy:</span>
+                            <div class="hub-links">
+                                <a href="https://open.spotify.com/artist/4hcXADTFvPXtRxVTGYXW4I" target="_blank"
+                                    rel="noopener" class="hub-btn spotify-btn"
+                                    title="Spotify — Olaf Zawadzki / Hexit Rely">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        viewBox="0 0 168 168" class="hub-icon">
+                                        <path
+                                            d="M84 0C37.6 0 0 37.6 0 84s37.6 84 84 84 84-37.6 84-84S130.4 0 84 0zm38.6 121.2c-1.5 2.5-4.7 3.3-7.2 1.8-19.7-12-44.5-14.7-73.7-8.1-2.8.6-5.6-1.1-6.2-3.9-.6-2.8 1.1-5.6 3.9-6.2 32-7.3 59.4-4.2 81.6 9.3 2.5 1.5 3.3 4.7 1.6 7.1zm10.3-22.8c-1.9 3.1-5.9 4.1-9 2.2-22.5-13.8-56.9-17.8-83.5-9.7-3.4 1-7.1-.9-8.1-4.3-1-3.4.9-7.1 4.3-8.1 30.5-9.3 68.4-4.8 94.2 11.1 3.1 1.8 4.1 5.8 2.1 8.8zm.9-23.7C109.1 60.5 66 59 45 65.4c-4.1 1.2-8.4-1.1-9.6-5.2-1.2-4.1 1.1-8.4 5.2-9.6 24.1-7.3 64.1-5.9 89.4 10.2 3.7 2.2 4.9 7 2.7 10.7-2.2 3.6-7 4.9-10.7 2.7l.8.2z" />
+                                    </svg>
+                                    <span>Spotify</span>
+                                </a>
+                                <a href="https://www.youtube.com/channel/UCIpPTE3HsmUSAb-yfNybvSA" target="_blank"
+                                    rel="noopener" class="hub-btn youtube-btn"
+                                    title="YouTube — Produkcja Muzyczna & Sound Design">
+                                    <img src="youtube.webp" alt="YouTube" class="hub-icon">
+                                    <span>YouTube Muzyka</span>
+                                </a>
+                                <a href="https://www.youtube.com/@HexitIrl" target="_blank" rel="noopener"
+                                    class="hub-btn gaming-btn"
+                                    title="Its Hexit IRL — Minecraft Survival, Streamy & VOD">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        viewBox="0 0 16 16" class="hub-icon">
+                                        <path
+                                            d="M1.5 4A1.5 1.5 0 0 0 0 5.5v5A1.5 1.5 0 0 0 1.5 12h13a1.5 1.5 0 0 0 1.5-1.5v-5A1.5 1.5 0 0 0 14.5 4h-13zM6 8.5H4.5V10h-1V8.5H2v-1h1.5V6h1v1.5H6v1zM10.5 7a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm2.5 2.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                                    </svg>
+                                    <span>Its Hexit IRL (VOD)</span>
+                                </a>
+                                <a href="https://noxaudios.github.io/portfolio-muzyczne.html" target="_blank"
+                                    rel="noopener" class="hub-btn nox-btn" title="Portfolio Muzyczne NOX Audios">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        viewBox="0 0 16 16" class="hub-icon">
+                                        <path
+                                            d="M9 13c0 1.105-1.12 2-2.5 2S4 14.105 4 13s1.12-2 2.5-2 2.5.895 2.5 2z" />
+                                        <path fill-rule="evenodd" d="M9 3v10H8V3h1z" />
+                                        <path d="M8 2.82a1 1 0 0 1 .804-.98l3-.6A1 1 0 0 1 13 2.22V4L8 5V2.82z" />
+                                    </svg>
+                                    <span>Portfolio NOX</span>
+                                </a>
+                                <a href="https://samplix.hexitrely.pl/" target="_blank" rel="noopener"
+                                    class="hub-btn samplix-btn" title="Samplix Audio Engine">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        viewBox="0 0 16 16" class="hub-icon">
+                                        <path
+                                            d="M13.5 3a.5.5 0 0 1 .5.5V11H2V3.5a.5.5 0 0 1 .5-.5h11zm-11-1A1.5 1.5 0 0 0 1 3.5V12h14V3.5A1.5 1.5 0 0 0 13.5 2h-11zM0 12.5h16a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 12.5z" />
+                                    </svg>
+                                    <span>Samplix</span>
+                                </a>
+                                <a href="https://www.tiktok.com/@hexit_official" target="_blank" rel="noopener"
+                                    class="hub-btn tiktok-btn" title="TikTok @hexit_official">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        viewBox="0 0 448 512" class="hub-icon">
+                                        <path
+                                            d="M448 209.9a210.1 210.1 0 0 1 -122.8-39.3V349.4A162.6 162.6 0 1 1 185 188.3V278.2a74.6 74.6 0 1 0 52.2 71.2V0l88 0a121.2 121.2 0 0 0 1.9 22.2h0A122.2 122.2 0 0 0 381 102.4a121.4 121.4 0 0 0 67 20.1z" />
+                                    </svg>
+                                    <span>TikTok</span>
+                                </a>
+                                <a href="https://discord.gg/BbrtEFCeJb" target="_blank" rel="noopener"
+                                    class="hub-btn discord-btn" title="Discord — Społeczność Hexit X NOX">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        viewBox="0 0 16 16" class="hub-icon">
+                                        <path
+                                            d="M2.678 11.894a1 1 0 0 1 .287.801 10.97 10.97 0 0 1-.398 2c1.395-.323 2.247-.697 2.634-.893a1 1 0 0 1 .71-.074A8.06 8.06 0 0 0 8 14c3.996 0 7-2.807 7-6 0-3.192-3.004-6-7-6S1 4.808 1 8c0 1.468.617 2.83 1.678 3.894zm-.493 3.905a21.682 21.682 0 0 1-.713.129c-.2.032-.352-.176-.273-.362a9.68 9.68 0 0 0 .244-.637l.003-.01c.248-.72.45-1.548.524-2.319C.743 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.52.263-1.639.742-3.468 1.105z" />
+                                    </svg>
+                                    <span>Discord</span>
+                                </a>
+                                <a href="https://www.instagram.com/hexit_official" target="_blank" rel="noopener"
+                                    class="hub-btn ig-btn" title="Instagram @hexit_official">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        viewBox="0 0 448 512" class="hub-icon">
+                                        <path
+                                            d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
+                                    </svg>
+                                    <span>Instagram</span>
+                                </a>
+                                </a>
                             </div>
                         </div>
                     </div>
-                    <div class="about-image">
-                        <img src="hexit.webp" alt="Hexit Rely at work" class="about-img">
+                    <div class="hero-image">
+                        <div class="hero-avatar-wrap">
+                            <img src="hexit/Fotos26/hexit-face.jpg" alt="Olaf 'Hexit Rely' Zawadzki"
+                                class="profile-image">
+                            <div class="hero-status-pill">
+                                <span>HEXIT RELY • Studio &amp; Stream</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="services-preview">
+        <!-- ==========================================================================
+             SEKCJA NA SAMEJ GÓRZE: OBSZARY DZIAŁANIA (MUZYKA, SOFTWARE, GAMING)
+             ========================================================================== -->
+        <section class="code-lab-section" id="laboratorium">
             <div class="container">
-                <h2 class="section-title">What I Create</h2>
-                <div class="services-grid">
-                    <div class="service-card">
-                        <div class="service-icon">🎵</div>
-                        <h3>Game Soundtracks</h3>
-                        <p>Immersive musical experiences that enhance gameplay and storytelling</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon">🔊</div>
-                        <h3>Sound Effects</h3>
-                        <p>Custom SFX and audio assets that bring your project to life</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon">🎧</div>
-                        <h3>Music Production</h3>
-                        <p>Original compositions and remixes across multiple genres</p>
+                <div class="code-lab-header">
+                    <span class="section-eyebrow">Mój Warsztat &amp; Filary</span>
+                    <h2 class="section-title" style="margin-bottom: var(--space-3);">Muzyka, Software &amp; Gaming</h2>
+                    <p class="section-desc" style="max-width: 720px; margin: 0 auto var(--space-8);">
+                        Trzy obszary, w których łączę inżynierię dźwięku z pasją do gamingu i tworzenia narzędzi.
+                        Przełączaj zakładki, by poznać mój proces:
+                    </p>
+
+                    <!-- Tab Switcher -->
+                    <div class="code-lab-tabs" role="tablist">
+                        <button type="button" class="code-lab-tab active" data-target="lab-pianoroll" role="tab"
+                            aria-selected="true">
+                            Produkcja Muzyczna
+                        </button>
+                        <button type="button" class="code-lab-tab" data-target="lab-code3d" role="tab"
+                            aria-selected="false">
+                            Oprogramowanie Audio
+                        </button>
+                        <button type="button" class="code-lab-tab" data-target="lab-pixelart" role="tab"
+                            aria-selected="false">
+                            Minecraft &amp; Streaming
+                        </button>
                     </div>
                 </div>
-            </div>
-        </section>
-        <section class="featured-work">
-            <div class="container">
-                <h2 class="section-title">Featured Projects</h2>
-                <div class="work-grid">
-                    <div class="work-item">
-                        <img src="hexit/galeria1 (1).png" alt="Game Soundtrack" class="work-image">
-                        <div class="work-overlay">
-                            <h3>Game Soundtracks</h3>
-                            <p>Immersive musical experiences</p>
-                        </div>
-                    </div>
-                    <div class="work-item">
-                        <img src="hexit/galeria1 (2).png" alt="Sound Design" class="work-image">
-                        <div class="work-overlay">
-                            <h3>Sound Design</h3>
-                            <p>Custom audio experiences</p>
-                        </div>
-                    </div>
-                    <div class="work-item">
-                        <img src="hexit/galeria1 (3).png" alt="Music Production" class="work-image">
-                        <div class="work-overlay">
-                            <h3>Music Production</h3>
-                            <p>Original compositions</p>
+
+                <!-- PANEL 1: PIANO ROLL -->
+                <div class="code-lab-panel active" id="lab-pianoroll">
+                    <div class="lab-panel-card">
+                        <div class="pianoroll-wrap">
+                            <div class="pianoroll-text">
+                                <span class="section-eyebrow">Kompozycja &amp; Sound Design</span>
+                                <h3>Piano Roll — jak buduję brzmienie</h3>
+                                <p>
+                                    Każdy utwór i sound design zaczyna się w siatce sekwencera. Precyzyjne układanie
+                                    półtonów, kontrola dynamiki (velocity) i synteza hybrydowa to fundament moich
+                                    produkcji muzycznych oraz bibliotek sampli.
+                                </p>
+                                <p>
+                                    Pracuję głównie w Ableton Live Suite oraz FL Studio, łącząc cyfrowe przetwarzanie z
+                                    analogowymi kontrolerami MIDI i autorskimi łańcuchami efektów FX.
+                                </p>
+                                <div
+                                    style="display: flex; gap: var(--space-3); flex-wrap: wrap; margin-top: var(--space-4);">
+                                    <span class="now-tag">Kompozycja</span>
+                                    <span class="now-tag">Synteza Dźwięku</span>
+                                    <span class="now-tag">Ableton Live &amp; FL Studio</span>
+                                    <span class="now-tag">Sound Design NOX</span>
+                                </div>
+                                <div style="margin-top: var(--space-6); display: flex; gap: 12px; flex-wrap: wrap;">
+                                    <a href="https://open.spotify.com/artist/4hcXADTFvPXtRxVTGYXW4I" target="_blank"
+                                        rel="noopener" class="btn btn-primary btn-sm"
+                                        style="display: inline-flex; align-items: center; gap: 8px;">
+                                        Posłuchaj na Spotify ↗
+                                    </a>
+                                    <a href="https://noxaudios.github.io/portfolio-muzyczne.html" target="_blank"
+                                        rel="noopener" class="btn btn-secondary btn-sm"
+                                        style="display: inline-flex; align-items: center; gap: 8px;">
+                                        Portfolio Muzyczne NOX ↗
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="pianoroll-stage" id="pianoRollShowcase">
+                                <div class="pr-transport">
+                                    <span class="pr-bpm">128 BPM</span>
+                                    <span class="pr-label">4/4 &nbsp;·&nbsp; Cm Progression &nbsp;·&nbsp; Live
+                                        CSS</span>
+                                </div>
+                                <div class="pr-ruler">
+                                    <span class="pr-ruler-num" style="left: 12.5%;">1</span>
+                                    <span class="pr-ruler-num" style="left: 37.5%;">2</span>
+                                    <span class="pr-ruler-num" style="left: 62.5%;">3</span>
+                                    <span class="pr-ruler-num" style="left: 87.5%;">4</span>
+                                </div>
+                                <div class="pr-grid-wrap">
+                                    <div class="pr-keyboard">
+                                        <div class="pr-key white"><span>B4</span></div>
+                                        <div class="pr-key black"><span>A#</span></div>
+                                        <div class="pr-key white"><span>A4</span></div>
+                                        <div class="pr-key black"><span>G#</span></div>
+                                        <div class="pr-key white"><span>G4</span></div>
+                                        <div class="pr-key black"><span>F#</span></div>
+                                        <div class="pr-key white"><span>F4</span></div>
+                                        <div class="pr-key white"><span>E4</span></div>
+                                        <div class="pr-key black"><span>D#</span></div>
+                                        <div class="pr-key white"><span>D4</span></div>
+                                        <div class="pr-key black"><span>C#</span></div>
+                                        <div class="pr-key white c-key"><span>C4</span></div>
+                                        <div class="pr-key white"><span>B3</span></div>
+                                        <div class="pr-key black"><span>A#</span></div>
+                                        <div class="pr-key white"><span>A3</span></div>
+                                    </div>
+                                    <div class="pr-canvas">
+                                        <div class="pr-row" style="top:0px;"></div>
+                                        <div class="pr-row black-row" style="top:18px;"></div>
+                                        <div class="pr-row" style="top:36px;"></div>
+                                        <div class="pr-row black-row" style="top:54px;"></div>
+                                        <div class="pr-row" style="top:72px;"></div>
+                                        <div class="pr-row black-row" style="top:90px;"></div>
+                                        <div class="pr-row" style="top:108px;"></div>
+                                        <div class="pr-row" style="top:126px;"></div>
+                                        <div class="pr-row black-row" style="top:144px;"></div>
+                                        <div class="pr-row" style="top:162px;"></div>
+                                        <div class="pr-row black-row" style="top:180px;"></div>
+                                        <div class="pr-row" style="top:198px;"></div>
+                                        <div class="pr-row" style="top:216px;"></div>
+                                        <div class="pr-row black-row" style="top:234px;"></div>
+                                        <div class="pr-row" style="top:252px;"></div>
+
+                                        <div class="pr-barline" style="left:25%;"></div>
+                                        <div class="pr-barline" style="left:50%;"></div>
+                                        <div class="pr-barline" style="left:75%;"></div>
+                                        <div class="pr-barline beat" style="left:12.5%;"></div>
+                                        <div class="pr-barline beat" style="left:37.5%;"></div>
+                                        <div class="pr-barline beat" style="left:62.5%;"></div>
+                                        <div class="pr-barline beat" style="left:87.5%;"></div>
+
+                                        <!-- Cm -->
+                                        <div class="pr-note n-mint" style="left:1%; top:200px; width:23%;"></div>
+                                        <div class="pr-note n-mint" style="left:1%; top:128px; width:11%;"></div>
+                                        <div class="pr-note n-teal" style="left:13%; top:110px; width:5%;"></div>
+                                        <div class="pr-note n-teal" style="left:19%; top:92px; width:5%;"></div>
+
+                                        <!-- Eb -->
+                                        <div class="pr-note n-blue" style="left:26%; top:164px; width:22%;"></div>
+                                        <div class="pr-note n-blue" style="left:26%; top:92px; width:10%;"></div>
+                                        <div class="pr-note n-violet" style="left:37%; top:74px; width:6%;"></div>
+                                        <div class="pr-note n-violet" style="left:44%; top:92px; width:4%;"></div>
+
+                                        <!-- Ab -->
+                                        <div class="pr-note n-amber" style="left:51%; top:218px; width:22%;"></div>
+                                        <div class="pr-note n-amber" style="left:51%; top:128px; width:8%;"></div>
+                                        <div class="pr-note n-mint" style="left:60%; top:110px; width:6%;"></div>
+                                        <div class="pr-note n-mint" style="left:67%; top:74px; width:5%;"></div>
+
+                                        <!-- G -->
+                                        <div class="pr-note n-teal" style="left:76%; top:74px; width:22%;"></div>
+                                        <div class="pr-note n-teal" style="left:76%; top:164px; width:10%;"></div>
+                                        <div class="pr-note n-blue" style="left:87%; top:128px; width:5%;"></div>
+                                        <div class="pr-note n-violet" style="left:93%; top:200px; width:6%;"></div>
+
+                                        <div class="pr-playhead"></div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="cta-section">
-                    <a href="portfolio.html" class="btn btn-primary btn-large">View Full Portfolio</a>
+
+                <!-- PANEL 2: KOD 3D / SAMPLIX -->
+                <div class="code-lab-panel" id="lab-code3d">
+                    <div class="lab-panel-card">
+                        <div class="code3d-wrap">
+                            <div class="code3d-text">
+                                <span class="section-eyebrow">Software &amp; DSP</span>
+                                <h3>Silnik Samplix — analiza audio i algorytmy</h3>
+                                <p>
+                                    Samplix to moje autorskie narzędzie programistyczne, zaprojektowane dla producentów
+                                    borykających się z setkami gigabajtów one-shotów i pętli.
+                                </p>
+                                <p>
+                                    Wbudowany silnik analizy audio natychmiast wykrywa tonację (chroma CQT), estymuje
+                                    tempo BPM i indeksuje próbki w ułamku sekundy, umożliwiając błyskawiczne
+                                    przeciąganie plików bezpośrednio do DAW.
+                                </p>
+                                <div
+                                    style="display: flex; gap: var(--space-3); flex-wrap: wrap; margin-top: var(--space-4);">
+                                    <span class="now-tag">Python Audio DSP</span>
+                                    <span class="now-tag">Detekcja Tonacji &amp; BPM</span>
+                                    <span class="now-tag">Ekosystem Samplix</span>
+                                </div>
+                                <div style="margin-top: var(--space-6);">
+                                    <a href="https://samplix.hexitrely.pl/" target="_blank" rel="noopener"
+                                        class="btn btn-secondary btn-sm"
+                                        style="display: inline-flex; align-items: center; gap: 8px;">
+                                        Samplix ↗
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="code3d-stage">
+                                <div class="code3d-window">
+                                    <div class="code3d-titlebar">
+                                        <div class="code3d-dots">
+                                            <div class="code3d-dot red"></div>
+                                            <div class="code3d-dot yellow"></div>
+                                            <div class="code3d-dot green"></div>
+                                        </div>
+                                        <span class="code3d-filename">samplix_analyzer.py — Samplix/core</span>
+                                    </div>
+
+                                    <div class="code3d-body">
+                                        <div class="code3d-line">
+                                            <span class="code3d-ln">1</span>
+                                            <span class="code3d-code"><span class="t-cm"># Samplix — silnik analizy
+                                                    audio</span></span>
+                                        </div>
+                                        <div class="code3d-line">
+                                            <span class="code3d-ln">2</span>
+                                            <span class="code3d-code"><span class="t-kw">import</span> librosa<span
+                                                    class="t-punc">,</span> numpy <span class="t-kw">as</span> np</span>
+                                        </div>
+                                        <div class="code3d-line">
+                                            <span class="code3d-ln">3</span>
+                                            <span class="code3d-code"></span>
+                                        </div>
+                                        <div class="code3d-line">
+                                            <span class="code3d-ln">4</span>
+                                            <span class="code3d-code"><span class="t-cls">KEYS</span> <span
+                                                    class="t-op">=</span> <span class="t-punc">[</span><span
+                                                    class="t-str">'C'</span><span class="t-punc">,</span><span
+                                                    class="t-str">'C#'</span><span class="t-punc">,</span><span
+                                                    class="t-str">'D'</span><span class="t-punc">,</span><span
+                                                    class="t-str">'D#'</span><span class="t-punc">,</span><span
+                                                    class="t-str">'E'</span><span class="t-punc">,</span><span
+                                                    class="t-str">'F'</span><span class="t-punc">,</span></span>
+                                        </div>
+                                        <div class="code3d-line">
+                                            <span class="code3d-ln">5</span>
+                                            <span class="code3d-code"> <span class="t-str">'F#'</span><span
+                                                    class="t-punc">,</span><span class="t-str">'G'</span><span
+                                                    class="t-punc">,</span><span class="t-str">'G#'</span><span
+                                                    class="t-punc">,</span><span class="t-str">'A'</span><span
+                                                    class="t-punc">,</span><span class="t-str">'A#'</span><span
+                                                    class="t-punc">,</span><span class="t-str">'B'</span><span
+                                                    class="t-punc">]</span></span>
+                                        </div>
+                                        <div class="code3d-line">
+                                            <span class="code3d-ln">6</span>
+                                            <span class="code3d-code"></span>
+                                        </div>
+                                        <div class="code3d-line hl">
+                                            <span class="code3d-ln">7</span>
+                                            <span class="code3d-code"><span class="t-kw">def</span> <span
+                                                    class="t-fn">analyze_sample</span><span
+                                                    class="t-punc">(</span>path<span class="t-punc">:</span> <span
+                                                    class="t-cls">str</span><span class="t-punc">)</span> <span
+                                                    class="t-op">-&gt;</span> <span class="t-cls">dict</span><span
+                                                    class="t-punc">:</span></span>
+                                        </div>
+                                        <div class="code3d-line hl">
+                                            <span class="code3d-ln">8</span>
+                                            <span class="code3d-code"> y<span class="t-punc">,</span> sr <span
+                                                    class="t-op">=</span> librosa<span class="t-punc">.</span><span
+                                                    class="t-fn">load</span><span class="t-punc">(</span>path<span
+                                                    class="t-punc">,</span> sr<span class="t-op">=</span><span
+                                                    class="t-num">22050</span><span class="t-punc">,</span> mono<span
+                                                    class="t-op">=</span><span class="t-cls">True</span><span
+                                                    class="t-punc">)</span></span>
+                                        </div>
+                                        <div class="code3d-line">
+                                            <span class="code3d-ln">9</span>
+                                            <span class="code3d-code"> tempo<span class="t-punc">,</span> _ <span
+                                                    class="t-op">=</span> librosa<span class="t-punc">.</span>beat<span
+                                                    class="t-punc">.</span><span class="t-fn">beat_track</span><span
+                                                    class="t-punc">(</span>y<span class="t-op">=</span>y<span
+                                                    class="t-punc">,</span> sr<span class="t-op">=</span>sr<span
+                                                    class="t-punc">)</span></span>
+                                        </div>
+                                        <div class="code3d-line">
+                                            <span class="code3d-ln">10</span>
+                                            <span class="code3d-code"> chroma <span class="t-op">=</span> librosa<span
+                                                    class="t-punc">.</span>feature<span class="t-punc">.</span><span
+                                                    class="t-fn">chroma_cqt</span><span class="t-punc">(</span>y<span
+                                                    class="t-op">=</span>y<span class="t-punc">,</span> sr<span
+                                                    class="t-op">=</span>sr<span class="t-punc">)</span></span>
+                                        </div>
+                                        <div class="code3d-line">
+                                            <span class="code3d-ln">11</span>
+                                            <span class="code3d-code"> key_idx <span class="t-op">=</span> np<span
+                                                    class="t-punc">.</span><span class="t-fn">argmax</span><span
+                                                    class="t-punc">(</span>np<span class="t-punc">.</span><span
+                                                    class="t-fn">mean</span><span class="t-punc">(</span>chroma<span
+                                                    class="t-punc">,</span> axis<span class="t-op">=</span><span
+                                                    class="t-num">1</span><span class="t-punc">))</span></span>
+                                        </div>
+                                        <div class="code3d-line">
+                                            <span class="code3d-ln">12</span>
+                                            <span class="code3d-code"> <span class="t-kw">return</span> <span
+                                                    class="t-punc">{</span></span>
+                                        </div>
+                                        <div class="code3d-line">
+                                            <span class="code3d-ln">13</span>
+                                            <span class="code3d-code"> <span class="t-str">"bpm"</span><span
+                                                    class="t-punc">:</span> <span class="t-cls">round</span><span
+                                                    class="t-punc">(</span><span class="t-cls">float</span><span
+                                                    class="t-punc">(</span>tempo<span class="t-punc">),</span> <span
+                                                    class="t-num">1</span><span class="t-punc">),</span></span>
+                                        </div>
+                                        <div class="code3d-line">
+                                            <span class="code3d-ln">14</span>
+                                            <span class="code3d-code"> <span class="t-str">"key"</span><span
+                                                    class="t-punc">:</span> <span class="t-cls">KEYS</span><span
+                                                    class="t-punc">[</span>key_idx<span class="t-punc">],</span></span>
+                                        </div>
+                                        <div class="code3d-line">
+                                            <span class="code3d-ln">15</span>
+                                            <span class="code3d-code"> <span class="t-str">"dur"</span><span
+                                                    class="t-punc">:</span> librosa<span class="t-punc">.</span><span
+                                                    class="t-fn">get_duration</span><span class="t-punc">(</span>y<span
+                                                    class="t-op">=</span>y<span class="t-punc">,</span> sr<span
+                                                    class="t-op">=</span>sr<span class="t-punc">)</span></span>
+                                        </div>
+                                        <div class="code3d-line">
+                                            <span class="code3d-ln">16</span>
+                                            <span class="code3d-code"> <span class="t-punc">}</span></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="code3d-statusbar">
+                                        <span class="st-mint">Python 3.11</span>
+                                        <span>Samplix/core &nbsp;·&nbsp; UTF-8</span>
+                                        <span>Ln 16, Col 5</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PANEL 3: MINECRAFT & GAMING -->
+                <div class="code-lab-panel" id="lab-pixelart">
+                    <div class="lab-panel-card">
+                        <div class="pixelart-wrap">
+                            <div class="pixelart-text">
+                                <span class="section-eyebrow">Gaming, Dev &amp; Streaming</span>
+                                <h3>Minecraft Survival, Pluginy &amp; Społeczność</h3>
+                                <p>
+                                    Na kanale <strong>Its Hexit IRL</strong> (YouTube) znajdują się wielogodzinne sesje
+                                    survivalu w Minecraft w formie zapisów VOD z transmisji na żywo. To nie
+                                    tylko granie — to także kodowanie: tworzę autorskie pluginy i skrypty serwerowe,
+                                    rozwijam niestandardowe mechaniki rozgrywki oraz optymalizuję świat serwera, czy
+                                    poprostu chill na survivalu co także jest potrzebne.
+                                </p>
+                                <p>
+                                    Wspólnie ze społecznością budujemy bazy, automatyzacje i spędzamy czas w
+                                    bezpretensjonalnej, dojrzałej atmosferze podczas nocnych streamów.
+                                </p>
+                                <div
+                                    style="display: flex; gap: var(--space-3); flex-wrap: wrap; margin-top: var(--space-4);">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        viewBox="0 0 16 16" class="hub-icon">
+                                        <path
+                                            d="M1.5 4A1.5 1.5 0 0 0 0 5.5v5A1.5 1.5 0 0 0 1.5 12h13a1.5 1.5 0 0 0 1.5-1.5v-5A1.5 1.5 0 0 0 14.5 4h-13zM6 8.5H4.5V10h-1V8.5H2v-1h1.5V6h1v1.5H6v1zM10.5 7a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm2.5 2.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                                    </svg>
+                                    <span>Its Hexit IRL (VOD)</span>
+                                    <span class="now-tag">Survival &amp; Społeczność</span>
+                                    <span class="now-tag">Pluginy &amp; Skrypty</span>
+                                    <span class="now-tag">Zapisy VOD</span>
+                                </div>
+                                <div style="margin-top: var(--space-6);">
+                                    <a href="https://www.youtube.com/@HexitIrl" target="_blank" rel="noopener"
+                                        class="btn btn-secondary btn-sm"
+                                        style="display: inline-flex; align-items: center; gap: 8px;">
+                                        Oglądaj na YouTube: Its Hexit IRL (@HexitIrl) ↗
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="pixelart-stage">
+                                <div class="px-stars">
+                                    <div class="px-star" style="top:8%; left:12%;"></div>
+                                    <div class="px-star" style="top:15%; left:35%; animation-delay:0.7s;"></div>
+                                    <div class="px-star" style="top:6%; left:58%; animation-delay:1.2s;"></div>
+                                    <div class="px-star" style="top:22%; left:75%; animation-delay:0.3s;"></div>
+                                    <div class="px-star" style="top:10%; left:90%; animation-delay:1.8s;"></div>
+                                    <div class="px-star" style="top:30%; left:20%; animation-delay:0.5s;"></div>
+                                    <div class="px-star" style="top:18%; left:48%; animation-delay:1.5s;"></div>
+                                </div>
+                                <div class="px-moon"></div>
+
+                                <div class="px-scene">
+                                    <div class="px-col">
+                                        <div class="px-b b-sky"></div>
+                                        <div class="px-b b-sky"></div>
+                                        <div class="px-b b-sky"></div>
+                                        <div class="px-b b-gr"></div>
+                                        <div class="px-b b-dirt"></div>
+                                        <div class="px-b b-dirt2"></div>
+                                        <div class="px-b b-stone"></div>
+                                    </div>
+                                    <div class="px-col">
+                                        <div class="px-b b-sky"></div>
+                                        <div class="px-b b-sky"></div>
+                                        <div class="px-b b-sky"></div>
+                                        <div class="px-b b-gr"></div>
+                                        <div class="px-b b-dirt"></div>
+                                        <div class="px-b b-stone2"></div>
+                                        <div class="px-b b-stone"></div>
+                                    </div>
+                                    <div class="px-col">
+                                        <div class="px-b b-sky"></div>
+                                        <div class="px-b b-sky"></div>
+                                        <div class="px-b b-sky"></div>
+                                        <div class="px-b b-gr"></div>
+                                        <div class="px-b b-dirt"></div>
+                                        <div class="px-b b-dirt2"></div>
+                                        <div class="px-b b-coal"></div>
+                                    </div>
+                                    <div class="px-col">
+                                        <div class="px-b b-leaf2"></div>
+                                        <div class="px-b b-wood"></div>
+                                        <div class="px-b b-wood2"></div>
+                                        <div class="px-b b-gr2"></div>
+                                        <div class="px-b b-dirt"></div>
+                                        <div class="px-b b-stone"></div>
+                                        <div class="px-b b-stone2"></div>
+                                    </div>
+                                    <div class="px-col">
+                                        <div class="px-b b-leaf"></div>
+                                        <div class="px-b b-leaf2"></div>
+                                        <div class="px-b b-leaf3"></div>
+                                        <div class="px-b b-gr"></div>
+                                        <div class="px-b b-dirt2"></div>
+                                        <div class="px-b b-dirt"></div>
+                                        <div class="px-b b-stone"></div>
+                                    </div>
+                                    <div class="px-col">
+                                        <div class="px-b b-leaf2"></div>
+                                        <div class="px-b b-leaf"></div>
+                                        <div class="px-b b-sky"></div>
+                                        <div class="px-b b-gr"></div>
+                                        <div class="px-b b-dirt"></div>
+                                        <div class="px-b b-stone2"></div>
+                                        <div class="px-b b-gold"></div>
+                                    </div>
+                                    <div class="px-col">
+                                        <div class="px-b b-sky"></div>
+                                        <div class="px-b b-sky"></div>
+                                        <div class="px-b b-sky"></div>
+                                        <div class="px-b b-gr"></div>
+                                        <div class="px-b b-dirt2"></div>
+                                        <div class="px-b b-dirt"></div>
+                                        <div class="px-b b-stone"></div>
+                                    </div>
+                                    <div class="px-col">
+                                        <div class="px-b b-sky"></div>
+                                        <div class="px-b b-sky"></div>
+                                        <div class="px-b b-torch"></div>
+                                        <div class="px-b b-gr2"></div>
+                                        <div class="px-b b-dirt"></div>
+                                        <div class="px-b b-dirt2"></div>
+                                        <div class="px-b b-stone2"></div>
+                                    </div>
+                                    <div class="px-col">
+                                        <div class="px-b b-sky"></div>
+                                        <div class="px-b b-sky"></div>
+                                        <div class="px-b b-sky"></div>
+                                        <div class="px-b b-gr"></div>
+                                        <div class="px-b b-dirt"></div>
+                                        <div class="px-b b-stone"></div>
+                                        <div class="px-b b-coal"></div>
+                                    </div>
+                                    <div class="px-col">
+                                        <div class="px-b b-sky"></div>
+                                        <div class="px-b b-sky"></div>
+                                        <div class="px-b b-gr"></div>
+                                        <div class="px-b b-dirt"></div>
+                                        <div class="px-b b-dirt2"></div>
+                                        <div class="px-b b-stone"></div>
+                                        <div class="px-b b-stone2"></div>
+                                    </div>
+                                    <div class="px-col">
+                                        <div class="px-b b-sky"></div>
+                                        <div class="px-b b-gr"></div>
+                                        <div class="px-b b-dirt"></div>
+                                        <div class="px-b b-dirt2"></div>
+                                        <div class="px-b b-stone"></div>
+                                        <div class="px-b b-stone2"></div>
+                                        <div class="px-b b-gravel"></div>
+                                    </div>
+                                    <div class="px-col">
+                                        <div class="px-b b-sky"></div>
+                                        <div class="px-b b-gr"></div>
+                                        <div class="px-b b-gr2"></div>
+                                        <div class="px-b b-dirt"></div>
+                                        <div class="px-b b-stone2"></div>
+                                        <div class="px-b b-stone"></div>
+                                        <div class="px-b b-coal"></div>
+                                    </div>
+                                    <div class="px-col">
+                                        <div class="px-b b-sky"></div>
+                                        <div class="px-b b-sky"></div>
+                                        <div class="px-b b-gr"></div>
+                                        <div class="px-b b-dirt2"></div>
+                                        <div class="px-b b-dirt"></div>
+                                        <div class="px-b b-stone"></div>
+                                        <div class="px-b b-stone2"></div>
+                                    </div>
+                                    <div class="px-col">
+                                        <div class="px-b b-sky"></div>
+                                        <div class="px-b b-sky"></div>
+                                        <div class="px-b b-sky"></div>
+                                        <div class="px-b b-gr"></div>
+                                        <div class="px-b b-dirt"></div>
+                                        <div class="px-b b-stone2"></div>
+                                        <div class="px-b b-stone"></div>
+                                    </div>
+                                    <div class="px-col">
+                                        <div class="px-b b-sky"></div>
+                                        <div class="px-b b-sky"></div>
+                                        <div class="px-b b-sky"></div>
+                                        <div class="px-b b-gr"></div>
+                                        <div class="px-b b-dirt2"></div>
+                                        <div class="px-b b-dirt"></div>
+                                        <div class="px-b b-stone"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="blog-preview">
+        <!-- ==========================================================================
+             SEKCJA: O MNIE (PEŁNA HISTORIA I FILARY W STRONIE GŁÓWNEJ)
+             ========================================================================== -->
+        <section class="about-story-section" id="o-mnie" style="padding: var(--space-20) 0;">
             <div class="container">
-                <h2 class="section-title">Latest from the Blog</h2>
-                <div class="blog-posts-grid">
-                    <article class="blog-post-preview">
-                        <div class="post-meta">
-                            <span class="post-date">December 15, 2024</span>
-                            <span class="post-category">Production</span>
+                <div class="about-intro-grid">
+                    <div class="about-story-text">
+
+                        <span class="section-eyebrow">Moja droga i filozofia</span>
+                        <h2 class="hero-title" style="margin-bottom: var(--space-4); font-size: var(--font-size-3xl);">
+                            Cześć, tu Olaf.</h2>
+                        <p>
+                            W sieci funkcjonuję jako <strong>HEXIT RELY</strong>. Od ponad 7 lat zgłębiam dźwięk, a
+                            swoją pasją do sound designu i tworzenia muzyki dzielę się na żywo podczas streamów.
+                        </p>
+                        <div style="margin-top: var(--space-6);">
+                            <a href="about.html" class="btn btn-secondary">Poznaj mnie bliżej &rarr;</a>
                         </div>
-                        <h3 class="post-title">
-                            <a href="blog.html">The Art of Game Audio: Creating Immersive Soundscapes</a>
-                        </h3>
-                        <p class="post-excerpt">
-                                Exploring how game audio can transport players to different worlds through carefully crafted sound design.
+                    </div>
+                    <div class="about-story-image">
+                        <div class="hero-avatar-wrap">
+                            <img src="hexit/Fotos26/hexit-face.jpg" alt="Olaf Zawadzki - Hexit Rely">
+                            <div class="hero-status-pill">
+                                <span>Muzyka • Streaming • Gaming</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3 Filary Mojej Twórczości -->
+                <div style="margin: var(--space-16) 0;">
+                    <div class="section-header-wrap">
+                        <span class="section-eyebrow">Filary HEXIT RELY</span>
+                        <h3 class="section-title">Trzy pasje, jeden spójny organizm</h3>
+                        <p class="section-desc">Nie wierzę w zamykanie się w jednej szufladce. Mój świat napędza
+                            synergia między cyfrowym audio, transparentnym kontaktem i pracą fizyczną.</p>
+                    </div>
+
+                    <div class="now-cards-grid">
+                        <div class="now-card">
+                            <div class="now-icon-box"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M9 13c0 1.105-1.12 2-2.5 2S4 14.105 4 13s1.12-2 2.5-2 2.5.895 2.5 2z"/><path fill-rule="evenodd" d="M9 3v10H8V3h1z"/><path d="M8 2.82a1 1 0 0 1 .804-.98l3-.6A1 1 0 0 1 13 2.22V4L8 5V2.82z"/></svg></div>
+                            <h4>1. Muzyka &amp; Eksperyment</h4>
+                            <p>
+                                Moje brzmienie to połączenie mrocznej elektroniki, glitchowych tekstur, organicznych
+                                instrumentów i filmowego sound designu. Tworzę autorskie wydawnictwa oraz udźwiękowienie
+                                do gier niezależnych.
                             </p>
-                        <a href="blog.html" class="read-more">Read More →</a>
-                    </article>
-
-                    <article class="blog-post-preview">
-                        <div class="post-meta">
-                            <span class="post-date">December 10, 2024</span>
-                            <span class="post-category">Tutorial</span>
+                            <a href="https://noxaudios.github.io/portfolio-muzyczne.html" target="_blank" rel="noopener"
+                                class="now-card-link">
+                                Zobacz muzyczne portfolio ↗
+                            </a>
                         </div>
-                        <h3 class="post-title">
-                            <a href="blog.html">Mixing Tips for Electronic Music Producers</a>
-                        </h3>
-                        <p class="post-excerpt">
-                                Essential mixing techniques that every electronic music producer should know to achieve professional-sounding tracks.
-                        </p>
-                        <a href="blog.html" class="read-more">Read More →</a>
-                    </article>
 
-                    <article class="blog-post-preview">
-                        <div class="post-meta">
-                            <span class="post-date">December 5, 2024</span>
-                            <span class="post-category">Behind the Scenes</span>
-                        </div>
-                        <h3 class="post-title">
-                            <a href="blog.html">Creating the Soundtrack for "Spirits Among the Trees"</a>
-                        </h3>
-                        <p class="post-excerpt">
-                                A deep dive into the creative process behind one of my recent game soundtracks.
+                        <div class="now-card">
+                            <div class="now-icon-box"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M5 3a3 3 0 0 1 6 0v5a3 3 0 0 1-6 0V3z"/><path d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5z"/></svg></div>
+                            <h4>2. Streaming &amp; Transparentność</h4>
+                            <p>
+                                Streamuję, bo cenię autentyczność. Na kanale głównym tworzymy muzykę i montujemy filmy,
+                                a na drugim odpalamy dłuższe sesje (Minecraft, chillowe wieczory, dyskusje). Budujemy
+                                zgraną, dojrzałą społeczność.
                             </p>
-                        <a href="blog.html" class="read-more">Read More →</a>
-                    </article>
-                </div>
-                <div class="blog-cta">
-                    <a href="blog.html" class="btn btn-primary">View All Posts</a>
-                </div>
-            </div>
-        </section>
+                            <a href="about.html#stream" class="now-card-link">
+                                Wpadnij na stream &rarr;
+                            </a>
+                        </div>
 
-        
+                        <div class="now-card">
+                            <div class="now-icon-box">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/></svg>
+                            </div>
+                            <h4>3. DIY &amp; Kreatywnosć</h4>
+                            <p>
+                                kreatywnosć to coś czego nie da się szufladkować. Dzięki niej z rana pije kawe przy fl
+                                studio popołudniem piszę tą stronę a wieczorem strimuje aby w nocy stwierdzić że pora
+                                dodac nową usługę w sieci lokalnej bo czemu by nie.
+                            </p>
+                            <a href="blog.html" class="now-card-link">
+                                Kulisy &amp; wpisy z procesu &rarr;
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==========================================================================
+             SEKCJA EKOSYSTEM & PROJEKTY: SAMPLIX + 4NOX WAV
+             ========================================================================== -->
+                <section class="ecosystem-section" id="projekty">
+                    <div class="container">
+                        <div class="section-header-wrap">
+                            <span class="section-eyebrow">Ekosystem projektów</span>
+                            <h2 class="section-title" style="margin-bottom: 0;">Narzędzia i Studio</h2>
+                            <p class="section-desc">Tworzę autorskie oprogramowanie dla producentów oraz sam zajmuję się
+                                twórczością od realizacji nagran przez mix mastering czy czystą produkcję
+                                od zera.
+                            </p>
+                        </div>
+
+                        <div class="ecosystem-grid">
+                            <!-- Samplix Card -->
+                            <div class="ecosystem-card samplix-card">
+                                <div>
+                                    <div class="samplix-header-wrap">
+                                        <div>
+                                            <span class="ecosystem-badge">Oprogramowanie z serii "Lix"</span>
+                                            <h3>Samplix</h3>
+                                        </div>
+                                        <img src="hexit/Fotos26/samplix-brand-hero-pose-1.svg" alt="Samplix Mascot"
+                                            class="samplix-mascot">
+                                    </div>
+                                    <p>
+                                        Masz gigabajty sampli i tracisz godziny na szukanie odpowiedniego one-shota?
+                                        Samplix to moje autorskie narzędzie software'owe, zaprojektowane przez
+                                        producenta dla producentów — żeby ogarnąć bibliotekę audio i przyspieszyć pracę
+                                        w DAW bez odrywania rąk od klawiatury.
+                                    </p>
+                                    <p
+                                        style="color: var(--text-muted); font-size: var(--font-size-sm); margin-top: var(--space-3);">
+                                        Samplix to część większej serii narzędzi "Lix" — buduję je samodzielnie, krok po
+                                        kroku, rozwiązując problemy, które sam napotykam przy codziennej produkcji.
+                                    </p>
+                                    <ul class="samplix-features-list">
+                                        <li>Błyskawiczne indeksowanie folderów</li>
+                                        <li>Inteligentne tagowanie próbek</li>
+                                        <li>Przeciąganie bezpośrednio do DAW</li>
+                                        <li>Lekki i minimalistyczny interfejs</li>
+                                        <li>Wbudowany podgląd fal audio</li>
+                                        <li>Pełna integracja z sample packami NOX</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <a href="https://samplix.hexitrely.pl/" target="_blank" rel="noopener"
+                                        class="btn btn-primary">
+                                        Przejdź do Samplix ↗
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- 4NOX WAV Service Notice Card -->
+                            <div class="ecosystem-card nox-service-card">
+                                <div>
+                                    <span class="service-notice-pill">Marka Studyjna &amp; Produkcyjna</span>
+                                    <h3>NOX aka 4NOX WAV</h3>
+                                    <p>
+                                        Jeśli szukasz profesjonalnych usług komercyjnych — autorskiej muzyki, sound designu do gier i mediów, miksu, masteringu, czyszczenia nagrań czy dedykowanych bibliotek brzmień — cały mój profil studyjny NOX (4noxwav) znajduje się pod osobnym adresem.
+                                    </p>
+                                    <p style="font-size: var(--font-size-sm); color: var(--text-muted);">
+                                        hexitrely.pl to moja przestrzeń autorska i streamingowa. Cenniki, pakiety i dedykowane zlecenia komercyjne NOX znajdziesz bezpośrednio na 4noxwav.com oraz w portfolio zewnętrznym.
+                                    </p>
+                                </div>
+                                <div style="margin-top: var(--space-6); display: flex; gap: 10px; flex-wrap: wrap;">
+                                    <a href="https://4noxwav.com/" target="_blank" rel="noopener"
+                                        class="btn btn-secondary">
+                                        Studio NOX na 4noxwav.com ↗
+                                    </a>
+                                    <a href="https://noxaudios.github.io/portfolio-muzyczne.html" target="_blank" rel="noopener"
+                                        class="btn btn-secondary">
+                                        Portfolio NOX ↗
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+
+
+
+                <!-- ==========================================================================
+             SEKCJA KONTAKTOWA
+             ========================================================================== -->
+                <section class="contact-section" id="kontakt"
+                    style="padding: var(--space-20) 0; background: var(--bg-primary);">
+                    <div class="container">
+                        <div class="section-header-wrap">
+                            <span class="section-eyebrow">Porozmawiajmy</span>
+                            <h2 class="section-title">Skontaktuj się ze mną</h2>
+                            <p class="section-desc">Masz pytanie o muzykę, Samplix, streaming lub propozycję współpracy?
+                            </p>
+                        </div>
+
+                        <div
+                            style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-12); align-items: start;">
+                            <div>
+                                <div class="content-card" style="margin-bottom: var(--space-6);">
+                                    <h3
+                                        style="font-size: var(--font-size-xl); font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-2);">
+                                        Bezpośredni adres e-mail:
+                                    </h3>
+                                    <p style="color: var(--text-secondary); margin-bottom: var(--space-4);">
+                                        Najszybsza forma kontaktu w sprawach projektowych i biznesowych:
+                                    </p>
+                                    <a href="mailto:contact@hexitrely.pl" class="btn btn-primary"
+                                        style="display: inline-flex; align-items: center; gap: 8px;">
+                                        contact@hexitrely.pl
+                                    </a>
+                                </div>
+
+                                <div class="info-pill-box">
+                                    <h4
+                                        style="font-size: var(--font-size-base); font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-2);">
+                                        Gdzie jeszcze mnie znajdziesz?
+                                    </h4>
+                                    <p
+                                        style="color: var(--text-secondary); font-size: var(--font-size-sm); line-height: 1.7; margin: 0;">
+                                        • YouTube Muzyczny: <a
+                                            href="https://www.youtube.com/channel/UCIpPTE3HsmUSAb-yfNybvSA"
+                                            target="_blank" rel="noopener" style="color: var(--primary-color);">Hexit
+                                            Rely</a><br>
+                                        • YouTube Gaming &amp; VOD: <a href="https://www.youtube.com/@HexitIrl"
+                                            target="_blank" rel="noopener" style="color: var(--primary-color);">Its
+                                            Hexit IRL</a><br>
+                                        • Spotify: <a href="https://open.spotify.com/artist/4hcXADTFvPXtRxVTGYXW4I"
+                                            target="_blank" rel="noopener" style="color: var(--primary-color);">Olaf
+                                            Zawadzki / Hexit Rely</a><br>
+                                        • TikTok: <a href="https://www.tiktok.com/@hexit_official" target="_blank"
+                                            rel="noopener" style="color: var(--primary-color);">@hexit_official</a><br>
+                                        • Discord: <a href="https://discord.gg/BbrtEFCeJb" target="_blank"
+                                            rel="noopener" style="color: var(--primary-color);">Serwer
+                                            Społeczności</a><br>
+                                        • Instagram: <a href="https://www.instagram.com/hexit_official" target="_blank"
+                                            rel="noopener" style="color: var(--primary-color);">@hexit_official</a>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="content-card">
+                                <h3
+                                    style="font-size: var(--font-size-xl); font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-4);">
+                                    Wyślij szybką wiadomość
+                                </h3>
+                                <form action="mailto:contact@hexitrely.pl" method="post" enctype="text/plain"
+                                    class="contact-form">
+                                    <div style="margin-bottom: var(--space-4);">
+                                        <label for="form-name"
+                                            style="display: block; font-size: var(--font-size-sm); color: var(--text-secondary); margin-bottom: 6px;">Twoje
+                                            imię / Nick:</label>
+                                        <input type="text" id="form-name" name="name" required
+                                            style="width: 100%; padding: 12px 16px; background: rgba(0,0,0,0.3); border: 1px solid var(--card-border); border-radius: 8px; color: var(--text-primary); font-family: inherit;">
+                                    </div>
+                                    <div style="margin-bottom: var(--space-4);">
+                                        <label for="form-email"
+                                            style="display: block; font-size: var(--font-size-sm); color: var(--text-secondary); margin-bottom: 6px;">Twój
+                                            e-mail:</label>
+                                        <input type="email" id="form-email" name="email" required
+                                            style="width: 100%; padding: 12px 16px; background: rgba(0,0,0,0.3); border: 1px solid var(--card-border); border-radius: 8px; color: var(--text-primary); font-family: inherit;">
+                                    </div>
+                                    <div style="margin-bottom: var(--space-6);">
+                                        <label for="form-message"
+                                            style="display: block; font-size: var(--font-size-sm); color: var(--text-secondary); margin-bottom: 6px;">Wiadomość:</label>
+                                        <textarea id="form-message" name="message" rows="4" required
+                                            style="width: 100%; padding: 12px 16px; background: rgba(0,0,0,0.3); border: 1px solid var(--card-border); border-radius: 8px; color: var(--text-primary); font-family: inherit; resize: vertical;"></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary" style="width: 100%;">Wyślij wiadomość
+                                        &rarr;</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </section>
     </main>
 
-    <!-- Lightbox -->
-    <div class="lightbox" id="lightbox">
-        <div class="lightbox-content">
-            <button class="lightbox-close" id="lightbox-close">&times;</button>
-            <img class="lightbox-image" id="lightbox-image" src="" alt="">
-            <div class="lightbox-title" id="lightbox-title"></div>
-        </div>
-    </div>
-
+    <!-- Spójna Nowoczesna Stopka -->
     <footer class="modern-footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <img src="logohexit.webp" alt="Hexit Rely" class="footer-logo">
-                    <p>Creating immersive sound experiences</p>
+                    <a href="index.html" class="nav-brand">
+                        <img src="logohexit.webp" alt="Hexit Rely Logo" class="logo">
+                        <span class="brand-title">HEXIT <span class="brand-accent">RELY</span></span>
+                    </a>
+                    <p class="footer-desc">
+                        Oficjalna autorska przestrzeń Olafa "Hexit Rely" Zawadzkiego. Dźwięk, obraz, kod i transparentny
+                        proces twórczy bez zbędnego zadęcia.
+                    </p>
+                    <div class="footer-socials">
+                        <a href="https://www.youtube.com/channel/UCIpPTE3HsmUSAb-yfNybvSA" target="_blank"
+                            rel="noopener" class="social-link" title="YouTube — Produkcja Muzyczna">
+                            <img src="youtube.webp" alt="YouTube Muzyka" class="social-icon">
+                        </a>
+                        <a href="https://www.youtube.com/@HexitIrl" target="_blank" rel="noopener" class="social-link"
+                            title="Its Hexit IRL — YouTube Gaming & VOD">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M1.5 4A1.5 1.5 0 0 0 0 5.5v5A1.5 1.5 0 0 0 1.5 12h13a1.5 1.5 0 0 0 1.5-1.5v-5A1.5 1.5 0 0 0 14.5 4h-13zM6 8.5H4.5V10h-1V8.5H2v-1h1.5V6h1v1.5H6v1zM10.5 7a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm2.5 2.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg>
+                        </a>
+                        <a href="https://open.spotify.com/artist/4hcXADTFvPXtRxVTGYXW4I" target="_blank" rel="noopener"
+                            class="social-link" title="Spotify — Hexit Rely">
+                            <img src="spotify.svg" alt="Spotify" class="social-icon">
+                        </a>
+                        <a href="https://www.tiktok.com/@hexit_official" target="_blank" rel="noopener"
+                            class="social-link" title="TikTok @hexit_official">
+                            <img src="tiktok.webp" alt="TikTok" class="social-icon">
+                        </a>
+                        <a href="https://www.instagram.com/hexit_official" target="_blank" rel="noopener"
+                            class="social-link" title="Instagram">
+                            <img src="instagram.webp" alt="Instagram" class="social-icon">
+                        </a>
+                    </div>
                 </div>
+
                 <div class="footer-links">
-                    <div class="footer-section">
-                        <h4>Navigation</h4>
+                    <div class="footer-col">
+                        <h4>Nawigacja</h4>
                         <ul>
-                            <li><a href="#about">About</a></li>
-                            <li><a href="portfolio.html">Portfolio Game Dev</a></li>
-                            <li><a href="portfolio-muzyczne.html">Portfolio Muzyczne</a></li>
-                            <li><a href="offert.html">Services</a></li>
-                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="index.html">Start</a></li>
+                            <li><a href="about.html">O mnie &amp; Setup</a></li>
+                            <li><a href="index.html#projekty">Ekosystem Samplix</a></li>
+
+                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="sklep.html">Sklep (Wkrótce)</a></li>
+                            <li><a href="index.html#kontakt">Kontakt</a></li>
                         </ul>
                     </div>
-                    <div class="footer-section">
-                        <h4>Connect</h4>
+
+                    <div class="footer-col">
+                        <h4>Projekty &amp; Zewnętrzne</h4>
                         <ul>
-                            <li><a href="https://open.spotify.com/artist/4hcXADTFvPXtRxVTGYXW4I?si=PtVSpKbdTgS1t2JG468iXA&nd=1" target="_blank">Spotify</a></li>
-                            <li><a href="https://www.instagram.com/hexit_official" target="_blank">Instagram</a></li>
-                            <li><a href="https://www.youtube.com/channel/UCIpPTE3HsmUSAb-yfNybvSA" target="_blank">YouTube</a></li>
+                            <li><a href="https://samplix.hexitrely.pl/" target="_blank" rel="noopener">Samplix ↗</a>
+                            </li>
+                            <li><a href="https://4noxwav.com/" target="_blank" rel="noopener">4NOX WAV (Studio) ↗</a>
+                            </li>
+                            <li><a href="https://noxaudios.github.io/portfolio.html" target="_blank"
+                                    rel="noopener">Portfolio Game Dev ↗</a></li>
+                            <li><a href="https://noxaudios.github.io/portfolio-muzyczne.html" target="_blank"
+                                    rel="noopener">Portfolio Muzyczne ↗</a></li>
                         </ul>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4>Kontakt</h4>
+                        <p class="footer-contact-item">
+                            Napisz bezpośrednio:<br>
+                            <a href="mailto:contact@hexitrely.pl"
+                                style="color: var(--primary-color); font-weight: 600;">contact@hexitrely.pl</a>
+                        </p>
+                        <p class="footer-contact-item"
+                            style="margin-top: 12px; font-size: 13px; color: var(--text-muted);">
+                            Dołącz do społeczności:<br>
+                            <a href="https://discord.gg/BbrtEFCeJb" target="_blank" rel="noopener">Serwer Discord ↗</a>
+                        </p>
                     </div>
                 </div>
             </div>
+
             <div class="footer-bottom">
-                <p>&copy; 2024 Hexit Rely. All rights reserved.</p>
+                <p>&copy; 2024 &ndash; 2026 Olaf "Hexit Rely" Zawadzki. Wszelkie prawa zastrzeżone.</p>
+                <div class="footer-bottom-links">
+                    <a href="polityka.html">Polityka Prywatności</a>
+                    <span class="sep">&bull;</span>
+                    <a href="kontakt.html">Kontakt</a>
+                </div>
             </div>
         </div>
     </footer>
 
+    <!-- Cookie / Privacy Notice Banner -->
     <div class="privacy-notice" id="privacyNotice">
-        <p>This website uses cookies to improve your experience. <a href="polityka.html">Privacy Policy</a></p>
-        <button id="acceptButton">Accept</button>
+        <div class="container">
+            <div class="privacy-notice-content">
+                <p>Ta strona korzysta z niezbędnych plików cookies w celu poprawnego działania i analizy ruchu. Szanuję
+                    Twoją prywatność.</p>
+                <div class="privacy-notice-actions">
+                    <a href="polityka.html" class="privacy-link">Polityka prywatności</a>
+                    <button id="acceptButton" class="btn btn-primary btn-sm">Rozumiem i akceptuję</button>
+                </div>
+            </div>
+        </div>
     </div>
 
+    <!-- Dedykowany, Pływający Ambient Player w rogu ekranu -->
+    <audio id="ambientAudio" src="Sounds/Harmony.mp3" loop preload="none"></audio>
+    <div class="ambient-corner-dock" id="ambientCornerDock" role="button" tabindex="0" aria-label="Włącz ambient w tle" title="Włącz autorski ambient studyjny (Harmony)">
+        <div class="ambient-icon-wrap">
+            <span class="ambient-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg></span>
+        </div>
+        <div class="ambient-info">
+            <div class="ambient-title">
+                Ambient Studyjny
+                <div class="ambient-eq" aria-hidden="true">
+                    <span></span><span></span><span></span><span></span>
+                </div>
+            </div>
+            <div class="ambient-status">Kliknij, aby włączyć</div>
+        </div>
+        <div class="ambient-vol-wrap" title="Głośność ambientu">
+            <input type="range" min="0" max="100" value="15" class="ambient-vol-slider" aria-label="Głośność ambientu">
+        </div>
+    </div>
+
+    <!-- Scripts -->
     <script src="scripts.js"></script>
 </body>
+
 </html>

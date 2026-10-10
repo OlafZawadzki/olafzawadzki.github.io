@@ -1,40 +1,94 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog - Hexit Rely</title>
+
+    <!-- SEO Meta Tags -->
+    <title>Blog &amp; Dziennik Twórczy | HEXIT RELY — Olaf Zawadzki</title>
+    <meta name="description"
+        content="Kulisy produkcji muzycznej, programowania audio w Samplix, budowania studia DIY oraz streamingu okiem Olafa 'Hexit Rely' Zawadzkiego.">
+    <meta name="keywords" content="Hexit Rely, blog muzyczny, sound design, produkcja audio, Samplix, DAW, synteza dźwięku, Minecraft survival">
+    <meta name="author" content="Olaf 'Hexit Rely' Zawadzki">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://hexitrely.pl/blog.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="blog">
+    <meta property="og:url" content="https://hexitrely.pl/blog.html">
+    <meta property="og:title" content="Blog &amp; Dziennik Twórczy | HEXIT RELY">
+    <meta property="og:description" content="Kulisy produkcji dźwięku, oprogramowania Samplix i streamingu.">
+    <meta property="og:image" content="https://hexitrely.pl/hexit/Fotos26/hexit-face.jpg">
+
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/ico" href="logohexit.ico">
-    <meta name="description" content="Hexit Rely – Sound Designer and Music Producer specializing in immersive soundscapes, game audio, and electronic music.">
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
+    <!-- Header & Czysta, Profesjonalna Nawigacja -->
     <header class="modern-header">
-        <nav class="nav-container">
-            <div class="nav-brand">
-                <a href="index.html">
-                    <img src="logohexit.webp" alt="Hexit Rely Logo" class="logo">
-                </a>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="index.html#about">About</a></li>
-                <li><a href="portfolio.html">Portfolio Game Dev</a></li>
-                <li><a href="portfolio-muzyczne.html">Portfolio Muzyczne</a></li>
-                <li><a href="blog.html" class="active">Blog</a></li>
-                <li><a href="contact.html">Contact</a></li>
+        <nav class="nav-container" aria-label="Główna nawigacja">
+            <a href="index.html" class="nav-brand">
+                <img src="logohexit.webp" alt="Hexit Rely Logo" class="logo">
+                <span class="brand-title">HEXIT <span class="brand-accent">RELY</span></span>
+            </a>
+
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="">Start</a></li>
+                <li><a href="about.html">O mnie</a></li>
+                <li><a href="index.html#projekty">Projekty</a></li>
+                <!--<li><a href="blog.html" class="active">Blog</a></li>-->
+                <li><a href="index.html#kontakt" class="">Kontakt</a></li>
+                <li class="nav-dropdown">
+                    <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                        Portfolio ↗ <span class="dropdown-arrow">▼</span>
+                    </button>
+                    <ul class="nav-dropdown-menu">
+                        <li>
+                            <a href="https://noxaudios.github.io/portfolio.html" target="_blank" rel="noopener">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16" style="vertical-align: -2px; margin-right: 6px;"><path d="M1.5 4A1.5 1.5 0 0 0 0 5.5v5A1.5 1.5 0 0 0 1.5 12h13a1.5 1.5 0 0 0 1.5-1.5v-5A1.5 1.5 0 0 0 14.5 4h-13zM6 8.5H4.5V10h-1V8.5H2v-1h1.5V6h1v1.5H6v1zM10.5 7a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm2.5 2.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg>Game Dev
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://noxaudios.github.io/portfolio-muzyczne.html" target="_blank"
+                                rel="noopener">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16" style="vertical-align: -2px; margin-right: 6px;"><path d="M9 13c0 1.105-1.12 2-2.5 2S4 14.105 4 13s1.12-2 2.5-2 2.5.895 2.5 2z"/><path fill-rule="evenodd" d="M9 3v10H8V3h1z"/><path d="M8 2.82a1 1 0 0 1 .804-.98l3-.6A1 1 0 0 1 13 2.22V4L8 5V2.82z"/></svg>Muzyka
+                            </a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
-            <div class="nav-socials">
-                <a href="https://open.spotify.com/artist/4hcXADTFvPXtRxVTGYXW4I?si=PtVSpKbdTgS1t2JG468iXA&nd=1" target="_blank" class="social-link">
-                    <img src="spotify.webp" alt="Spotify" class="social-icon">
+
+            <div class="nav-actions">
+                <a href="stream.html" class="badge-live is-offline" id="navLiveBadge"
+                    title="Sprawdź status transmisji na żywo">
+                    <span class="live-pulse-dot"></span> OFFLINE
                 </a>
-                <a href="https://www.instagram.com/hexit_official" target="_blank" class="social-link">
-                    <img src="instagram.webp" alt="Instagram" class="social-icon">
-                </a>
-                <a href="https://www.youtube.com/channel/UCIpPTE3HsmUSAb-yfNybvSA" target="_blank" class="social-link">
-                    <img src="youtube.webp" alt="YouTube" class="social-icon">
-                </a>
+
+                <div class="nav-socials">
+                    <a href="https://www.youtube.com/channel/UCIpPTE3HsmUSAb-yfNybvSA" target="_blank" rel="noopener"
+                        class="social-link" title="YouTube">
+                        <img src="youtube.webp" alt="YouTube" class="social-icon">
+                    </a>
+                    <a href="https://open.spotify.com/artist/4hcXADTFvPXtRxVTGYXW4I?si=PtVSpKbdTgS1t2JG468iXA&nd=1"
+                        target="_blank" rel="noopener" class="social-link" title="Spotify">
+                        <img src="spotify.svg" alt="Spotify" class="social-icon">
+                    </a>
+                    <a href="https://www.instagram.com/hexit_official" target="_blank" rel="noopener"
+                        class="social-link" title="Instagram">
+                        <img src="instagram.webp" alt="Instagram" class="social-icon">
+                    </a>
+                </div>
+
+                <button class="nav-toggle" id="navToggle" aria-label="Otwórz menu nawigacji">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
         </nav>
     </header>
@@ -54,22 +108,23 @@
                 <div class="blog-layout">
                     <div class="blog-posts">
                         <h2 class="section-title">Latest Posts</h2>
-                        
-                        
-                        
-                     
+
+
+
+
 
                         <!-- Blog Post 3 -->
                         <article class="blog-post">
                             <div class="post-meta">
-                                <span class="post-date">DATA   </span>
+                                <span class="post-date">DATA </span>
                                 <span class="post-category">Behind the Scenes</span>
                             </div>
                             <h3 class="post-title">
                                 <a href="link do blog posta ">Creating the Soundtrack for "Spirits Among the Trees"</a>
                             </h3>
                             <p class="post-excerpt">
-                                A deep dive into the creative process behind one of my recent game soundtracks and the challenges of atmospheric composition.
+                                A deep dive into the creative process behind one of my recent game soundtracks and the
+                                challenges of atmospheric composition.
                             </p>
                             <div class="post-footer">
                                 <a href="blog-post-3.html" class="read-more">Read More</a>
@@ -128,9 +183,11 @@
                     <div class="footer-section">
                         <h4>Connect</h4>
                         <ul>
-                            <li><a href="https://open.spotify.com/artist/4hcXADTFvPXtRxVTGYXW4I?si=PtVSpKbdTgS1t2JG468iXA&nd=1" target="_blank">Spotify</a></li>
+                            <li><a href="https://open.spotify.com/artist/4hcXADTFvPXtRxVTGYXW4I?si=PtVSpKbdTgS1t2JG468iXA&nd=1"
+                                    target="_blank">Spotify</a></li>
                             <li><a href="https://www.instagram.com/hexit_official" target="_blank">Instagram</a></li>
-                            <li><a href="https://www.youtube.com/channel/UCIpPTE3HsmUSAb-yfNybvSA" target="_blank">YouTube</a></li>
+                            <li><a href="https://www.youtube.com/channel/UCIpPTE3HsmUSAb-yfNybvSA"
+                                    target="_blank">YouTube</a></li>
                         </ul>
                     </div>
                 </div>
@@ -146,6 +203,27 @@
         <button id="acceptButton">Accept</button>
     </div>
 
+    <!-- Dedykowany, Pływający Ambient Player w rogu ekranu -->
+    <audio id="ambientAudio" src="Sounds/Harmony.mp3" loop preload="none"></audio>
+    <div class="ambient-corner-dock" id="ambientCornerDock" role="button" tabindex="0" aria-label="Włącz ambient w tle" title="Włącz autorski ambient studyjny (Harmony)">
+        <div class="ambient-icon-wrap">
+            <span class="ambient-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg></span>
+        </div>
+        <div class="ambient-info">
+            <div class="ambient-title">
+                Ambient Studyjny
+                <div class="ambient-eq" aria-hidden="true">
+                    <span></span><span></span><span></span><span></span>
+                </div>
+            </div>
+            <div class="ambient-status">Kliknij, aby włączyć</div>
+        </div>
+        <div class="ambient-vol-wrap" title="Głośność ambientu">
+            <input type="range" min="0" max="100" value="15" class="ambient-vol-slider" aria-label="Głośność ambientu">
+        </div>
+    </div>
+
     <script src="scripts.js"></script>
 </body>
+
 </html>
