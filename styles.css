@@ -5046,4 +5046,529 @@ a:hover {
     .ambient-vol-wrap {
         display: none;
     }
-}
+}
+
+/* ==========================================================================
+   SEKCJA WYDANIA & PODSTRONA WYDANIA (RELEASES & STEMS HUB)
+   ========================================================================== */
+
+/* Sekcja Główna Wydania na Stronie Głównej */
+.releases-section {
+    padding: var(--space-20) 0;
+    position: relative;
+    background: radial-gradient(circle at 80% 20%, rgba(74, 222, 158, 0.05) 0%, transparent 60%),
+                radial-gradient(circle at 10% 80%, rgba(245, 158, 11, 0.03) 0%, transparent 50%),
+                var(--bg-primary);
+}
+
+.featured-release-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--card-radius);
+    padding: var(--space-8);
+    margin-bottom: var(--space-12);
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    gap: var(--space-10);
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.featured-release-card:hover {
+    border-color: rgba(74, 222, 158, 0.35);
+    box-shadow: 0 20px 45px -12px rgba(0, 0, 0, 0.8), 0 0 35px rgba(74, 222, 158, 0.12);
+}
+
+/* Vinyl + Cover Interactive Art */
+.release-cover-container {
+    position: relative;
+    width: 100%;
+    max-width: 340px;
+    margin: 0 auto;
+    perspective: 1000px;
+}
+
+.release-vinyl-wrap {
+    position: relative;
+    width: 280px;
+    height: 280px;
+    margin: 0 auto;
+}
+
+.release-vinyl-disc {
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    top: 10px;
+    right: 0px;
+    background: radial-gradient(circle, #2a2a2a 0%, #151515 45%, #050505 70%, #1a1a1a 100%);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
+    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.release-vinyl-center {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #12100e 30%, #4ade9e 100%);
+    border: 3px solid #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-align: center;
+    padding: 6px;
+}
+
+.release-cover-container:hover .release-vinyl-disc,
+.featured-release-card:hover .release-vinyl-disc {
+    transform: translateX(45px) rotate(140deg);
+}
+
+.release-cover-art {
+    position: relative;
+    width: 270px;
+    height: 270px;
+    border-radius: 16px;
+    object-fit: cover;
+    z-index: 2;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    transition: transform 0.4s ease;
+    display: block;
+}
+
+.release-cover-container:hover .release-cover-art {
+    transform: scale(1.02);
+}
+
+/* Informacje o wydaniu */
+.release-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.release-badge-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.release-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.pill-primary {
+    background: rgba(74, 222, 158, 0.14);
+    color: var(--primary-color);
+    border: 1px solid rgba(74, 222, 158, 0.3);
+}
+
+.pill-stems {
+    background: rgba(245, 158, 11, 0.14);
+    color: var(--gaming-color);
+    border: 1px solid rgba(245, 158, 11, 0.35);
+}
+
+.pill-meta {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+}
+
+.release-title {
+    font-size: var(--font-size-3xl);
+    font-weight: 800;
+    color: var(--text-primary);
+    line-height: 1.2;
+    margin: 0;
+}
+
+.release-artist {
+    font-size: var(--font-size-base);
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.release-desc {
+    color: var(--text-secondary);
+    font-size: var(--font-size-base);
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* Wbudowany odtwarzacz w karcie */
+.release-player-widget {
+    background: rgba(18, 16, 14, 0.7);
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 4px;
+}
+
+.btn-play-release {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--gradient-primary);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #12100e;
+    flex-shrink: 0;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 14px rgba(74, 222, 158, 0.4);
+}
+
+.btn-play-release:hover {
+    transform: scale(1.08);
+    box-shadow: 0 6px 18px rgba(74, 222, 158, 0.6);
+}
+
+.release-progress-wrap {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.release-track-bar {
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 999px;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.release-track-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--gradient-primary);
+    border-radius: 999px;
+    transition: width 0.1s linear;
+}
+
+.release-player-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--font-size-xs);
+    color: var(--text-muted);
+}
+
+.release-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 6px;
+}
+
+/* Kafelki archiwalnych / innych wydań */
+.releases-catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-6);
+}
+
+.catalog-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--card-radius);
+    padding: var(--space-6);
+    display: flex;
+    gap: var(--space-4);
+    align-items: center;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.catalog-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(74, 222, 158, 0.4);
+}
+
+.catalog-thumb {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    object-fit: cover;
+    border: 1px solid var(--border-color);
+    flex-shrink: 0;
+}
+
+.catalog-body {
+    flex: 1;
+}
+
+.catalog-body h4 {
+    font-size: var(--font-size-base);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+}
+
+.catalog-body p {
+    font-size: var(--font-size-xs);
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin-bottom: 8px;
+}
+
+/* ==========================================================================
+   STRONA POJEDYNCZEGO WYDANIA (DEDICATED RELEASE PAGE)
+   ========================================================================== */
+
+.release-page-container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: var(--space-12) var(--space-4) var(--space-20);
+}
+
+.release-breadcrumb {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    font-size: var(--font-size-sm);
+    color: var(--text-muted);
+    margin-bottom: var(--space-8);
+}
+
+.release-breadcrumb a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.release-breadcrumb a:hover {
+    color: var(--primary-color);
+}
+
+.release-hero-grid {
+    display: grid;
+    grid-template-columns: 420px 1fr;
+    gap: var(--space-12);
+    align-items: start;
+    margin-bottom: var(--space-16);
+}
+
+.release-poster-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--card-radius);
+    padding: var(--space-6);
+    box-shadow: var(--card-shadow);
+    text-align: center;
+}
+
+.release-poster-img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 16px;
+    object-fit: cover;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: var(--space-4);
+}
+
+.release-specs-table {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: var(--space-4);
+    text-align: left;
+}
+
+.spec-item {
+    background: rgba(18, 16, 14, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 8px 12px;
+}
+
+.spec-label {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: block;
+}
+
+.spec-val {
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+/* Stems Download Card */
+.stems-package-card {
+    background: linear-gradient(145deg, rgba(30, 25, 20, 0.95) 0%, rgba(18, 16, 14, 0.98) 100%);
+    border: 2px solid rgba(245, 158, 11, 0.35);
+    border-radius: var(--card-radius);
+    padding: var(--space-8);
+    margin-bottom: var(--space-12);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 25px rgba(245, 158, 11, 0.08);
+}
+
+.stems-package-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: var(--space-6);
+}
+
+.stems-package-title {
+    font-size: var(--font-size-2xl);
+    font-weight: 800;
+    color: var(--text-primary);
+    margin: 0 0 4px;
+}
+
+.stems-items-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+    margin: var(--space-6) 0;
+}
+
+.stem-track-pill {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+}
+
+.stem-track-pill svg {
+    color: var(--primary-color);
+    flex-shrink: 0;
+}
+
+.stems-license-notice {
+    font-size: var(--font-size-xs);
+    color: var(--text-muted);
+    background: rgba(0, 0, 0, 0.3);
+    border-left: 3px solid var(--gaming-color);
+    padding: 10px 14px;
+    border-radius: 0 8px 8px 0;
+    margin-top: var(--space-4);
+    line-height: 1.6;
+}
+
+/* Visual Assets Section */
+.visuals-download-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--space-6);
+    margin-top: var(--space-6);
+}
+
+.visual-asset-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--card-radius);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.visual-asset-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(74, 222, 158, 0.3);
+}
+
+.visual-asset-preview {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    background: #000;
+    display: block;
+}
+
+.visual-asset-card.square-ratio .visual-asset-preview {
+    aspect-ratio: 1 / 1;
+}
+
+.visual-asset-info {
+    padding: var(--space-5);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+}
+
+.visual-asset-info h4 {
+    font-size: var(--font-size-base);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.visual-asset-info p {
+    font-size: var(--font-size-xs);
+    color: var(--text-muted);
+    margin: 0;
+    line-height: 1.5;
+}
+
+.visual-asset-info .btn {
+    margin-top: auto;
+}
+
+@media (max-width: 992px) {
+    .featured-release-card {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: var(--space-6);
+    }
+    .release-cover-container {
+        margin: 0 auto;
+    }
+    .release-actions {
+        justify-content: center;
+    }
+    .release-badge-row {
+        justify-content: center;
+    }
+    .release-hero-grid {
+        grid-template-columns: 1fr;
+    }
+}
+

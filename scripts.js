@@ -762,5 +762,71 @@ function initAmbientPlayer() {
   }
 }
 
+// Inicjalizacja szybkiego odtwarzacza w kafelkach wydań (np. na stronie głównej)
+document.addEventListener("DOMContentLoaded", function () {
+  const releaseBtn = document.getElementById("releasePlayBtn");
+  if (!releaseBtn) return;
+
+  const playIcon = document.getElementById("releasePlayIcon");
+  const trackBar = document.getElementById("releaseTrackBar");
+  const trackFill = document.getElementById("releaseTrackFill");
+  const currentTimeEl = document.getElementById("releaseCurrentTime");
+  const totalDurationEl = document.getElementById("releaseTotalDuration");
+  const audioSrc = releaseBtn.getAttribute("data-audio-src") || "Sounds/Harmony.mp3";
+
+  let releaseAudio = document.getElementById("globalReleaseAudio");
+  if (!releaseAudio) {
+    releaseAudio = new Audio(audioSrc);
+    releaseAudio.id = "globalReleaseAudio";
+    releaseAudio.preload = "metadata";
+  }
+
+  const playSvg = '<path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>';
+  const pauseSvg = '<path d="M5.5 3.5A1.5 1.5 0 0 1 7 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5zm5 0A1.5 1.5 0 0 1 12 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5z"/>';
+
+  const formatSecs = (sec) => {
+    const m = Math.floor(sec / 60);
+    const s = Math.floor(sec % 60);
+    return `${m}:${s < 10 ? '0' : ''}${s}`;
+  };
+
+  releaseBtn.addEventListener("click", function () {
+    if (releaseAudio.paused) {
+      releaseAudio.play().then(() => {
+        if (playIcon) playIcon.innerHTML = pauseSvg;
+      }).catch(err => console.log("Audio play error:", err));
+    } else {
+      releaseAudio.pause();
+      if (playIcon) playIcon.innerHTML = playSvg;
+    }
+  });
+
+  releaseAudio.addEventListener("timeupdate", function () {
+    if (releaseAudio.duration) {
+      const pct = (releaseAudio.currentTime / releaseAudio.duration) * 100;
+      if (trackFill) trackFill.style.width = pct + "%";
+      if (currentTimeEl) currentTimeEl.textContent = formatSecs(releaseAudio.currentTime);
+      if (totalDurationEl) totalDurationEl.textContent = formatSecs(releaseAudio.duration);
+    }
+  });
+
+  releaseAudio.addEventListener("ended", function () {
+    if (playIcon) playIcon.innerHTML = playSvg;
+    if (trackFill) trackFill.style.width = "0%";
+    if (currentTimeEl) currentTimeEl.textContent = "0:00";
+  });
+
+  if (trackBar) {
+    trackBar.addEventListener("click", function (e) {
+      if (releaseAudio.duration) {
+        const rect = trackBar.getBoundingClientRect();
+        const pos = (e.clientX - rect.left) / rect.width;
+        releaseAudio.currentTime = pos * releaseAudio.duration;
+      }
+    });
+  }
+});
+
+
 
 

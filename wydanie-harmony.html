@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>Hexit Rely — Harmony | Wydanie, Streaming, STEMS &amp; Grafiki</title>
+    <meta name="description"
+        content="Oficjalna strona wydania utworu 'Harmony' od Hexit Rely. Odsłuchaj w streamingach, pobierz bezpłatnie wielościeżkowe STEMS oraz oficjalne grafiki.">
+    <meta name="keywords" content="Hexit Rely, Harmony, utwór, singiel, stems, pobierz stemsy, tapety, okładka, remix, Orhestra / Classic">
+    <meta name="author" content="Hexit Rely">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://hexitrely.pl/wydanie-harmony.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="music.song">
+    <meta property="og:title" content="Hexit Rely — Harmony">
+    <meta property="og:description" content="O czym jest „Harmony”?
+„Harmony” to utwór, który powstał w środku nocy, podczas jednej z tych ostrych, bezsennych nocy. Stworzyłem go z myśli o całkowitym relaksie, odmożdżeniu i odcięciu się od codziennych problemów oraz natłoku myśli.">
+    <meta property="og:image" content="https://hexitrely.pl/hexit/releases/harmony/Cover.png">
+    <meta property="og:url" content="https://hexitrely.pl/wydanie-harmony.html">
+
+    <!-- Stylesheets & Fonts -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/ico" href="logohexit.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        .view-mode-tabs {
+            display: inline-flex;
+            background: rgba(18, 16, 14, 0.85);
+            border: 1px solid var(--border-color);
+            padding: 4px;
+            border-radius: 999px;
+            gap: 4px;
+            margin-bottom: var(--space-8);
+            backdrop-filter: blur(12px);
+        }
+        .view-mode-btn {
+            border: none;
+            background: transparent;
+            color: var(--text-secondary);
+            font-size: var(--font-size-sm);
+            font-weight: 600;
+            padding: 8px 18px;
+            border-radius: 999px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .view-mode-btn.active {
+            background: var(--gradient-primary);
+            color: #12100e;
+            box-shadow: 0 4px 14px rgba(74, 222, 158, 0.35);
+        }
+        .release-bio-container {
+            max-width: 480px;
+            margin: 0 auto;
+            text-align: center;
+            padding: var(--space-6) var(--space-4) var(--space-12);
+        }
+        .release-bio-card {
+            background: linear-gradient(145deg, rgba(28, 25, 22, 0.95) 0%, rgba(18, 16, 14, 0.98) 100%);
+            border: 1px solid rgba(74, 222, 158, 0.25);
+            border-radius: 24px;
+            padding: var(--space-8) var(--space-6);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 30px rgba(74, 222, 158, 0.08);
+            backdrop-filter: blur(16px);
+        }
+        .bio-track-cover {
+            width: 180px;
+            height: 180px;
+            border-radius: 18px;
+            object-fit: cover;
+            margin: 0 auto 18px;
+            display: block;
+            border: 2px solid rgba(74, 222, 158, 0.4);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(74, 222, 158, 0.2);
+            transition: transform 0.3s ease;
+        }
+        .bio-platform-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: var(--space-6);
+        }
+        .bio-platform-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 18px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .bio-platform-btn:hover {
+            transform: translateY(-2px);
+            border-color: var(--primary-color);
+            background: rgba(74, 222, 158, 0.08);
+            color: var(--primary-color);
+            box-shadow: 0 6px 18px rgba(74, 222, 158, 0.15);
+        }
+        .bio-platform-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .bio-platform-icon {
+            width: 22px;
+            height: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .bio-action-tag {
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.06);
+            color: var(--text-muted);
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+        .bio-platform-btn:hover .bio-action-tag {
+            background: var(--primary-color);
+            color: #12100e;
+        }
+        .custom-audio-hub {
+            background: rgba(18, 16, 14, 0.85);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 16px 20px;
+            margin: var(--space-6) 0;
+        }
+        .audio-wave-anim {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            height: 24px;
+            margin-bottom: 8px;
+        }
+        .wave-bar {
+            width: 3px;
+            height: 6px;
+            background: var(--primary-color);
+            border-radius: 2px;
+            transition: height 0.2s ease;
+        }
+        .is-playing .wave-bar {
+            animation: waveBounce 1.2s ease-in-out infinite alternate;
+        }
+        .is-playing .wave-bar:nth-child(2) { animation-delay: 0.15s; }
+        .is-playing .wave-bar:nth-child(3) { animation-delay: 0.3s; }
+        .is-playing .wave-bar:nth-child(4) { animation-delay: 0.45s; }
+        .is-playing .wave-bar:nth-child(5) { animation-delay: 0.2s; }
+        .is-playing .wave-bar:nth-child(6) { animation-delay: 0.35s; }
+        @keyframes waveBounce {
+            0% { height: 4px; }
+            50% { height: 22px; }
+            100% { height: 8px; }
+        }
+        .image-lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.92);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .image-lightbox.active {
+            display: flex;
+        }
+        .lightbox-img {
+            max-width: 90vw;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 12px;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s ease;
+        }
+        .lightbox-close:hover {
+            background: var(--primary-color);
+            color: #000;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header & Nawigacja -->
+    <header class="modern-header">
+        <nav class="nav-container" aria-label="Główna nawigacja">
+            <a href="index.html" class="nav-brand">
+                <img src="logohexit.webp" alt="Hexit Rely Logo" class="logo">
+                <span class="brand-title">HEXIT <span class="brand-accent">RELY</span></span>
+            </a>
+
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Start</a></li>
+                <li><a href="about.html">O mnie</a></li>
+                <li><a href="wydania.html" class="active">Wydania</a></li>
+                <li><a href="index.html#projekty">Projekty</a></li>
+                <li><a href="index.html#kontakt">Kontakt</a></li>
+                <li class="nav-dropdown">
+                    <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                        Portfolio ↗ <span class="dropdown-arrow">▼</span>
+                    </button>
+                    <ul class="nav-dropdown-menu">
+                        <li>
+                            <a href="https://noxaudios.github.io/portfolio.html" target="_blank" rel="noopener">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16" style="vertical-align: -2px; margin-right: 6px;"><path d="M1.5 4A1.5 1.5 0 0 0 0 5.5v5A1.5 1.5 0 0 0 1.5 12h13a1.5 1.5 0 0 0 1.5-1.5v-5A1.5 1.5 0 0 0 14.5 4h-13zM6 8.5H4.5V10h-1V8.5H2v-1h1.5V6h1v1.5H6v1zM10.5 7a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm2.5 2.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg>Game Dev
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://noxaudios.github.io/portfolio-muzyczne.html" target="_blank" rel="noopener">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16" style="vertical-align: -2px; margin-right: 6px;"><path d="M9 13c0 1.105-1.12 2-2.5 2S4 14.105 4 13s1.12-2 2.5-2 2.5.895 2.5 2z"/><path fill-rule="evenodd" d="M9 3v10H8V3h1z"/><path d="M8 2.82a1 1 0 0 1 .804-.98l3-.6A1 1 0 0 1 13 2.22V4L8 5V2.82z"/></svg>Muzyka
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+            <div class="nav-actions">
+                <div class="nav-socials">
+                    <a href="https://www.youtube.com/channel/UCIpPTE3HsmUSAb-yfNybvSA" target="_blank" rel="noopener" class="social-link" title="YouTube">
+                        <img src="youtube.webp" alt="YouTube" class="social-icon">
+                    </a>
+                    <a href="https://open.spotify.com/artist/4hcXADTFvPXtRxVTGYXW4I" target="_blank" rel="noopener" class="social-link" title="Spotify">
+                        <img src="spotify.svg" alt="Spotify" class="social-icon">
+                    </a>
+                    <a href="https://www.tiktok.com/@hexit_official" target="_blank" rel="noopener" class="social-link" title="TikTok">
+                        <img src="tiktok.webp" alt="TikTok" class="social-icon">
+                    </a>
+                    <a href="https://www.instagram.com/hexit_official" target="_blank" rel="noopener" class="social-link" title="Instagram">
+                        <img src="instagram.webp" alt="Instagram" class="social-icon">
+                    </a>
+                </div>
+
+                <button class="nav-toggle" id="navToggle" aria-label="Otwórz menu nawigacji">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+    <div class="nav-overlay" id="navOverlay"></div>
+
+    <main style="padding-top: 100px; padding-bottom: var(--space-20);">
+        <div class="container">
+            <!-- Okruszki chleba -->
+            <div style="display: flex; gap: 8px; align-items: center; margin-bottom: var(--space-6);">
+                <a href="wydania.html" style="color: var(--text-muted); text-decoration: none; font-size: var(--font-size-sm);">&larr; Wszystkie Wydania &amp; STEMS</a>
+                <span style="color: var(--border-color);">&bull;</span>
+                <span style="color: var(--primary-color); font-size: var(--font-size-sm); font-weight: 600;">Harmony</span>
+            </div>
+
+
+
+            <!-- WIDOK: PEŁNA STRONA WYDANIA -->
+            <div id="fullPageView">
+                <div class="release-hero-grid" style="display: grid; grid-template-columns: minmax(280px, 420px) 1fr; gap: var(--space-12); align-items: start; margin-bottom: var(--space-16);">
+                    <!-- Lewa Kolumna: Okładka i Specyfikacja Techniczna -->
+                    <div>
+                        <div class="release-cover-frame" style="position: relative; border-radius: 20px; overflow: hidden; border: 1px solid rgba(74, 222, 158, 0.3); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6); aspect-ratio: 1/1; background: #0a0908;">
+                            <img src="hexit/releases/harmony/Cover.png" alt="Okładka Harmony" style="width: 100%; height: 100%; object-fit: cover; display: block;" id="mainCoverImg">
+                            <button type="button" class="zoom-cover-btn" id="btnZoomCover" aria-label="Powiększ okładkę" style="position: absolute; bottom: 12px; right: 12px; background: rgba(0,0,0,0.7); border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; padding: 6px 12px; color: #fff; font-size: 0.75rem; cursor: pointer; backdrop-filter: blur(8px);">
+                                Powiększ &oplus;
+                            </button>
+                        </div>
+
+                        <!-- Parametry techniczne utworu -->
+                        <div class="track-specs-card" style="margin-top: var(--space-6); background: rgba(18, 16, 14, 0.7); border: 1px solid var(--border-color); border-radius: 16px; padding: var(--space-4) var(--space-6);">
+                            <h4 style="font-size: var(--font-size-xs); color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px;">Metadane Studyjne</h4>
+                            <div class="spec-item">
+                                <span class="spec-label">Tempo</span>
+                                <span class="spec-val">122 BPM</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Tonacja</span>
+                                <span class="spec-val">D Major</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Długość</span>
+                                <span class="spec-val">3:32</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Jakość Mastera</span>
+                                <span class="spec-val">48 kHz / 24-bit</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Gatunek</span>
+                                <span class="spec-val">Orhestra / Classic</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Producent</span>
+                                <span class="spec-val">Hexit Rely</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Format STEMS</span>
+                                <span class="spec-val">WAV / MP3</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Prawa Kolumna: Tytuł, Odtwarzacz, Opis i Linki -->
+                    <div>
+                        <div class="release-badge-row" style="margin-bottom: var(--space-3);">
+                            <span class="release-pill pill-primary">Nowy Singiel</span>
+                            <span class="release-pill pill-stems">Mp3 Files</span>
+                            <span class="release-pill pill-meta">122 BPM • D Major</span>
+                            <span class="release-pill pill-meta">Orhestra / Classic</span>
+                        </div>
+
+                        <h1 class="hero-title" style="font-size: var(--font-size-4xl); margin-bottom: 4px;">Harmony</h1>
+                        <span style="font-size: var(--font-size-lg); color: var(--primary-color); font-weight: 700; display: block; margin-bottom: var(--space-4);">
+                            Hexit Rely &bull; 2026
+                        </span>
+
+                        <!-- Główny Zaawansowany Audio Player Utworu -->
+                        <div class="custom-audio-hub" id="mainAudioPlayerCard">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                                <div>
+                                    <strong style="color: var(--text-primary); font-size: var(--font-size-sm); display: block;">Harmony &bull; Pełny Odsłuch Audio</strong>
+                                    <span style="color: var(--text-muted); font-size: var(--font-size-xs);">Plik preview w wysokiej jakości</span>
+                                </div>
+                                <div class="audio-wave-anim" id="waveVisualizer">
+                                    <div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div>
+                                    <div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div>
+                                </div>
+                            </div>
+
+                            <div style="display: flex; align-items: center; gap: 16px;">
+                                <button type="button" class="btn-play-release" id="pagePlayBtn" aria-label="Odtwórz lub wstrzymaj Harmony" data-audio-src="hexit/releases/harmony/Harmony.mp3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16" id="pagePlayIcon">
+                                        <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
+                                    </svg>
+                                </button>
+                                <div class="release-progress-wrap">
+                                    <div class="release-track-bar" id="pageTrackBar">
+                                        <div class="release-track-fill" id="pageTrackFill"></div>
+                                    </div>
+                                    <div class="release-player-meta">
+                                        <span id="pageCurrentTime">0:00</span>
+                                        <span>D Major &bull; 122 BPM</span>
+                                        <span id="pageTotalDuration">3:32</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Opis Utworu & Zamysł -->
+                        <div style="margin: var(--space-6) 0;">
+                            <h3 style="font-size: var(--font-size-lg); font-weight: 700; color: var(--text-primary); margin-bottom: 8px;">
+                                O utworze &amp; Procesie Produkcji
+                            </h3>
+                            <p style="color: var(--text-secondary); line-height: 1.7; font-size: var(--font-size-base); margin-bottom: 12px; white-space: pre-line;">
+                                O czym jest „Harmony”?
+„Harmony” to utwór, który powstał w środku nocy, podczas jednej z tych ostrych, bezsennych nocy. Stworzyłem go z myśli o całkowitym relaksie, odmożdżeniu i odcięciu się od codziennych problemów oraz natłoku myśli.
+
+Miał pomóc zasnąć mi – a teraz może pomóc również Tobie. Włącz, odpręż się i pozwól sobie na chwilę spokoju. ✨
+                            </p>
+                            <p style="color: var(--text-secondary); line-height: 1.7; font-size: var(--font-size-base); margin-bottom: var(--space-6); white-space: pre-line;">
+                                Podczas produkcji wykorzystałem głównie wtyczki takie jak bbc symphony labs oraz sample własnego autorstwa
+                            </p>
+                        </div>
+
+                        <!-- Szybkie Skróty do Sekcji -->
+                        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                            <a href="#stems-sekcja" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 8px;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/><path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/></svg>
+                                Pobierz STEMS &darr;
+                            </a>
+                            <a href="#grafiki-sekcja" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 8px;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/><path d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1h12z"/></svg>
+                                Grafiki &amp; Tapety &darr;
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SEKCJA: POBIERZ STEMS & MATERIAŁY AUDIO DLA TWÓRCÓW -->
+                <div class="stems-package-card" id="stems-sekcja">
+                    <div class="stems-package-header">
+                        <div>
+                            <div style="display: flex; gap: 8px; align-items: center; margin-bottom: 6px;">
+                                <span class="release-pill pill-stems">Multitrack</span>
+                                <span class="release-pill pill-meta">Stems Paczka</span>
+                            </div>
+                            <h2 class="stems-package-title">Pobierz STEMS (Do Remiksów)</h2>
+                            <p style="color: var(--text-secondary); margin: 0; font-size: var(--font-size-sm);">
+                                Pobierz kompletną paczkę wielościeżkową lub pobieraj pojedyncze ścieżki osobno poniżej:
+                            </p>
+                        </div>
+                        <a href="https://mega.nz/folder/xAgWyK7I#uesb6uoEq2cTSnuUtDfDyA" target="_blank" rel="noopener" class="btn btn-primary btn-large" style="display: inline-flex; align-items: center; gap: 10px; flex-shrink: 0;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/><path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/></svg>Pobierz Paczkę STEMS (.ZIP) ↗</a>
+                    </div>
+
+                    <!-- Lista ścieżek zawartych w paczce -->
+                    <div style="margin-bottom: 8px;">
+                        <span style="font-size: var(--font-size-xs); color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700;">
+                            Pobierz pojedyncze ścieżki osobno (WAV / MP3):
+                        </span>
+                    </div>
+                    <div class="stems-items-list">
+
+                        <div class="stem-track-pill" style="justify-content: space-between;">
+                            <div style="display: flex; align-items: center; gap: 8px;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M9 13c0 1.105-1.12 2-2.5 2S4 14.105 4 13s1.12-2 2.5-2 2.5.895 2.5 2z"/><path fill-rule="evenodd" d="M9 3v10H8V3h1z"/><path d="M8 2.82a1 1 0 0 1 .804-.98l3-.6A1 1 0 0 1 13 2.22V4L8 5V2.82z"/></svg>
+                                <span>Steams</span>
+                            </div>
+                            <a href="https://mega.nz/folder/xAgWyK7I#uesb6uoEq2cTSnuUtDfDyA" target="_blank" rel="noopener" class="btn btn-secondary btn-sm" style="padding: 4px 12px; font-size: 0.75rem;">Pobierz ↗</a>
+                        </div>
+                    </div>
+
+                    <div class="stems-license-notice">
+                        Licencja Creative Commons (CC BY-NC 4.0): Masz pełne prawo do bezpłatnego pobierania, cięcia sampli, tworzenia remiksów, grania w setach DJ-skich oraz wykorzystywania jako podkład w filmach. Wystarczy podać: Muzyka: Hexit Rely.
+                    </div>
+                </div>
+
+                <!-- SEKCJA: GRAFIKI, ARTY & TAPETY (DO POBRANIA) -->
+                <div style="margin-bottom: var(--space-16);" id="grafiki-sekcja">
+                    <div class="section-header-wrap" style="text-align: left; margin-bottom: var(--space-6);">
+                        <span class="section-eyebrow">Visual Assets &bull; Grafiki &amp; Tapety</span>
+                        <h2 class="section-title">Oficjalne Arty i Tapety do Pobrania</h2>
+                        <p class="section-desc" style="margin-left: 0;">
+                            Pobierz oficjalne materiały wizualne w pełnej rozdzielczości: okładkę albumu, tapetę na komputer oraz grafikę pionową na ekran blokady smartfona.
+                        </p>
+                    </div>
+
+                    <div class="visuals-download-grid">
+                        <!-- Okładka HQ (1:1) -->
+                        <div class="visual-asset-card square-ratio">
+                            <img src="hexit/releases/harmony/Cover.png" alt="Okładka Harmony" class="visual-asset-preview" loading="lazy">
+                            <div class="visual-asset-info">
+                                <div>
+                                    <span class="release-pill pill-meta" style="margin-bottom: 6px;">Format 1:1</span>
+                                    <h4>Oficjalna Okładka Utworu</h4>
+                                </div>
+                                <p>Oryginalny artwork singla w bezstratnej jakości.</p>
+                                <div style="display: flex; gap: 8px; margin-top: auto;">
+                                    <button type="button" class="btn btn-secondary btn-sm" onclick="openLightbox('hexit/releases/harmony/Cover.png')">
+                                        Powiększ
+                                    </button>
+                                    <a href="hexit/releases/harmony/Cover.png" download="Hexit Rely_Harmony_Cover.jpg" class="btn btn-primary btn-sm" style="flex: 1; text-align: center;">
+                                        Pobierz &darr;
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tapeta PC (16:9) -->
+                        <div class="visual-asset-card">
+                            <img src="hexit/releases/harmony/Harmony clear bg.png" alt="Tapeta PC Harmony" class="visual-asset-preview" loading="lazy">
+                            <div class="visual-asset-info">
+                                <div>
+                                    <span class="release-pill pill-primary" style="margin-bottom: 6px;">Format 16:9</span>
+                                    <h4>Tapeta na Pulpit Komputera</h4>
+                                </div>
+                                <p>Szerokokątna grafika wysokiej rozdzielczości na monitor.</p>
+                                <div style="display: flex; gap: 8px; margin-top: auto;">
+                                    <button type="button" class="btn btn-secondary btn-sm" onclick="openLightbox('hexit/releases/harmony/Harmony clear bg.png')">
+                                        Powiększ
+                                    </button>
+                                    <a href="hexit/releases/harmony/Harmony clear bg.png" download="Hexit Rely_Harmony_Desktop.jpg" class="btn btn-primary btn-sm" style="flex: 1; text-align: center;">
+                                        Pobierz &darr;
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tapeta Smartfon (9:16) -->
+                        <div class="visual-asset-card">
+                            <img src="hexit/releases/harmony/Harmony 9-16.png" alt="Tapeta Smartfon Harmony" class="visual-asset-preview" style="object-position: center 30%;" loading="lazy">
+                            <div class="visual-asset-info">
+                                <div>
+                                    <span class="release-pill pill-stems" style="margin-bottom: 6px;">Format 9:16</span>
+                                    <h4>Tapeta na Smartfon (Ekran blokady)</h4>
+                                </div>
+                                <p>Dedykowana tapeta pionowa na ekrany telefonów (iOS / Android).</p>
+                                <div style="display: flex; gap: 8px; margin-top: auto;">
+                                    <button type="button" class="btn btn-secondary btn-sm" onclick="openLightbox('hexit/releases/harmony/Harmony 9-16.png')">
+                                        Powiększ
+                                    </button>
+                                    <a href="hexit/releases/harmony/Harmony 9-16.png" download="Hexit Rely_Harmony_Phone.jpg" class="btn btn-primary btn-sm" style="flex: 1; text-align: center;">
+                                        Pobierz &darr;
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </main>
+
+    <!-- Lightbox Modal -->
+    <div class="image-lightbox" id="imageLightbox">
+        <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Zamknij podgląd">&times;</button>
+        <img src="" alt="Podgląd grafiki" class="lightbox-img" id="lightboxImg">
+    </div>
+
+    <!-- Footer -->
+    <footer class="modern-footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Hexit Rely. Wszelkie prawa zastrzeżone.</p>
+                <div class="footer-links">
+                    <a href="wydania.html">Wszystkie Wydania</a>
+                    <a href="bio.html">Oficjalne Bio Linki</a>
+                    <a href="polityka.html">Polityka Prywatności</a>
+                    <a href="index.html#kontakt">Kontakt</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Wspólny element Audio -->
+    <audio id="releaseAudioElement" src="hexit/releases/harmony/Harmony.mp3" preload="metadata"></audio>
+
+    <script src="scripts.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const audio = document.getElementById('releaseAudioElement');
+            const pagePlayBtn = document.getElementById('pagePlayBtn');
+            const pagePlayIcon = document.getElementById('pagePlayIcon');
+            const pageTrackBar = document.getElementById('pageTrackBar');
+            const pageTrackFill = document.getElementById('pageTrackFill');
+            const pageCurrentTime = document.getElementById('pageCurrentTime');
+            const pageTotalDuration = document.getElementById('pageTotalDuration');
+            const waveVisualizer = document.getElementById('waveVisualizer');
+
+            const playSvg = '<path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>';
+            const pauseSvg = '<path d="M5.5 3.5A1.5 1.5 0 0 1 7 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5zm5 0A1.5 1.5 0 0 1 12 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5z"/>';
+
+            const formatTime = (seconds) => {
+                const mins = Math.floor(seconds / 60);
+                const secs = Math.floor(seconds % 60);
+                return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+            };
+
+            const togglePlay = () => {
+                if (audio.paused) {
+                    audio.play().then(() => {
+                        updatePlayIcons(true);
+                        if (waveVisualizer) waveVisualizer.classList.add('is-playing');
+                    }).catch(err => console.log('Audio error:', err));
+                } else {
+                    audio.pause();
+                    updatePlayIcons(false);
+                    if (waveVisualizer) waveVisualizer.classList.remove('is-playing');
+                }
+            };
+
+            const updatePlayIcons = (isPlaying) => {
+                const icon = isPlaying ? pauseSvg : playSvg;
+                if (pagePlayIcon) pagePlayIcon.innerHTML = icon;
+                const bIcon = document.getElementById('bioPlayIcon');
+                if (bIcon) bIcon.innerHTML = icon;
+            };
+
+            if (pagePlayBtn) pagePlayBtn.addEventListener('click', togglePlay);
+
+            audio.addEventListener('timeupdate', () => {
+                if (!audio.duration) return;
+                const pct = (audio.currentTime / audio.duration) * 100;
+                const formatted = formatTime(audio.currentTime);
+                if (pageTrackFill) pageTrackFill.style.width = pct + '%';
+                const bFill = document.getElementById('bioTrackFill');
+                if (bFill) bFill.style.width = pct + '%';
+                if (pageCurrentTime) pageCurrentTime.textContent = formatted;
+                const bCurrent = document.getElementById('bioCurrentTime');
+                if (bCurrent) bCurrent.textContent = formatted;
+            });
+
+            audio.addEventListener('loadedmetadata', () => {
+                if (pageTotalDuration && audio.duration) {
+                    pageTotalDuration.textContent = formatTime(audio.duration);
+                }
+            });
+
+            audio.addEventListener('ended', () => {
+                updatePlayIcons(false);
+                if (waveVisualizer) waveVisualizer.classList.remove('is-playing');
+                if (pageTrackFill) pageTrackFill.style.width = '0%';
+                const bFill = document.getElementById('bioTrackFill');
+                if (bFill) bFill.style.width = '0%';
+            });
+
+            const handleSeek = (e, bar) => {
+                if (!audio.duration) return;
+                const rect = bar.getBoundingClientRect();
+                const pos = (e.clientX - rect.left) / rect.width;
+                audio.currentTime = pos * audio.duration;
+            };
+
+            if (pageTrackBar) pageTrackBar.addEventListener('click', (e) => handleSeek(e, pageTrackBar));
+
+
+
+            const lightbox = document.getElementById('imageLightbox');
+            const lightboxImg = document.getElementById('lightboxImg');
+            const lightboxClose = document.getElementById('lightboxClose');
+
+            window.openLightbox = (src) => {
+                if (lightbox && lightboxImg) {
+                    lightboxImg.src = src;
+                    lightbox.classList.add('active');
+                }
+            };
+
+            if (lightboxClose) {
+                lightboxClose.addEventListener('click', () => lightbox.classList.remove('active'));
+            }
+            if (lightbox) {
+                lightbox.addEventListener('click', (e) => {
+                    if (e.target === lightbox) lightbox.classList.remove('active');
+                });
+            }
+
+            const btnZoomCover = document.getElementById('btnZoomCover');
+            if (btnZoomCover) {
+                btnZoomCover.addEventListener('click', () => openLightbox('hexit/releases/harmony/Cover.png'));
+            }
+        });
+    </script>
+</body>
+</html>
