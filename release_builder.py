@@ -402,7 +402,7 @@ def generate_release(data: dict) -> tuple[bool, str]:
     <meta property="og:url" content="https://hexitrely.pl/{release_filename}">
 
     <!-- Stylesheets & Fonts -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=20261024">
     <link rel="icon" type="image/ico" href="logohexit.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -918,7 +918,7 @@ def generate_release(data: dict) -> tuple[bool, str]:
     <!-- Wspólny element Audio -->
     <audio id="releaseAudioElement" src="{audio_rel_path}" preload="metadata"></audio>
 
-    <script src="scripts.js"></script>
+    <script src="scripts.js?v=20261024"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {{
             const audio = document.getElementById('releaseAudioElement');
