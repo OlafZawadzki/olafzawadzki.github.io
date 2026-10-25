@@ -139,6 +139,49 @@ def generate_release(data: dict) -> tuple[bool, str]:
         badge_stems = data.get("badge_stems", "Stems ZIP & Arty").strip()
         badge_meta1 = f"{bpm} • {key}"
         badge_meta2 = genre
+        youtube_safe = bool(data.get("youtube_safe", True))
+        badge_youtube = data.get("badge_youtube", "No Copyright Music").strip() or "No Copyright Music"
+
+        # Tłumaczenia (EN)
+        translations_en = data.get("translations_en", {})
+        badge_main_en = translations_en.get("badge_main", "").strip() or "New Single"
+        badge_youtube_en = translations_en.get("badge_youtube", "").strip() or "No Copyright Music"
+        short_desc_en = translations_en.get("short_desc", "").strip()
+        full_desc_1_en = translations_en.get("full_desc_1", "").strip()
+        full_desc_2_en = translations_en.get("full_desc_2", "").strip()
+        license_notice_en = translations_en.get("license_notice", "").strip()
+
+        if youtube_safe:
+            youtube_badge_release_html = f"""                            <span class="release-pill pill-youtube" title="Content ID Free • Dozwolone bezpłatnie w filmach na platformie YouTube">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16"><path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.022.26-.01.104c-.048.519-.119 1.023-.22 1.402a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.04.018-.256.008-.105c.05-.572.124-1.141.235-1.558a2.007 2.007 0 0 1 1.415-1.42c.487-.132 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z"/></svg>
+                                <span data-pl="{html.escape(badge_youtube)}" data-en="{html.escape(badge_youtube_en)}">{html.escape(badge_youtube)}</span>
+                                <span class="pill-yt-tag">Free on YouTube</span>
+                            </span>"""
+            youtube_safe_box_html = f"""                            <!-- YouTube Content ID Free Callout Box -->
+                            <div class="youtube-safe-box">
+                                <div class="youtube-safe-icon" aria-hidden="true">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.022.26-.01.104c-.048.519-.119 1.023-.22 1.402a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.04.018-.256.008-.105c.05-.572.124-1.141.235-1.558a2.007 2.007 0 0 1 1.415-1.42c.487-.132 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z"/></svg>
+                                </div>
+                                <div class="youtube-safe-content">
+                                    <span class="youtube-safe-title">
+                                        <span class="lang-content-pl">Content ID Free &bull; Muzyka bez roszczeń (Tylko na YouTube)</span>
+                                        <span class="lang-content-en" style="display:none;">Content ID Free &bull; Royalty-Free on YouTube</span>
+                                    </span>
+                                    <span style="color: var(--text-secondary);">
+                                        <span class="lang-content-pl">Utwór jest w 100% bezpieczny od roszczeń praw autorskich dla twórców wideo — możesz bez obaw używać go jako darmowy podkład w swoich materiałach na platformie YouTube (wystarczy podać w opisie: <em>Muzyka: {html.escape(artist)} — {html.escape(title)}</em>).</span>
+                                        <span class="lang-content-en" style="display:none;">This track is 100% free of Content ID claims for video creators — you can safely use it as free background music in your YouTube content (just credit in description: <em>Music: {html.escape(artist)} — {html.escape(title)}</em>).</span>
+                                    </span>
+                                </div>
+                            </div>"""
+            youtube_badge_card_html = f"""                                <span class="release-pill pill-youtube" title="Content ID Free • Darmowe na YouTube">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 16 16"><path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.022.26-.01.104c-.048.519-.119 1.023-.22 1.402a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.04.018-.256.008-.105c.05-.572.124-1.141.235-1.558a2.007 2.007 0 0 1 1.415-1.42c.487-.132 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z"/></svg>
+                                    <span data-pl="{html.escape(badge_youtube)}" data-en="{html.escape(badge_youtube_en)}">{html.escape(badge_youtube)}</span>
+                                    <span class="pill-yt-tag">YouTube</span>
+                                </span>"""
+        else:
+            youtube_badge_release_html = ""
+            youtube_safe_box_html = ""
+            youtube_badge_card_html = ""
 
         # Opisy
         short_desc = data.get("short_desc", "").strip() or f"Autorski singiel {title} w wykonaniu {artist}."
@@ -196,7 +239,7 @@ def generate_release(data: dict) -> tuple[bool, str]:
             if s_is_url:
                 download_btn = f'<a href="{s_rel_path}" target="_blank" rel="noopener" class="btn btn-secondary btn-sm" style="padding: 4px 12px; font-size: 0.75rem;">Pobierz ↗</a>'
             else:
-                download_btn = f'<a href="{s_rel_path}" download="{s_filename}" class="btn btn-secondary btn-sm" style="padding: 4px 12px; font-size: 0.75rem;">Pobierz</a>'
+                download_btn = f'<a href="{s_rel_path}" download="{s_filename}" target="_blank" rel="noopener" class="btn btn-secondary btn-sm" style="padding: 4px 12px; font-size: 0.75rem;">Pobierz</a>'
 
             stems_html_items.append(f"""
                         <div class="stem-track-pill" style="justify-content: space-between;">
@@ -209,23 +252,84 @@ def generate_release(data: dict) -> tuple[bool, str]:
 
         stems_list_rendered = "\n".join(stems_html_items)
 
-        # 5. Grafiki / Tapety
-        pc_wall_input = data.get("pc_wall_file", "")
-        pc_wall_rel, _, _ = resolve_asset(pc_wall_input, slug, rel_folder, cover_rel_path)
+        # 5. Grafiki / Tapety (Dynamiczna lista materiałów)
+        visual_assets_input = data.get("visual_assets", [])
+        if not visual_assets_input:
+            # Fallback dla starszych zapisów wydań
+            visual_assets_input = []
+            if cover_input or cover_rel_path:
+                visual_assets_input.append({
+                    "title": "Oficjalna Okładka Utworu",
+                    "format": "Format 1:1",
+                    "desc": "Oryginalny artwork singla w bezstratnej jakości.",
+                    "file": cover_input or cover_rel_path
+                })
+            pc_wall_input = data.get("pc_wall_file", "")
+            if pc_wall_input:
+                visual_assets_input.append({
+                    "title": "Tapeta na Pulpit Komputera",
+                    "format": "Format 16:9",
+                    "desc": "Szerokokątna grafika wysokiej rozdzielczości na monitor.",
+                    "file": pc_wall_input
+                })
+            phone_wall_input = data.get("phone_wall_file", "")
+            if phone_wall_input:
+                visual_assets_input.append({
+                    "title": "Tapeta na Smartfon (Ekran blokady)",
+                    "format": "Format 9:16",
+                    "desc": "Dedykowana tapeta pionowa na ekrany telefonów (iOS / Android).",
+                    "file": phone_wall_input
+                })
 
-        phone_wall_input = data.get("phone_wall_file", "")
-        phone_wall_rel, _, _ = resolve_asset(phone_wall_input, slug, rel_folder, cover_rel_path)
+        visual_cards_html = []
+        for idx, v in enumerate(visual_assets_input, 1):
+            v_title = v.get("title", f"Grafika {idx}").strip() or f"Grafika {idx}"
+            v_format = v.get("format", "Format 16:9").strip() or "Grafika"
+            v_desc = v.get("desc", "").strip() or "Materiały graficzne wysokiej rozdzielczości do pobrania."
+            v_file = v.get("file", "").strip()
+
+            v_rel, v_filename, _ = resolve_asset(v_file, slug, rel_folder, cover_rel_path)
+            if not v_filename:
+                v_filename = f"{artist}_{title}_art_{idx}.png".replace(" ", "_")
+
+            card = f"""                        <!-- Grafika / Tapeta: {html.escape(v_title)} -->
+                        <div class="visual-asset-card">
+                            <div class="visual-asset-preview-wrap" onclick="openLightbox('{v_rel}')" title="Kliknij, aby powiększyć podgląd">
+                                <span class="visual-format-pill">{html.escape(v_format)}</span>
+                                <img src="{v_rel}" alt="{html.escape(v_title)}" class="visual-asset-preview" loading="lazy">
+                                <div class="visual-quick-zoom" aria-hidden="true" title="Powiększ">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/><path d="M10.344 11.742c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1 6.538 6.538 0 0 1-1.398 1.4z"/><path d="M6.5 3a.5.5 0 0 1 .5.5V6h2.5a.5.5 0 0 1 0 1H7v2.5a.5.5 0 0 1-1 0V7H3.5a.5.5 0 0 1 0-1H6V3.5a.5.5 0 0 1 .5-.5z"/></svg>
+                                </div>
+                            </div>
+                            <div class="visual-asset-info">
+                                <h4>{html.escape(v_title)}</h4>
+                                <p>{html.escape(v_desc)}</p>
+                                <div class="visual-asset-actions">
+                                    <button type="button" class="btn btn-secondary btn-sm visual-zoom-btn" onclick="openLightbox('{v_rel}')">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/><path d="M10.344 11.742c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1 6.538 6.538 0 0 1-1.398 1.4z"/><path d="M6.5 3a.5.5 0 0 1 .5.5V6h2.5a.5.5 0 0 1 0 1H7v2.5a.5.5 0 0 1-1 0V7H3.5a.5.5 0 0 1 0-1H6V3.5a.5.5 0 0 1 .5-.5z"/></svg>
+                                        Powiększ
+                                    </button>
+                                    <a href="{v_rel}" download="{v_filename}" target="_blank" rel="noopener" class="btn btn-primary btn-sm visual-dl-btn">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16"><path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/><path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/></svg>
+                                        Pobierz &darr;
+                                    </a>
+                                </div>
+                            </div>
+                        </div>"""
+            visual_cards_html.append(card)
+
+        visuals_rendered = "\n".join(visual_cards_html)
 
         # 6. Przygotowanie kodu HTML
         release_filename = f"wydanie-{slug}.html"
         release_filepath = PROJECT_ROOT / release_filename
 
-        # Przycisk pobrania ZIP stemsów
+        # Przycisk pobrania ZIP stemsów (zawsze target="_blank")
         if stems_zip_rel_path:
             if stems_zip_is_url:
                 stems_zip_btn_html = f'<a href="{stems_zip_rel_path}" target="_blank" rel="noopener" class="btn btn-primary btn-large" style="display: inline-flex; align-items: center; gap: 10px; flex-shrink: 0;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/><path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/></svg>Pobierz Paczkę STEMS (.ZIP) ↗</a>'
             else:
-                stems_zip_btn_html = f'<a href="{stems_zip_rel_path}" download="{stems_zip_filename}" class="btn btn-primary btn-large" style="display: inline-flex; align-items: center; gap: 10px; flex-shrink: 0;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/><path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/></svg>Pobierz Paczkę STEMS (.ZIP)</a>'
+                stems_zip_btn_html = f'<a href="{stems_zip_rel_path}" download="{stems_zip_filename}" target="_blank" rel="noopener" class="btn btn-primary btn-large" style="display: inline-flex; align-items: center; gap: 10px; flex-shrink: 0;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/><path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/></svg>Pobierz Paczkę STEMS (.ZIP)</a>'
         else:
             stems_zip_btn_html = ""
 
@@ -632,6 +736,11 @@ def generate_release(data: dict) -> tuple[bool, str]:
             </ul>
 
             <div class="nav-actions">
+                <div class="lang-switch" role="group" aria-label="Wybór języka / Language selection">
+                    <button class="lang-btn active" data-lang="pl" type="button" aria-pressed="true">PL</button>
+                    <span class="lang-sep">/</span>
+                    <button class="lang-btn" data-lang="en" type="button" aria-pressed="false">EN</button>
+                </div>
                 <div class="nav-socials">
                     <a href="https://www.youtube.com/channel/UCIpPTE3HsmUSAb-yfNybvSA" target="_blank" rel="noopener" class="social-link" title="YouTube">
                         <img src="youtube.webp" alt="YouTube" class="social-icon">
@@ -714,9 +823,10 @@ def generate_release(data: dict) -> tuple[bool, str]:
 
                     <!-- Prawa Kolumna: Tytuł, Odtwarzacz, Opis i Linki -->
                     <div>
-                        <div class="release-badge-row" style="margin-bottom: var(--space-3);">
-                            <span class="release-pill pill-primary">{html.escape(badge_main)}</span>
+                        <div class="release-badge-row" style="margin-bottom: var(--space-3); display: flex; flex-wrap: wrap; gap: 8px; align-items: center;">
+                            <span class="release-pill pill-primary" data-pl="{html.escape(badge_main)}" data-en="{html.escape(badge_main_en)}">{html.escape(badge_main)}</span>
                             <span class="release-pill pill-stems">{html.escape(badge_stems)}</span>
+{youtube_badge_release_html}
                             <span class="release-pill pill-meta">{html.escape(badge_meta1)}</span>
                             <span class="release-pill pill-meta">{html.escape(badge_meta2)}</span>
                         </div>
@@ -761,14 +871,26 @@ def generate_release(data: dict) -> tuple[bool, str]:
                         <!-- Opis Utworu & Zamysł -->
                         <div style="margin: var(--space-6) 0;">
                             <h3 style="font-size: var(--font-size-lg); font-weight: 700; color: var(--text-primary); margin-bottom: 8px;">
-                                O utworze &amp; Procesie Produkcji
+                                <span class="lang-content-pl">O utworze &amp; Procesie Produkcji</span>
+                                <span class="lang-content-en" style="display:none;">About the Track &amp; Production Process</span>
                             </h3>
-                            <p style="color: var(--text-secondary); line-height: 1.7; font-size: var(--font-size-base); margin-bottom: 12px; white-space: pre-line;">
-                                {html.escape(full_desc_1)}
-                            </p>
-                            <p style="color: var(--text-secondary); line-height: 1.7; font-size: var(--font-size-base); margin-bottom: var(--space-6); white-space: pre-line;">
-                                {html.escape(full_desc_2)}
-                            </p>
+                            <div class="lang-content-pl">
+                                <p style="color: var(--text-secondary); line-height: 1.7; font-size: var(--font-size-base); margin-bottom: 12px; white-space: pre-line;">
+                                    {html.escape(full_desc_1)}
+                                </p>
+                                <p style="color: var(--text-secondary); line-height: 1.7; font-size: var(--font-size-base); margin-bottom: var(--space-4); white-space: pre-line;">
+                                    {html.escape(full_desc_2)}
+                                </p>
+                            </div>
+                            <div class="lang-content-en" style="display:none;">
+                                <p style="color: var(--text-secondary); line-height: 1.7; font-size: var(--font-size-base); margin-bottom: 12px; white-space: pre-line;">
+                                    {html.escape(full_desc_1_en or full_desc_1)}
+                                </p>
+                                <p style="color: var(--text-secondary); line-height: 1.7; font-size: var(--font-size-base); margin-bottom: var(--space-4); white-space: pre-line;">
+                                    {html.escape(full_desc_2_en or full_desc_2)}
+                                </p>
+                            </div>
+{youtube_safe_box_html}
                         </div>
 
                         <!-- Szybkie Skróty do Sekcji -->
@@ -812,7 +934,8 @@ def generate_release(data: dict) -> tuple[bool, str]:
                     </div>
 
                     <div class="stems-license-notice">
-                        {html.escape(license_notice)}
+                        <div class="lang-content-pl">{html.escape(license_notice)}</div>
+                        <div class="lang-content-en" style="display:none;">{html.escape(license_notice_en or license_notice)}</div>
                     </div>
                 </div>
 
@@ -827,65 +950,7 @@ def generate_release(data: dict) -> tuple[bool, str]:
                     </div>
 
                     <div class="visuals-download-grid">
-                        <!-- Okładka HQ (1:1) -->
-                        <div class="visual-asset-card square-ratio">
-                            <img src="{cover_rel_path}" alt="Okładka {html.escape(title)}" class="visual-asset-preview" loading="lazy">
-                            <div class="visual-asset-info">
-                                <div>
-                                    <span class="release-pill pill-meta" style="margin-bottom: 6px;">Format 1:1</span>
-                                    <h4>Oficjalna Okładka Utworu</h4>
-                                </div>
-                                <p>Oryginalny artwork singla w bezstratnej jakości.</p>
-                                <div style="display: flex; gap: 8px; margin-top: auto;">
-                                    <button type="button" class="btn btn-secondary btn-sm" onclick="openLightbox('{cover_rel_path}')">
-                                        Powiększ
-                                    </button>
-                                    <a href="{cover_rel_path}" download="{artist}_{title}_Cover.jpg" class="btn btn-primary btn-sm" style="flex: 1; text-align: center;">
-                                        Pobierz &darr;
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Tapeta PC (16:9) -->
-                        <div class="visual-asset-card">
-                            <img src="{pc_wall_rel}" alt="Tapeta PC {html.escape(title)}" class="visual-asset-preview" loading="lazy">
-                            <div class="visual-asset-info">
-                                <div>
-                                    <span class="release-pill pill-primary" style="margin-bottom: 6px;">Format 16:9</span>
-                                    <h4>Tapeta na Pulpit Komputera</h4>
-                                </div>
-                                <p>Szerokokątna grafika wysokiej rozdzielczości na monitor.</p>
-                                <div style="display: flex; gap: 8px; margin-top: auto;">
-                                    <button type="button" class="btn btn-secondary btn-sm" onclick="openLightbox('{pc_wall_rel}')">
-                                        Powiększ
-                                    </button>
-                                    <a href="{pc_wall_rel}" download="{artist}_{title}_Desktop.jpg" class="btn btn-primary btn-sm" style="flex: 1; text-align: center;">
-                                        Pobierz &darr;
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Tapeta Smartfon (9:16) -->
-                        <div class="visual-asset-card">
-                            <img src="{phone_wall_rel}" alt="Tapeta Smartfon {html.escape(title)}" class="visual-asset-preview" style="object-position: center 30%;" loading="lazy">
-                            <div class="visual-asset-info">
-                                <div>
-                                    <span class="release-pill pill-stems" style="margin-bottom: 6px;">Format 9:16</span>
-                                    <h4>Tapeta na Smartfon (Ekran blokady)</h4>
-                                </div>
-                                <p>Dedykowana tapeta pionowa na ekrany telefonów (iOS / Android).</p>
-                                <div style="display: flex; gap: 8px; margin-top: auto;">
-                                    <button type="button" class="btn btn-secondary btn-sm" onclick="openLightbox('{phone_wall_rel}')">
-                                        Powiększ
-                                    </button>
-                                    <a href="{phone_wall_rel}" download="{artist}_{title}_Phone.jpg" class="btn btn-primary btn-sm" style="flex: 1; text-align: center;">
-                                        Pobierz &darr;
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+{visuals_rendered}
                     </div>
                 </div>
             </div>
@@ -1033,6 +1098,10 @@ def generate_release(data: dict) -> tuple[bool, str]:
         data_to_save = dict(data)
         data_to_save["slug"] = slug
         data_to_save["enable_bio"] = enable_bio
+        data_to_save["youtube_safe"] = youtube_safe
+        data_to_save["badge_youtube"] = badge_youtube
+        data_to_save["visual_assets"] = visual_assets_input
+        data_to_save["translations_en"] = translations_en
         data_file = rel_folder / "release_data.json"
         data_file.write_text(json.dumps(data_to_save, ensure_ascii=False, indent=2), encoding="utf-8")
 
@@ -1044,14 +1113,14 @@ def generate_release(data: dict) -> tuple[bool, str]:
             # Przyciski akcji na kafelku
             if enable_bio:
                 actions_html = f"""                                <a href="{release_filename}" class="btn btn-primary btn-sm" style="flex: 1; text-align: center;">
-                                    Strona Wydania &rarr;
+                                    <span data-pl="Strona Wydania &rarr;" data-en="Release Page &rarr;">Strona Wydania &rarr;</span>
                                 </a>
                                 <a href="{release_filename}#bio-mode" class="btn btn-secondary btn-sm" title="Widok Smartlink / Bio">
                                     Smartlink ↗
                                 </a>"""
             else:
                 actions_html = f"""                                <a href="{release_filename}" class="btn btn-primary btn-sm" style="width: 100%; text-align: center;">
-                                    Strona Wydania &rarr;
+                                    <span data-pl="Strona Wydania &rarr;" data-en="Release Page &rarr;">Strona Wydania &rarr;</span>
                                 </a>"""
 
             new_card_html = f"""                    <!-- Wydanie Muzyczne: {html.escape(title)} -->
@@ -1061,8 +1130,9 @@ def generate_release(data: dict) -> tuple[bool, str]:
                                 <img src="{cover_rel_path}" alt="{html.escape(title)} - {html.escape(artist)}" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
                             </a>
                             <div style="position: absolute; top: 14px; left: 14px; display: flex; gap: 6px; flex-wrap: wrap;">
-                                <span class="release-pill pill-primary">{html.escape(badge_main)}</span>
+                                <span class="release-pill pill-primary" data-pl="{html.escape(badge_main)}" data-en="{html.escape(badge_main_en)}">{html.escape(badge_main)}</span>
                                 <span class="release-pill pill-stems">{html.escape(badge_stems)}</span>
+{youtube_badge_card_html}
                             </div>
                         </div>
                         <div style="padding: var(--space-6); display: flex; flex-direction: column; flex: 1;">
@@ -1071,7 +1141,8 @@ def generate_release(data: dict) -> tuple[bool, str]:
                                 <a href="{release_filename}" style="color: inherit; text-decoration: none;">{html.escape(title)}</a>
                             </h3>
                             <p style="font-size: var(--font-size-sm); color: var(--text-secondary); line-height: 1.6; margin-bottom: var(--space-6);">
-                                {html.escape(short_desc)}
+                                <span class="lang-content-pl">{html.escape(short_desc)}</span>
+                                <span class="lang-content-en" style="display:none;">{html.escape(short_desc_en or short_desc)}</span>
                             </p>
                             <div style="margin-top: auto; display: flex; gap: 10px;">
 {actions_html}
@@ -1158,6 +1229,10 @@ class ReleaseBuilderApp:
             # Tagi
             "badge_main": tk.StringVar(value="Nowy Singiel"),
             "badge_stems": tk.StringVar(value="Stems ZIP & Arty"),
+            "badge_youtube": tk.StringVar(value="No Copyright Music"),
+            # Tłumaczenia EN
+            "badge_main_en": tk.StringVar(value="New Single"),
+            "badge_youtube_en": tk.StringVar(value="No Copyright Music"),
             # Pliki / Linki
             "audio_file": tk.StringVar(value=""),
             "cover_file": tk.StringVar(value=""),
@@ -1174,6 +1249,8 @@ class ReleaseBuilderApp:
 
         # Czy włączyć Smartlink / Link in Bio
         self.enable_bio_var = tk.BooleanVar(value=True)
+        # Czy utwór jest wolny od praw (No Copyright / Content ID Free na YouTube)
+        self.youtube_safe_var = tk.BooleanVar(value=True)
 
         # Dynamiczna lista pojedynczych ścieżek stems
         self.individual_stems = [
@@ -1183,6 +1260,28 @@ class ReleaseBuilderApp:
             {"name": tk.StringVar(value="4. Ambient Pads & Textures"), "file": tk.StringVar(value="")},
             {"name": tk.StringVar(value="5. Risers, Impacts & FX"), "file": tk.StringVar(value="")},
             {"name": tk.StringVar(value="6. Master Preview MP3"), "file": tk.StringVar(value="")},
+        ]
+
+        # Dynamiczna lista grafik, artów i tapet (domyślnie 3 podstawowe)
+        self.visual_assets = [
+            {
+                "title": tk.StringVar(value="Oficjalna Okładka Utworu"),
+                "format": tk.StringVar(value="Format 1:1"),
+                "desc": tk.StringVar(value="Oryginalny artwork singla w bezstratnej jakości."),
+                "file": tk.StringVar(value=""),
+            },
+            {
+                "title": tk.StringVar(value="Tapeta na Pulpit Komputera"),
+                "format": tk.StringVar(value="Format 16:9"),
+                "desc": tk.StringVar(value="Szerokokątna grafika wysokiej rozdzielczości na monitor."),
+                "file": tk.StringVar(value=""),
+            },
+            {
+                "title": tk.StringVar(value="Tapeta na Smartfon (Ekran blokady)"),
+                "format": tk.StringVar(value="Format 9:16"),
+                "desc": tk.StringVar(value="Dedykowana tapeta pionowa na ekrany telefonów (iOS / Android)."),
+                "file": tk.StringVar(value=""),
+            },
         ]
 
         # Stan edycji
@@ -1290,6 +1389,9 @@ class ReleaseBuilderApp:
 
         self.tab_smartlink = self.create_scrollable_tab("5. Smartlink / Bio Linki")
         self.build_smartlink_tab(self.tab_smartlink)
+
+        self.tab_translations = self.create_scrollable_tab("6. Tłumaczenia (EN)")
+        self.build_translations_tab(self.tab_translations)
 
     def create_scrollable_tab(self, tab_title):
         frame = tk.Frame(self.notebook, bg=self.bg_dark)
@@ -1421,6 +1523,34 @@ class ReleaseBuilderApp:
 
         self.add_entry_field(parent, "Główny Badge 1 (np. Nowy Singiel / Album / EP):", self.fields["badge_main"])
         self.add_entry_field(parent, "Badge 2 (np. Stems ZIP & Arty / Mp3 Files):", self.fields["badge_stems"])
+
+        yt_frame = tk.Frame(parent, bg=self.bg_card, padx=12, pady=10, highlightthickness=1, highlightbackground="#ff3344")
+        yt_frame.pack(fill=tk.X, pady=(10, 6))
+
+        chk_yt = tk.Checkbutton(
+            yt_frame,
+            text="Plakietka YouTube: No Copyright Music / Content ID Free (dozwolone bezpłatnie na YouTube)",
+            variable=self.youtube_safe_var,
+            font=("Inter", 9, "bold"),
+            fg="#ff5555",
+            bg=self.bg_card,
+            selectcolor=self.bg_input,
+            activebackground=self.bg_card,
+            activeforeground="#ff6666"
+        )
+        chk_yt.pack(anchor=tk.W)
+
+        yt_hint = tk.Label(
+            yt_frame,
+            text="Dodaje elegancką czerwoną plakietkę w stylu YouTube oraz boks informacyjny o braku roszczeń Content ID dla twórców wideo.",
+            font=("Inter", 8),
+            fg=self.text_muted,
+            bg=self.bg_card,
+            justify=tk.LEFT
+        )
+        yt_hint.pack(anchor=tk.W, pady=(2, 6))
+
+        self.add_entry_field(yt_frame, "Tekst plakietki (domyślnie: No Copyright Music):", self.fields["badge_youtube"])
 
     def build_descriptions_tab(self, parent):
         sec_lbl = tk.Label(parent, text="OPISY I HISTORIA UTWORU", font=("Inter", 11, "bold"), fg=self.accent_green, bg=self.bg_dark)
@@ -1555,14 +1685,120 @@ class ReleaseBuilderApp:
         self.refresh_stems_ui()
 
     def build_visuals_tab(self, parent):
-        sec_lbl = tk.Label(parent, text="GRAFIKI, ARTY I TAPETY", font=("Inter", 11, "bold"), fg=self.accent_green, bg=self.bg_dark)
+        sec_lbl = tk.Label(parent, text="GRAFIKI, ARTY I TAPETY (DYNAMICZNA LISTA MATERIAŁÓW)", font=("Inter", 11, "bold"), fg=self.accent_green, bg=self.bg_dark)
         sec_lbl.pack(anchor=tk.W, pady=(0, 4))
 
-        tk.Label(parent, text="Wskaż pliki graficzne lokalnie lub podaj adresy URL. Zostaną przygotowane do natychmiastowego pobrania:", font=("Inter", 8), fg=self.text_muted, bg=self.bg_dark).pack(anchor=tk.W, pady=(0, 12))
+        tk.Label(
+            parent,
+            text="Wskaż pliki graficzne lokalnie lub podaj adresy URL. Możesz dodać dowolną liczbę grafik lub tapet (3 podstawowe są domyślne). Każde pobieranie otworzy się w nowej karcie:",
+            font=("Inter", 8),
+            fg=self.text_muted,
+            bg=self.bg_dark
+        ).pack(anchor=tk.W, pady=(0, 10))
 
-        self.add_file_or_url_picker(parent, "Oficjalna Okładka Utworu (Kwadrat 1:1, JPG/PNG):", self.fields["cover_file"], [("Grafika", "*.jpg *.jpeg *.png *.webp")])
-        self.add_file_or_url_picker(parent, "Tapeta na Komputer / Pulpit (Format 16:9, JPG/PNG):", self.fields["pc_wall_file"], [("Grafika", "*.jpg *.jpeg *.png *.webp")])
-        self.add_file_or_url_picker(parent, "Tapeta Pionowa na Smartfon (Format 9:16, JPG/PNG):", self.fields["phone_wall_file"], [("Grafika", "*.jpg *.jpeg *.png *.webp")])
+        top_bar = tk.Frame(parent, bg=self.bg_dark)
+        top_bar.pack(fill=tk.X, pady=(0, 8))
+
+        btn_add = tk.Button(
+            top_bar,
+            text="+ Dodaj kolejną grafikę / tapetę",
+            font=("Inter", 9, "bold"),
+            bg="#065f46",
+            fg="#a7f3d0",
+            activebackground="#047857",
+            relief=tk.FLAT,
+            padx=12,
+            pady=6,
+            cursor="hand2",
+            command=self.add_new_visual_row
+        )
+        btn_add.pack(side=tk.LEFT)
+
+        self.visuals_container = tk.Frame(parent, bg=self.bg_dark)
+        self.visuals_container.pack(fill=tk.BOTH, expand=True)
+
+        self.refresh_visuals_ui()
+
+    def refresh_visuals_ui(self):
+        """Przerysowuje listę materiałów graficznych i tapet."""
+        for widget in self.visuals_container.winfo_children():
+            widget.destroy()
+
+        for idx, item in enumerate(self.visual_assets):
+            self.create_single_visual_widget(self.visuals_container, item, idx)
+
+    def create_single_visual_widget(self, container, item, idx):
+        card = tk.Frame(container, bg=self.bg_card, padx=12, pady=10, highlightthickness=1, highlightbackground=self.border_col)
+        card.pack(fill=tk.X, pady=6)
+
+        # Nagłówek karty grafiki z numerem i przyciskiem usuwania
+        header = tk.Frame(card, bg=self.bg_card)
+        header.pack(fill=tk.X, pady=(0, 6))
+
+        tk.Label(header, text=f"Grafika #{idx+1}", font=("Inter", 9, "bold"), fg=self.accent_green, bg=self.bg_card).pack(side=tk.LEFT)
+
+        def delete_item():
+            if len(self.visual_assets) <= 1:
+                item["title"].set("Oficjalna Okładka Utworu")
+                item["format"].set("Format 1:1")
+                item["desc"].set("Oryginalny artwork singla w bezstratnej jakości.")
+                item["file"].set("")
+                self.refresh_visuals_ui()
+                return
+            self.visual_assets.remove(item)
+            self.refresh_visuals_ui()
+
+        btn_del = tk.Button(header, text="✕ Usuń tę grafikę", font=("Inter", 8, "bold"), bg="#451a1a", fg="#fca5a5", activebackground="#7f1d1d", relief=tk.FLAT, padx=8, pady=2, cursor="hand2", command=delete_item)
+        btn_del.pack(side=tk.RIGHT)
+
+        # Tytuł i Format w jednym rzędzie
+        row1 = tk.Frame(card, bg=self.bg_card)
+        row1.pack(fill=tk.X, pady=2)
+
+        f_title = tk.Frame(row1, bg=self.bg_card)
+        f_title.pack(side=tk.LEFT, fill=tk.X, expand=True, padx=(0, 6))
+        tk.Label(f_title, text="Nazwa / Tytuł (np. Tapeta na Pulpit):", font=("Inter", 8, "bold"), fg=self.text_primary, bg=self.bg_card).pack(anchor=tk.W)
+        tk.Entry(f_title, textvariable=item["title"], font=("Inter", 9), bg=self.bg_input, fg=self.text_primary, relief=tk.FLAT, highlightthickness=1, highlightbackground=self.border_col).pack(fill=tk.X, ipady=4, pady=2)
+
+        f_fmt = tk.Frame(row1, bg=self.bg_card, width=150)
+        f_fmt.pack(side=tk.RIGHT, fill=tk.X, padx=(6, 0))
+        tk.Label(f_fmt, text="Format (np. Format 16:9):", font=("Inter", 8, "bold"), fg=self.text_primary, bg=self.bg_card).pack(anchor=tk.W)
+        tk.Entry(f_fmt, textvariable=item["format"], font=("Inter", 9), width=18, bg=self.bg_input, fg=self.text_primary, relief=tk.FLAT, highlightthickness=1, highlightbackground=self.border_col).pack(fill=tk.X, ipady=4, pady=2)
+
+        # Opis
+        row2 = tk.Frame(card, bg=self.bg_card)
+        row2.pack(fill=tk.X, pady=2)
+        tk.Label(row2, text="Krótki opis grafiki:", font=("Inter", 8, "bold"), fg=self.text_primary, bg=self.bg_card).pack(anchor=tk.W)
+        tk.Entry(row2, textvariable=item["desc"], font=("Inter", 9), bg=self.bg_input, fg=self.text_primary, relief=tk.FLAT, highlightthickness=1, highlightbackground=self.border_col).pack(fill=tk.X, ipady=4, pady=2)
+
+        # Plik / URL z przeglądaniem
+        row3 = tk.Frame(card, bg=self.bg_card)
+        row3.pack(fill=tk.X, pady=(2, 0))
+        tk.Label(row3, text="Ścieżka do pliku lokalnego LUB link URL do grafiki:", font=("Inter", 8, "bold"), fg=self.text_primary, bg=self.bg_card).pack(anchor=tk.W)
+
+        f_file = tk.Frame(row3, bg=self.bg_card)
+        f_file.pack(fill=tk.X, pady=2)
+        ent_f = tk.Entry(f_file, textvariable=item["file"], font=("Inter", 9), bg=self.bg_input, fg=self.text_primary, relief=tk.FLAT, highlightthickness=1, highlightbackground=self.border_col)
+        ent_f.pack(side=tk.LEFT, fill=tk.X, expand=True, padx=(0, 6), ipady=4)
+
+        def browse():
+            f = filedialog.askopenfilename(filetypes=[("Grafika", "*.jpg *.jpeg *.png *.webp *.avif *.gif")])
+            if f:
+                item["file"].set(f)
+
+        btn_browse = tk.Button(f_file, text="Wybierz plik...", font=("Inter", 8), bg=self.border_col, fg=self.text_primary, relief=tk.FLAT, padx=10, pady=3, cursor="hand2", command=browse)
+        btn_browse.pack(side=tk.RIGHT)
+
+    def add_new_visual_row(self):
+        new_idx = len(self.visual_assets) + 1
+        new_item = {
+            "title": tk.StringVar(value=f"Dodatkowa Tapeta {new_idx}"),
+            "format": tk.StringVar(value="Format 16:9"),
+            "desc": tk.StringVar(value="Dodatkowa grafika wysokiej rozdzielczości do pobrania."),
+            "file": tk.StringVar(value=""),
+        }
+        self.visual_assets.append(new_item)
+        self.refresh_visuals_ui()
 
     def build_smartlink_tab(self, parent):
         sec_lbl = tk.Label(parent, text="LINKI DO WERSJI SMARTLINK / BIO (STREAMING)", font=("Inter", 11, "bold"), fg=self.accent_green, bg=self.bg_dark)
@@ -1575,6 +1811,35 @@ class ReleaseBuilderApp:
         self.add_entry_field(parent, "Link Apple Music:", self.fields["link_apple"])
         self.add_entry_field(parent, "Link SoundCloud:", self.fields["link_soundcloud"])
         self.add_entry_field(parent, "Link TikTok Audio:", self.fields["link_tiktok"])
+
+    def build_translations_tab(self, parent):
+        sec_lbl = tk.Label(parent, text="ANGIELSKIE TŁUMACZENIA WYDANIA (SYSTEM DWUJĘZYCZNY)", font=("Inter", 11, "bold"), fg=self.accent_green, bg=self.bg_dark)
+        sec_lbl.pack(anchor=tk.W, pady=(0, 4))
+
+        tk.Label(parent, text="Uzupełnij poniższe pola w języku angielskim. Strona automatycznie zaoferuje przełącznik PL / EN dla użytkowników.", font=("Inter", 8), fg=self.text_muted, bg=self.bg_dark).pack(anchor=tk.W, pady=(0, 10))
+
+        self.add_entry_field(parent, "Główny Badge EN (np. New Single / Album / EP):", self.fields["badge_main_en"])
+        self.add_entry_field(parent, "Plakietka YouTube EN (np. No Copyright Music):", self.fields["badge_youtube_en"])
+
+        tk.Label(parent, text="Krótki opis EN (do kafelka w katalogu wydań):", font=("Inter", 9, "bold"), fg=self.text_primary, bg=self.bg_dark).pack(anchor=tk.W, pady=(8, 2))
+        self.txt_short_desc_en = tk.Text(parent, height=3, font=("Inter", 9), bg=self.bg_input, fg=self.text_primary, insertbackground=self.accent_green, relief=tk.FLAT, highlightthickness=1, highlightbackground=self.border_col)
+        self.txt_short_desc_en.pack(fill=tk.X, pady=(0, 10))
+        self.txt_short_desc_en.insert("1.0", "My original production featuring immersive basslines, deep synthesizer textures, and organic atmosphere.")
+
+        tk.Label(parent, text="Pełny opis utworu EN (Akapit 1 — story & inspirations):", font=("Inter", 9, "bold"), fg=self.text_primary, bg=self.bg_dark).pack(anchor=tk.W, pady=(6, 2))
+        self.txt_full_desc_1_en = tk.Text(parent, height=4, font=("Inter", 9), bg=self.bg_input, fg=self.text_primary, insertbackground=self.accent_green, relief=tk.FLAT, highlightthickness=1, highlightbackground=self.border_col)
+        self.txt_full_desc_1_en.pack(fill=tk.X, pady=(0, 10))
+        self.txt_full_desc_1_en.insert("1.0", "A track born out of seeking balance between organic ambient spaces and raw, pulsing sub bass.")
+
+        tk.Label(parent, text="Kulisy produkcji EN (Akapit 2 — DAW, gear & plugins):", font=("Inter", 9, "bold"), fg=self.text_primary, bg=self.bg_dark).pack(anchor=tk.W, pady=(6, 2))
+        self.txt_full_desc_2_en = tk.Text(parent, height=4, font=("Inter", 9), bg=self.bg_input, fg=self.text_primary, insertbackground=self.accent_green, relief=tk.FLAT, highlightthickness=1, highlightbackground=self.border_col)
+        self.txt_full_desc_2_en.pack(fill=tk.X, pady=(0, 10))
+        self.txt_full_desc_2_en.insert("1.0", "Produced with hybrid synthesis and analogue warmth. Creators can download multitrack stems below for remixes and video production.")
+
+        tk.Label(parent, text="Nota licencyjna EN (Creative Commons notice):", font=("Inter", 9, "bold"), fg=self.text_primary, bg=self.bg_dark).pack(anchor=tk.W, pady=(6, 2))
+        self.txt_license_en = tk.Text(parent, height=3, font=("Inter", 9), bg=self.bg_input, fg=self.text_primary, insertbackground=self.accent_green, relief=tk.FLAT, highlightthickness=1, highlightbackground=self.border_col)
+        self.txt_license_en.pack(fill=tk.X, pady=(0, 10))
+        self.txt_license_en.insert("1.0", "Creative Commons License (CC BY-NC 4.0): You have full permission to freely download, sample, remix, perform in DJ sets, and use as background music in videos. Just credit: Music: Hexit Rely.")
 
     # --- Zarządzanie Stanem i Edycją ---
 
@@ -1620,8 +1885,10 @@ class ReleaseBuilderApp:
             if k in data:
                 var.set(str(data[k]))
 
-        # Flaga enable_bio
+        # Flaga enable_bio & youtube_safe
         self.enable_bio_var.set(data.get("enable_bio", True))
+        self.youtube_safe_var.set(data.get("youtube_safe", True))
+        self.fields["badge_youtube"].set(data.get("badge_youtube", "No Copyright Music"))
 
         # Wypełnianie opisów
         self.txt_short_desc.delete("1.0", tk.END)
@@ -1635,6 +1902,27 @@ class ReleaseBuilderApp:
 
         self.txt_license.delete("1.0", tk.END)
         self.txt_license.insert("1.0", data.get("license_notice", ""))
+
+        # Wczytanie tłumaczeń EN
+        translations_en = data.get("translations_en", {})
+        self.fields["badge_main_en"].set(translations_en.get("badge_main", "New Single"))
+        self.fields["badge_youtube_en"].set(translations_en.get("badge_youtube", "No Copyright Music"))
+
+        if hasattr(self, 'txt_short_desc_en') and self.txt_short_desc_en:
+            self.txt_short_desc_en.delete("1.0", tk.END)
+            self.txt_short_desc_en.insert("1.0", translations_en.get("short_desc", ""))
+
+        if hasattr(self, 'txt_full_desc_1_en') and self.txt_full_desc_1_en:
+            self.txt_full_desc_1_en.delete("1.0", tk.END)
+            self.txt_full_desc_1_en.insert("1.0", translations_en.get("full_desc_1", ""))
+
+        if hasattr(self, 'txt_full_desc_2_en') and self.txt_full_desc_2_en:
+            self.txt_full_desc_2_en.delete("1.0", tk.END)
+            self.txt_full_desc_2_en.insert("1.0", translations_en.get("full_desc_2", ""))
+
+        if hasattr(self, 'txt_license_en') and self.txt_license_en:
+            self.txt_license_en.delete("1.0", tk.END)
+            self.txt_license_en.insert("1.0", translations_en.get("license_notice", ""))
 
         # Wypełnianie listy stemsów
         stems = data.get("stems_individual", [])
@@ -1650,6 +1938,28 @@ class ReleaseBuilderApp:
                 {"name": tk.StringVar(value="1. Główny Stem"), "file": tk.StringVar(value="")}
             ]
         self.refresh_stems_ui()
+
+        # Wypełnianie listy grafik i tapet
+        visuals = data.get("visual_assets", [])
+        self.visual_assets = []
+        if visuals:
+            for v in visuals:
+                self.visual_assets.append({
+                    "title": tk.StringVar(value=v.get("title", "")),
+                    "format": tk.StringVar(value=v.get("format", "")),
+                    "desc": tk.StringVar(value=v.get("desc", "")),
+                    "file": tk.StringVar(value=v.get("file", ""))
+                })
+        else:
+            cov = data.get("cover_file", "")
+            pc = data.get("pc_wall_file", "")
+            ph = data.get("phone_wall_file", "")
+            self.visual_assets = [
+                {"title": tk.StringVar(value="Oficjalna Okładka Utworu"), "format": tk.StringVar(value="Format 1:1"), "desc": tk.StringVar(value="Oryginalny artwork singla w bezstratnej jakości."), "file": tk.StringVar(value=cov)},
+                {"title": tk.StringVar(value="Tapeta na Pulpit Komputera"), "format": tk.StringVar(value="Format 16:9"), "desc": tk.StringVar(value="Szerokokątna grafika wysokiej rozdzielczości na monitor."), "file": tk.StringVar(value=pc)},
+                {"title": tk.StringVar(value="Tapeta na Smartfon (Ekran blokady)"), "format": tk.StringVar(value="Format 9:16"), "desc": tk.StringVar(value="Dedykowana tapeta pionowa na ekrany telefonów (iOS / Android)."), "file": tk.StringVar(value=ph)},
+            ]
+        self.refresh_visuals_ui()
 
         # Zmiana etykiet na tryb edycji
         self.lbl_mode_status.config(text=f"Tryb: EDYCJA ({slug})", fg=self.accent_green)
@@ -1668,6 +1978,19 @@ class ReleaseBuilderApp:
         for k in ["title", "slug", "audio_file", "cover_file", "stems_zip_file", "pc_wall_file", "phone_wall_file"]:
             self.fields[k].set("")
         self.enable_bio_var.set(True)
+        self.youtube_safe_var.set(True)
+        self.fields["badge_youtube"].set("No Copyright Music")
+        self.fields["badge_main_en"].set("New Single")
+        self.fields["badge_youtube_en"].set("No Copyright Music")
+        if hasattr(self, 'txt_short_desc_en') and self.txt_short_desc_en:
+            self.txt_short_desc_en.delete("1.0", tk.END)
+        if hasattr(self, 'txt_full_desc_1_en') and self.txt_full_desc_1_en:
+            self.txt_full_desc_1_en.delete("1.0", tk.END)
+        if hasattr(self, 'txt_full_desc_2_en') and self.txt_full_desc_2_en:
+            self.txt_full_desc_2_en.delete("1.0", tk.END)
+        if hasattr(self, 'txt_license_en') and self.txt_license_en:
+            self.txt_license_en.delete("1.0", tk.END)
+
         self.individual_stems = [
             {"name": tk.StringVar(value="1. Drums & Kicks"), "file": tk.StringVar(value="")},
             {"name": tk.StringVar(value="2. Sub Bass & 808"), "file": tk.StringVar(value="")},
@@ -1677,14 +2000,33 @@ class ReleaseBuilderApp:
             {"name": tk.StringVar(value="6. Master Preview MP3"), "file": tk.StringVar(value="")},
         ]
         self.refresh_stems_ui()
+        self.visual_assets = [
+            {"title": tk.StringVar(value="Oficjalna Okładka Utworu"), "format": tk.StringVar(value="Format 1:1"), "desc": tk.StringVar(value="Oryginalny artwork singla w bezstratnej jakości."), "file": tk.StringVar(value="")},
+            {"title": tk.StringVar(value="Tapeta na Pulpit Komputera"), "format": tk.StringVar(value="Format 16:9"), "desc": tk.StringVar(value="Szerokokątna grafika wysokiej rozdzielczości na monitor."), "file": tk.StringVar(value="")},
+            {"title": tk.StringVar(value="Tapeta na Smartfon (Ekran blokady)"), "format": tk.StringVar(value="Format 9:16"), "desc": tk.StringVar(value="Dedykowana tapeta pionowa na ekrany telefonów (iOS / Android)."), "file": tk.StringVar(value="")},
+        ]
+        self.refresh_visuals_ui()
 
     def on_submit(self):
         data = {k: v.get() for k, v in self.fields.items()}
         data["enable_bio"] = self.enable_bio_var.get()
+        data["youtube_safe"] = self.youtube_safe_var.get()
+        data["badge_youtube"] = self.fields["badge_youtube"].get().strip() or "No Copyright Music"
         data["short_desc"] = self.txt_short_desc.get("1.0", tk.END).strip()
         data["full_desc_1"] = self.txt_full_desc_1.get("1.0", tk.END).strip()
         data["full_desc_2"] = self.txt_full_desc_2.get("1.0", tk.END).strip()
         data["license_notice"] = self.txt_license.get("1.0", tk.END).strip()
+
+        # Zebranie tłumaczeń EN
+        translations_en = {
+            "badge_main": self.fields["badge_main_en"].get().strip() or "New Single",
+            "badge_youtube": self.fields["badge_youtube_en"].get().strip() or "No Copyright Music",
+            "short_desc": self.txt_short_desc_en.get("1.0", tk.END).strip() if hasattr(self, 'txt_short_desc_en') and self.txt_short_desc_en else "",
+            "full_desc_1": self.txt_full_desc_1_en.get("1.0", tk.END).strip() if hasattr(self, 'txt_full_desc_1_en') and self.txt_full_desc_1_en else "",
+            "full_desc_2": self.txt_full_desc_2_en.get("1.0", tk.END).strip() if hasattr(self, 'txt_full_desc_2_en') and self.txt_full_desc_2_en else "",
+            "license_notice": self.txt_license_en.get("1.0", tk.END).strip() if hasattr(self, 'txt_license_en') and self.txt_license_en else "",
+        }
+        data["translations_en"] = translations_en
 
         # Jeśli byliśmy w trybie edycji i użytkownik nie zmienił sluga
         if self.current_editing_slug and not data["slug"]:
@@ -1695,6 +2037,24 @@ class ReleaseBuilderApp:
             for s in self.individual_stems
             if s["name"].get().strip()
         ]
+
+        data["visual_assets"] = [
+            {
+                "title": v["title"].get().strip(),
+                "format": v["format"].get().strip() or "Grafika",
+                "desc": v["desc"].get().strip(),
+                "file": v["file"].get().strip(),
+            }
+            for v in self.visual_assets
+            if v["title"].get().strip() or v["file"].get().strip()
+        ]
+        if self.visual_assets:
+            if len(self.visual_assets) > 0 and self.visual_assets[0]["file"].get().strip():
+                data["cover_file"] = self.visual_assets[0]["file"].get().strip()
+            if len(self.visual_assets) > 1 and self.visual_assets[1]["file"].get().strip():
+                data["pc_wall_file"] = self.visual_assets[1]["file"].get().strip()
+            if len(self.visual_assets) > 2 and self.visual_assets[2]["file"].get().strip():
+                data["phone_wall_file"] = self.visual_assets[2]["file"].get().strip()
 
         success, msg = generate_release(data)
         if success:

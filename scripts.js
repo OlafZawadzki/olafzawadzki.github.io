@@ -827,6 +827,530 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
+// ==========================================
+// SYSTEM TŁUMACZEŃ (PL / EN I18N SYSTEM)
+// ==========================================
+(function initI18n() {
+  const UI_DICT = {
+    pl: {
+      nav_start: "Start",
+      nav_about: "O mnie",
+      nav_releases: "Wydania",
+      nav_projects: "Projekty",
+      nav_contact: "Kontakt",
+      nav_gamedev: "Game Dev",
+      nav_music: "Muzyka",
+      all_releases_breadcrumb: "← Wszystkie Wydania & STEMS",
+      stems_package_title: "Pobierz STEMS (Do Remiksów)",
+      stems_package_desc: "Pobierz kompletną paczkę wielościeżkową lub pobieraj pojedyncze ścieżki osobno poniżej:",
+      download_zip: "Pobierz Paczkę STEMS (.ZIP)",
+      download_single_title: "Pobierz pojedyncze ścieżki osobno (WAV / MP3):",
+      visuals_title: "Oficjalne Arty i Tapety do Pobrania",
+      visuals_desc: "Pobierz oficjalne materiały wizualne w pełnej rozdzielczości: okładkę albumu, tapetę na komputer oraz grafikę pionową na ekran blokady smartfona.",
+      btn_zoom: "Powiększ",
+      btn_download: "Pobierz ↓",
+      btn_download_arrow: "Pobierz &darr;",
+      meta_bpm: "Tempo",
+      meta_key: "Tonacja",
+      meta_duration: "Długość",
+      meta_quality: "Jakość Mastera",
+      meta_genre: "Gatunek",
+      meta_producer: "Producent",
+      meta_stems_fmt: "Format STEMS",
+      meta_heading: "Metadane Studyjne",
+      listen_full: "Pełny Odsłuch Audio",
+      listen_sub: "Plik preview w wysokiej jakości",
+      about_track_heading: "O utworze & Procesie Produkcji",
+      tab_full_page: "Pełna Strona Wydania & STEMS",
+      tab_smartlink: "Widok Smartlink / Bio",
+      yt_box_title: "Content ID Free • Muzyka bez roszczeń (Tylko na YouTube)",
+      yt_box_desc: "Utwór jest w 100% bezpieczny od roszczeń praw autorskich dla twórców wideo — możesz bez obaw używać go jako darmowy podkład w swoich materiałach na platformie YouTube (wystarczy podać w opisie autora).",
+      catalog_eyebrow: "Katalog Wydawniczy",
+      catalog_title: "Wszystkie Wydania & Ścieżki",
+      catalog_desc: "Kliknij w okładkę dowolnego projektu, aby sprawdzić szczegóły, odsłuch i materiały.",
+      btn_release_page: "Strona Wydania →",
+      btn_smartlink_view: "Widok Smartlink / Bio ↗"
+    },
+    en: {
+      nav_start: "Home",
+      nav_about: "About",
+      nav_releases: "Releases",
+      nav_projects: "Projects",
+      nav_contact: "Contact",
+      nav_gamedev: "Game Dev",
+      nav_music: "Music",
+      all_releases_breadcrumb: "← All Releases & STEMS",
+      stems_package_title: "Download STEMS (For Remixes)",
+      stems_package_desc: "Download complete multitrack package or grab individual stems separately below:",
+      download_zip: "Download STEMS Pack (.ZIP)",
+      download_single_title: "Download individual audio stems (WAV / MP3):",
+      visuals_title: "Official Artworks & Wallpapers to Download",
+      visuals_desc: "Download official high-resolution visuals: album cover, desktop wallpaper, and smartphone lockscreen artwork.",
+      btn_zoom: "Zoom",
+      btn_download: "Download ↓",
+      btn_download_arrow: "Download &darr;",
+      meta_bpm: "Tempo",
+      meta_key: "Key",
+      meta_duration: "Duration",
+      meta_quality: "Master Quality",
+      meta_genre: "Genre",
+      meta_producer: "Producer",
+      meta_stems_fmt: "STEMS Format",
+      meta_heading: "Studio Metadata",
+      listen_full: "Full Audio Preview",
+      listen_sub: "High quality preview file",
+      about_track_heading: "About Track & Production Process",
+      tab_full_page: "Full Release Page & STEMS",
+      tab_smartlink: "Smartlink / Bio View",
+      yt_box_title: "Content ID Free • Claim-Free Music (YouTube Only)",
+      yt_box_desc: "This track is 100% safe from copyright claims for video creators — feel free to use it as background music in your YouTube videos (credit required in description).",
+      catalog_eyebrow: "Release Catalog",
+      catalog_title: "All Releases & Stems",
+      catalog_desc: "Click any project cover to check details, stream audio, and download creator assets.",
+      btn_release_page: "Release Page →",
+      btn_smartlink_view: "Smartlink / Bio View ↗"
+    }
+  };
+
+  function applyLanguage(lang) {
+    document.documentElement.lang = lang;
+    try {
+      localStorage.setItem('hexit_lang', lang);
+    } catch (e) {}
+
+    // Update active state on language buttons
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      const bLang = btn.getAttribute('data-lang') || btn.getAttribute('data-lang-target');
+      const isActive = (bLang === lang);
+      btn.classList.toggle('active', isActive);
+      btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    });
+
+    // Toggle language content blocks
+    document.querySelectorAll('.lang-content-pl').forEach(el => {
+      el.style.display = lang === 'pl' ? '' : 'none';
+    });
+    document.querySelectorAll('.lang-content-en').forEach(el => {
+      el.style.display = lang === 'en' ? '' : 'none';
+    });
+
+    // Toggle inline elements with data-pl and data-en
+    document.querySelectorAll('[data-pl][data-en]').forEach(el => {
+      const val = lang === 'en' ? el.getAttribute('data-en') : el.getAttribute('data-pl');
+      if (val !== null) {
+        if (el.children.length === 0) {
+          el.textContent = val;
+        } else {
+          el.innerHTML = val;
+        }
+      }
+    });
+
+    // Dictionary lookup elements [data-i18n]
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (UI_DICT[lang] && UI_DICT[lang][key]) {
+        el.textContent = UI_DICT[lang][key];
+      }
+    });
+
+    // Standard Navigation menu links translation
+    const navStart = document.querySelector('.nav-menu a[href="index.html"]');
+    if (navStart && !navStart.hasAttribute('data-i18n')) {
+      navStart.textContent = lang === 'en' ? "Home" : "Start";
+    }
+    const navAbout = document.querySelector('.nav-menu a[href="about.html"]');
+    if (navAbout && !navAbout.hasAttribute('data-i18n')) {
+      navAbout.textContent = lang === 'en' ? "About" : "O mnie";
+    }
+    const navWydania = document.querySelector('.nav-menu a[href="wydania.html"]');
+    if (navWydania && !navWydania.hasAttribute('data-i18n')) {
+      navWydania.textContent = lang === 'en' ? "Releases" : "Wydania";
+    }
+    const navProjects = document.querySelector('.nav-menu a[href="index.html#projekty"]');
+    if (navProjects && !navProjects.hasAttribute('data-i18n')) {
+      navProjects.textContent = lang === 'en' ? "Projects" : "Projekty";
+    }
+    const navContact = document.querySelector('.nav-menu a[href="index.html#kontakt"], .nav-menu a[href="kontakt.html"]');
+    if (navContact && !navContact.hasAttribute('data-i18n')) {
+      navContact.textContent = lang === 'en' ? "Contact" : "Kontakt";
+    }
+
+    // Comprehensive translations for index.html
+    const heroSection = document.querySelector('.hero-section');
+    if (heroSection) {
+      const cTag = heroSection.querySelector('.creator-tag');
+      if (cTag) cTag.textContent = lang === 'en' ? "Music Producer & Sound Designer" : "Producent Muzyczny & Sound Designer";
+
+      const nTag = heroSection.querySelector('.now-tag');
+      if (nTag) nTag.textContent = lang === 'en' ? "NOX & Samplix Projects" : "Projekty NOX & Samplix";
+
+      const hTitle = heroSection.querySelector('.hero-title');
+      if (hTitle) hTitle.textContent = lang === 'en' ? "Music Production, Sound Design & Audio Engineering." : "Produkcja Muzyczna, Sound Design & Autorskie Projekty Audio.";
+
+      const hSub = heroSection.querySelector('.hero-subtitle');
+      if (hSub) {
+        hSub.innerHTML = lang === 'en'
+          ? "Hi! My name is Olaf \"Hexit Rely\" Zawadzki. My world revolves around original music production, composition, hybrid sound design (NOX projects), creating Samplix audio tools, gaming, and late-night streams on <em>Its Hexit IRL</em>."
+          : "Cześć! Nazywam się Olaf \"Hexit Rely\" Zawadzki. Mój świat to autorska produkcja muzyczna, kompozycja, hybrydowy sound design (projekty NOX), tworzenie narzędzi audio Samplix oraz gaming i nocne streamy na kanale <em>Its Hexit IRL</em>.";
+      }
+
+      const btnWydania = heroSection.querySelector('.hero-buttons a[href="wydania.html"]');
+      if (btnWydania) {
+        btnWydania.innerHTML = lang === 'en'
+          ? '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16"><path d="M9 13c0 1.105-1.12 2-2.5 2S4 14.105 4 13s1.12-2 2.5-2 2.5.895 2.5 2z"/><path fill-rule="evenodd" d="M9 3v10H8V3h1z"/><path d="M8 2.82a1 1 0 0 1 .804-.98l3-.6A1 1 0 0 1 13 2.22V4L8 5V2.82z"/></svg> Releases &amp; STEMS &rarr;'
+          : '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16"><path d="M9 13c0 1.105-1.12 2-2.5 2S4 14.105 4 13s1.12-2 2.5-2 2.5.895 2.5 2z"/><path fill-rule="evenodd" d="M9 3v10H8V3h1z"/><path d="M8 2.82a1 1 0 0 1 .804-.98l3-.6A1 1 0 0 1 13 2.22V4L8 5V2.82z"/></svg> Wydania &amp; STEMS &rarr;';
+      }
+
+      const btnLab = heroSection.querySelector('.hero-buttons a[href="#laboratorium"]');
+      if (btnLab) btnLab.textContent = lang === 'en' ? "Explore Craft & Projects" : "Poznaj warsztat & projekty";
+
+      const hubLbl = heroSection.querySelector('.hub-label');
+      if (hubLbl) hubLbl.innerHTML = lang === 'en' ? "Stay up to date &bull; My platforms:" : "Bądź na bieżąco &bull; Moje platformy:";
+    }
+
+    // About Section (Cześć, tu Olaf)
+    const aboutSec = document.querySelector('#o-mnie, .about-story-section');
+    if (aboutSec) {
+      const eyebrow = aboutSec.querySelector('.section-eyebrow');
+      if (eyebrow) eyebrow.textContent = lang === 'en' ? "My Journey & Philosophy" : "Moja droga i filozofia";
+
+      const title = aboutSec.querySelector('.hero-title, h2');
+      if (title) title.textContent = lang === 'en' ? "Hi, I'm Olaf." : "Cześć, tu Olaf.";
+
+      const p = aboutSec.querySelector('.about-story-text p');
+      if (p) {
+        p.innerHTML = lang === 'en'
+          ? "Online, I go by <strong>HEXIT RELY</strong>. For over 7 years I have explored sound, sharing my passion for sound design and music production live on stream."
+          : "W sieci funkcjonuję jako <strong>HEXIT RELY</strong>. Od ponad 7 lat zgłębiam dźwięk, a swoją pasją do sound designu i tworzenia muzyki dzielę się na żywo podczas streamów.";
+      }
+
+      const btn = aboutSec.querySelector('.about-story-text a.btn');
+      if (btn) btn.innerHTML = lang === 'en' ? "Learn more about me &rarr;" : "Poznaj mnie bliżej &rarr;";
+
+      const pill = aboutSec.querySelector('.hero-status-pill span');
+      if (pill) pill.textContent = lang === 'en' ? "Music • Streaming • Gaming" : "Muzyka • Streaming • Gaming";
+    }
+
+    // Three Pillars of Craft
+    const pillarsWrap = document.querySelector('.about-story-section .now-cards-grid');
+    if (pillarsWrap) {
+      const headerWrap = pillarsWrap.previousElementSibling;
+      if (headerWrap) {
+        const eb = headerWrap.querySelector('.section-eyebrow');
+        if (eb) eb.textContent = lang === 'en' ? "Pillars of HEXIT RELY" : "Filary HEXIT RELY";
+        const st = headerWrap.querySelector('.section-title, h3');
+        if (st) st.textContent = lang === 'en' ? "Three Passions, One Cohesive Ecosystem" : "Trzy pasje, jeden spójny organizm";
+        const sd = headerWrap.querySelector('.section-desc');
+        if (sd) sd.textContent = lang === 'en'
+          ? "I don't believe in confining myself to a single box. My world is driven by the synergy between digital audio, transparent community connection, and physical craft."
+          : "Nie wierzę w zamykanie się w jednej szufladce. Mój świat napędza synergia między cyfrowym audio, transparentnym kontaktem i pracą fizyczną.";
+      }
+
+      const cards = pillarsWrap.querySelectorAll('.now-card');
+      if (cards.length >= 3) {
+        const c1_h = cards[0].querySelector('h4');
+        if (c1_h) c1_h.textContent = lang === 'en' ? "1. Music & Experimentation" : "1. Muzyka & Eksperyment";
+        const c1_p = cards[0].querySelector('p');
+        if (c1_p) c1_p.textContent = lang === 'en'
+          ? "My sound blends dark electronics, glitch textures, organic instruments, and cinematic sound design. I release original music and score indie games."
+          : "Moje brzmienie to połączenie mrocznej elektroniki, glitchowych tekstur, organicznych instrumentów i filmowego sound designu. Tworzę autorskie wydawnictwa oraz udźwiękowienie do gier niezależnych.";
+        const c1_a = cards[0].querySelector('.now-card-link');
+        if (c1_a) c1_a.textContent = lang === 'en' ? "View Music Portfolio ↗" : "Zobacz muzyczne portfolio ↗";
+
+        const c2_h = cards[1].querySelector('h4');
+        if (c2_h) c2_h.textContent = lang === 'en' ? "2. Streaming & Transparency" : "2. Streaming & Transparentność";
+        const c2_p = cards[1].querySelector('p');
+        if (c2_p) c2_p.textContent = lang === 'en'
+          ? "I stream because I value authenticity. On the main channel we produce music and edit video, while on the second channel we host longer sessions (Minecraft, chill evenings, discussions). Building a mature community."
+          : "Streamuję, bo cenię autentyczność. Na kanale głównym tworzymy muzykę i montujemy filmy, a na drugim odpalamy dłuższe sesje (Minecraft, chillowe wieczory, dyskusje). Budujemy zgraną, dojrzałą społeczność.";
+        const c2_a = cards[1].querySelector('.now-card-link');
+        if (c2_a) c2_a.innerHTML = lang === 'en' ? "Join the Stream &rarr;" : "Wpadnij na stream &rarr;";
+
+        const c3_h = cards[2].querySelector('h4');
+        if (c3_h) c3_h.textContent = lang === 'en' ? "3. DIY & Creativity" : "3. DIY & Kreatywnosć";
+        const c3_p = cards[2].querySelector('p');
+        if (c3_p) c3_p.textContent = lang === 'en'
+          ? "Creativity cannot be boxed in. Thanks to it, I sip coffee over FL Studio in the morning, code this site in the afternoon, stream in the evening, and deploy a new local network service at night just because."
+          : "kreatywnosć to coś czego nie da się szufladkować. Dzięki niej z rana pije kawe przy fl studio popołudniem piszę tą stronę a wieczorem strimuje aby w nocy stwierdzić że pora dodac nową usługę w sieci lokalnej bo czemu by nie.";
+        const c3_a = cards[2].querySelector('.now-card-link');
+        if (c3_a) c3_a.innerHTML = lang === 'en' ? "Behind the scenes & process logs &rarr;" : "Kulisy & wpisy z procesu &rarr;";
+      }
+    }
+
+    // Lab Section (#laboratorium)
+    const labSec = document.querySelector('#laboratorium');
+    if (labSec) {
+      const eb = labSec.querySelector('.section-eyebrow');
+      if (eb) eb.textContent = lang === 'en' ? "My Craft & Pillars" : "Mój Warsztat & Filary";
+      const st = labSec.querySelector('.section-title');
+      if (st) st.textContent = lang === 'en' ? "Music, Software & Gaming" : "Muzyka, Software & Gaming";
+      const sd = labSec.querySelector('.section-desc');
+      if (sd) sd.textContent = lang === 'en'
+        ? "Three domains where I connect audio engineering with a passion for gaming and tool creation. Toggle tabs to explore my workflow:"
+        : "Trzy obszary, w których łączę inżynierię dźwięku z pasją do gamingu i tworzenia narzędzi. Przełączaj zakładki, by poznać mój proces:";
+
+      const tabs = labSec.querySelectorAll('.code-lab-tab');
+      if (tabs.length >= 3) {
+        tabs[0].textContent = lang === 'en' ? "Music Production" : "Produkcja Muzyczna";
+        tabs[1].textContent = lang === 'en' ? "Audio Software" : "Oprogramowanie Audio";
+        tabs[2].textContent = lang === 'en' ? "Minecraft & Streaming" : "Minecraft & Streaming";
+      }
+
+      // Panel 1: Piano roll
+      const p1 = document.querySelector('#lab-pianoroll');
+      if (p1) {
+        const p1_eb = p1.querySelector('.section-eyebrow');
+        if (p1_eb) p1_eb.textContent = lang === 'en' ? "Composition & Sound Design" : "Kompozycja & Sound Design";
+        const p1_h = p1.querySelector('h3');
+        if (p1_h) p1_h.textContent = lang === 'en' ? "Piano Roll — How I Craft My Sound" : "Piano Roll — jak buduję brzmienie";
+        const p1_ps = p1.querySelectorAll('.pianoroll-text p');
+        if (p1_ps.length >= 2) {
+          p1_ps[0].textContent = lang === 'en'
+            ? "Every track and sound design project begins in the sequencer grid. Precise semitone arrangement, velocity control, and hybrid synthesis form the core of my music releases and sample libraries."
+            : "Każdy utwór i sound design zaczyna się w siatce sekwencera. Precyzyjne układanie półtonów, kontrola dynamiki (velocity) i synteza hybrydowa to fundament moich produkcji muzycznych oraz bibliotek sampli.";
+          p1_ps[1].textContent = lang === 'en'
+            ? "I work primarily in Ableton Live Suite and FL Studio, combining digital processing with analogue MIDI hardware and custom FX chains."
+            : "Pracuję głównie w Ableton Live Suite oraz FL Studio, łącząc cyfrowe przetwarzanie z analogowymi kontrolerami MIDI i autorskimi łańcuchami efektów FX.";
+        }
+        const p1_tags = p1.querySelectorAll('.pianoroll-text .now-tag');
+        if (p1_tags.length >= 4) {
+          p1_tags[0].textContent = lang === 'en' ? "Composition" : "Kompozycja";
+          p1_tags[1].textContent = lang === 'en' ? "Sound Synthesis" : "Synteza Dźwięku";
+          p1_tags[2].textContent = "Ableton Live & FL Studio";
+          p1_tags[3].textContent = "Sound Design NOX";
+        }
+        const p1_a1 = p1.querySelector('a.btn-primary');
+        if (p1_a1) p1_a1.textContent = lang === 'en' ? "Listen on Spotify ↗" : "Posłuchaj na Spotify ↗";
+        const p1_a2 = p1.querySelector('a.btn-secondary');
+        if (p1_a2) p1_a2.textContent = lang === 'en' ? "NOX Music Portfolio ↗" : "Portfolio Muzyczne NOX ↗";
+      }
+
+      // Panel 2: Code 3D / Samplix
+      const p2 = document.querySelector('#lab-code3d');
+      if (p2) {
+        const p2_eb = p2.querySelector('.section-eyebrow');
+        if (p2_eb) p2_eb.textContent = "Software & DSP";
+        const p2_h = p2.querySelector('h3');
+        if (p2_h) p2_h.textContent = lang === 'en' ? "Samplix Engine — Audio Analysis & Algorithms" : "Silnik Samplix — analiza audio i algorytmy";
+        const p2_ps = p2.querySelectorAll('.code3d-text p');
+        if (p2_ps.length >= 2) {
+          p2_ps[0].textContent = lang === 'en'
+            ? "Samplix is my proprietary software tool designed for producers wrestling with hundreds of gigabytes of one-shots and loops."
+            : "Samplix to moje autorskie narzędzie programistyczne, zaprojektowane dla producentów borykających się z setkami gigabajtów one-shotów i pętli.";
+          p2_ps[1].textContent = lang === 'en'
+            ? "The built-in audio engine instantly detects key (chroma CQT), estimates BPM, and indexes samples in a fraction of a second, enabling drag-and-drop straight into your DAW."
+            : "Wbudowany silnik analizy audio natychmiast wykrywa tonację (chroma CQT), estymuje tempo BPM i indeksuje próbki w ułamku sekundy, umożliwiając błyskawiczne przeciąganie plików bezpośrednio do DAW.";
+        }
+        const p2_tags = p2.querySelectorAll('.code3d-text .now-tag');
+        if (p2_tags.length >= 3) {
+          p2_tags[0].textContent = "Python Audio DSP";
+          p2_tags[1].textContent = lang === 'en' ? "Key & BPM Detection" : "Detekcja Tonacji & BPM";
+          p2_tags[2].textContent = lang === 'en' ? "Samplix Ecosystem" : "Ekosystem Samplix";
+        }
+      }
+
+      // Panel 3: Minecraft & Gaming
+      const p3 = document.querySelector('#lab-pixelart');
+      if (p3) {
+        const p3_eb = p3.querySelector('.section-eyebrow');
+        if (p3_eb) p3_eb.textContent = "Gaming, Dev & Streaming";
+        const p3_h = p3.querySelector('h3');
+        if (p3_h) p3_h.textContent = lang === 'en' ? "Minecraft Survival, Plugins & Community" : "Minecraft Survival, Pluginy & Społeczność";
+        const p3_ps = p3.querySelectorAll('.pixelart-text p');
+        if (p3_ps.length >= 2) {
+          p3_ps[0].innerHTML = lang === 'en'
+            ? "The <strong>Its Hexit IRL</strong> YouTube channel features multi-hour Minecraft survival sessions as VOD archives from live broadcasts. It's not just gaming — it's coding: I develop custom plugins and server scripts, develop gameplay mechanics, optimize server performance, and enjoy survival gameplay."
+            : "Na kanale <strong>Its Hexit IRL</strong> (YouTube) znajdują się wielogodzinne sesje survivalu w Minecraft w formie zapisów VOD z transmisji na żywo. To nie tylko granie — to także kodowanie: tworzę autorskie pluginy i skrypty serwerowe, rozwijam niestandardowe mechaniki rozgrywki oraz optymalizuję świat serwera, czy poprostu chill na survivalu co także jest potrzebne.";
+          p3_ps[1].textContent = lang === 'en'
+            ? "Together with the community, we build bases, automate systems, and spend time in an authentic, mature atmosphere during late-night streams."
+            : "Wspólnie ze społecznością budujemy bazy, automatyzacje i spędzamy czas w bezpretensjonalnej, dojrzałej atmosferze podczas nocnych streamów.";
+        }
+        const p3_tags = p3.querySelectorAll('.pixelart-text .now-tag');
+        if (p3_tags.length >= 3) {
+          p3_tags[0].textContent = lang === 'en' ? "Survival & Community" : "Survival & Społeczność";
+          p3_tags[1].textContent = lang === 'en' ? "Plugins & Scripts" : "Pluginy & Skrypty";
+          p3_tags[2].textContent = lang === 'en' ? "VOD Archives" : "Zapisy VOD";
+        }
+        const p3_a = p3.querySelector('.pixelart-text a.btn');
+        if (p3_a) p3_a.textContent = lang === 'en' ? "Watch on YouTube: Its Hexit IRL (@HexitIrl) ↗" : "Oglądaj na YouTube: Its Hexit IRL (@HexitIrl) ↗";
+      }
+    }
+
+    // Projects Ecosystem Section (#projekty)
+    const projSec = document.querySelector('#projekty');
+    if (projSec) {
+      const eb = projSec.querySelector('.section-eyebrow');
+      if (eb) eb.textContent = lang === 'en' ? "Project Ecosystem" : "Ekosystem projektów";
+      const st = projSec.querySelector('.section-title');
+      if (st) st.textContent = lang === 'en' ? "Tools & Studio" : "Narzędzia i Studio";
+      const sd = projSec.querySelector('.section-desc');
+      if (sd) sd.textContent = lang === 'en'
+        ? "I develop original software for music producers and handle audio production from recording to mix, mastering, and complete sound design from scratch."
+        : "Tworzę autorskie oprogramowanie dla producentów oraz sam zajmuję się twórczością od realizacji nagran przez mix mastering czy czystą produkcję od zera.";
+
+      // Samplix Card
+      const samplixCard = projSec.querySelector('.samplix-card');
+      if (samplixCard) {
+        const badge = samplixCard.querySelector('.ecosystem-badge');
+        if (badge) badge.textContent = lang === 'en' ? "Software from 'Lix' Series" : "Oprogramowanie z serii \"Lix\"";
+        const ps = samplixCard.querySelectorAll('p');
+        if (ps.length >= 2) {
+          ps[0].textContent = lang === 'en'
+            ? "Got gigabytes of samples and wasting hours looking for the right one-shot? Samplix is my proprietary software tool, designed by a producer for producers — to organize your audio library and speed up your DAW workflow without taking your hands off the keyboard."
+            : "Masz gigabajty sampli i tracisz godziny na szukanie odpowiedniego one-shota? Samplix to moje autorskie narzędzie software'owe, zaprojektowane przez producenta dla producentów — żeby ogarnąć bibliotekę audio i przyspieszyć pracę w DAW bez odrywania rąk od klawiatury.";
+          ps[1].textContent = lang === 'en'
+            ? "Samplix is part of a larger 'Lix' tool series — I build them independently, step by step, solving real friction points in daily production."
+            : "Samplix to część większej serii narzędzi \"Lix\" — buduję je samodzielnie, krok po kroku, rozwiązując problemy, które sam napotykam przy codziennej produkcji.";
+        }
+        const feats = samplixCard.querySelectorAll('.samplix-features-list li');
+        if (feats.length >= 6) {
+          feats[0].textContent = lang === 'en' ? "Instant folder indexing" : "Błyskawiczne indeksowanie folderów";
+          feats[1].textContent = lang === 'en' ? "Smart sample tagging" : "Inteligentne tagowanie próbek";
+          feats[2].textContent = lang === 'en' ? "Drag & drop straight into DAW" : "Przeciąganie bezpośrednio do DAW";
+          feats[3].textContent = lang === 'en' ? "Lightweight, minimal UI" : "Lekki i minimalistyczny interfejs";
+          feats[4].textContent = lang === 'en' ? "Built-in waveform preview" : "Wbudowany podgląd fal audio";
+          feats[5].textContent = lang === 'en' ? "Full integration with NOX sample packs" : "Pełna integracja z sample packami NOX";
+        }
+        const btn = samplixCard.querySelector('a.btn');
+        if (btn) btn.textContent = lang === 'en' ? "Go to Samplix ↗" : "Przejdź do Samplix ↗";
+      }
+
+      // 4NOX WAV Card
+      const noxCard = projSec.querySelector('.nox-service-card');
+      if (noxCard) {
+        const pill = noxCard.querySelector('.service-notice-pill');
+        if (pill) pill.textContent = lang === 'en' ? "Studio & Production Brand" : "Marka Studyjna & Produkcyjna";
+        const ps = noxCard.querySelectorAll('p');
+        if (ps.length >= 2) {
+          ps[0].textContent = lang === 'en'
+            ? "If you are looking for professional commercial services — custom music, sound design for games and media, mixing, mastering, audio restoration, or dedicated sound libraries — my full NOX studio profile (4noxwav) is hosted at a dedicated address."
+            : "Jeśli szukasz profesjonalnych usług komercyjnych — autorskiej muzyki, sound designu do gier i mediów, miksu, masteringu, czyszczenia nagrań czy dedykowanych bibliotek brzmień — cały mój profil studyjny NOX (4noxwav) znajduje się pod osobnym adresem.";
+          ps[1].textContent = lang === 'en'
+            ? "hexitrely.pl is my personal artist and streaming space. Rates, service packages, and dedicated commercial inquiries are available on 4noxwav.com and my external portfolio."
+            : "hexitrely.pl to moja przestrzeń autorska i streamingowa. Cenniki, pakiety i dedykowane zlecenia komercyjne NOX znajdziesz bezpośrednio na 4noxwav.com oraz w portfolio zewnętrznym.";
+        }
+        const btns = noxCard.querySelectorAll('a.btn');
+        if (btns.length >= 2) {
+          btns[0].textContent = lang === 'en' ? "NOX Studio at 4noxwav.com ↗" : "Studio NOX na 4noxwav.com ↗";
+          btns[1].textContent = lang === 'en' ? "Portfolio NOX ↗" : "Portfolio NOX ↗";
+        }
+      }
+    }
+
+    // Contact Section (#kontakt)
+    const contactSec = document.querySelector('#kontakt');
+    if (contactSec) {
+      const eb = contactSec.querySelector('.section-eyebrow');
+      if (eb) eb.textContent = lang === 'en' ? "Let's Talk" : "Porozmawiajmy";
+      const st = contactSec.querySelector('.section-title');
+      if (st) st.textContent = lang === 'en' ? "Get in Touch" : "Skontaktuj się ze mną";
+      const sd = contactSec.querySelector('.section-desc');
+      if (sd) sd.textContent = lang === 'en'
+        ? "Have a question about music, Samplix, streaming, or collaboration?"
+        : "Masz pytanie o muzykę, Samplix, streaming lub propozycję współpracy?";
+
+      const leftCardH3 = contactSec.querySelector('.content-card h3');
+      if (leftCardH3) leftCardH3.textContent = lang === 'en' ? "Direct Email Address:" : "Bezpośredni adres e-mail:";
+      const leftCardP = contactSec.querySelector('.content-card p');
+      if (leftCardP) leftCardP.textContent = lang === 'en' ? "The fastest way to reach out for project and business inquiries:" : "Najszybsza forma kontaktu w sprawach projektowych i biznesowych:";
+
+      const findH4 = contactSec.querySelector('.info-pill-box h4');
+      if (findH4) findH4.textContent = lang === 'en' ? "Where else can you find me?" : "Gdzie jeszcze mnie znajdziesz?";
+
+      const formH3 = contactSec.querySelector('form h3, .content-card:nth-of-type(2) h3');
+      if (formH3) formH3.textContent = lang === 'en' ? "Send a Quick Message" : "Wyślij szybką wiadomość";
+
+      const labels = contactSec.querySelectorAll('form label');
+      if (labels.length >= 3) {
+        labels[0].textContent = lang === 'en' ? "Your Name / Handle:" : "Twoje imię / Nick:";
+        labels[1].textContent = lang === 'en' ? "Your Email:" : "Twój e-mail:";
+        labels[2].textContent = lang === 'en' ? "Message:" : "Wiadomość:";
+      }
+      const submitBtn = contactSec.querySelector('form button[type="submit"]');
+      if (submitBtn) submitBtn.innerHTML = lang === 'en' ? "Send Message &rarr;" : "Wyślij wiadomość &rarr;";
+    }
+
+    // Modern Footer translations
+    const footer = document.querySelector('.modern-footer');
+    if (footer) {
+      const fDesc = footer.querySelector('.footer-desc');
+      if (fDesc) fDesc.textContent = lang === 'en'
+        ? "Official creative space of Olaf \"Hexit Rely\" Zawadzki. Sound, visuals, code, and transparent creative process without pretension."
+        : "Oficjalna autorska przestrzeń Olafa \"Hexit Rely\" Zawadzkiego. Dźwięk, obraz, kod i transparentny proces twórczy bez zbędnego zadęcia.";
+
+      const fCols = footer.querySelectorAll('.footer-col h4');
+      if (fCols.length >= 3) {
+        fCols[0].textContent = lang === 'en' ? "Navigation" : "Nawigacja";
+        fCols[1].textContent = lang === 'en' ? "Projects & External" : "Projekty & Zewnętrzne";
+        fCols[2].textContent = lang === 'en' ? "Contact" : "Kontakt";
+      }
+
+      const fLinks = footer.querySelectorAll('.footer-col:first-of-type ul a');
+      if (fLinks.length >= 6) {
+        fLinks[0].textContent = lang === 'en' ? "Home" : "Start";
+        fLinks[1].textContent = lang === 'en' ? "About & Setup" : "O mnie & Setup";
+        fLinks[2].textContent = lang === 'en' ? "Releases & STEMS" : "Wydania & STEMS";
+        fLinks[3].textContent = lang === 'en' ? "Samplix Ecosystem" : "Ekosystem Samplix";
+        fLinks[4].textContent = "Blog";
+        fLinks[5].textContent = lang === 'en' ? "Shop (Soon)" : "Sklep (Wkrótce)";
+      }
+
+      const fBottomP = footer.querySelector('.footer-bottom p');
+      if (fBottomP) {
+        fBottomP.innerHTML = lang === 'en'
+          ? '&copy; 2024 &ndash; 2026 Olaf "Hexit Rely" Zawadzki. All rights reserved.'
+          : '&copy; 2024 &ndash; 2026 Olaf "Hexit Rely" Zawadzki. Wszelkie prawa zastrzeżone.';
+      }
+
+      const fBottomLinks = footer.querySelectorAll('.footer-bottom-links a');
+      if (fBottomLinks.length >= 3) {
+        fBottomLinks[0].textContent = lang === 'en' ? "Releases & STEMS" : "Wydania & STEMS";
+        fBottomLinks[1].textContent = lang === 'en' ? "Privacy Policy" : "Polityka Prywatności";
+        fBottomLinks[2].textContent = lang === 'en' ? "Contact" : "Kontakt";
+      }
+    }
+
+    // Ambient Dock Bar
+    const ambientDock = document.querySelector('#ambientCornerDock');
+    if (ambientDock) {
+      const aTitle = ambientDock.querySelector('.ambient-title');
+      if (aTitle) {
+        const eqHtml = '<div class="ambient-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div>';
+        aTitle.innerHTML = (lang === 'en' ? "Studio Ambient " : "Ambient Studyjny ") + eqHtml;
+      }
+      const aStatus = ambientDock.querySelector('.ambient-status');
+      if (aStatus && aStatus.textContent.includes('Kliknij')) {
+        aStatus.textContent = lang === 'en' ? "Click to play" : "Kliknij, aby włączyć";
+      }
+    }
+  }
+
+  // Attach global listener for language buttons and init
+  document.addEventListener('DOMContentLoaded', function () {
+    let savedLang = 'pl';
+    try {
+      savedLang = localStorage.getItem('hexit_lang') || 'pl';
+    } catch (e) {}
+
+    // Add click listeners to switcher buttons
+    document.addEventListener('click', function (e) {
+      const btn = e.target.closest('.lang-btn');
+      if (btn) {
+        e.preventDefault();
+        const targetLang = btn.getAttribute('data-lang') || btn.getAttribute('data-lang-target');
+        if (targetLang) {
+          applyLanguage(targetLang);
+        }
+      }
+    });
+
+    applyLanguage(savedLang);
+  });
+
+  window.hexitSetLang = applyLanguage;
+})();
+
 
 
 

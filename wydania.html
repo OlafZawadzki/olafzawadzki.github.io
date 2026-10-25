@@ -21,7 +21,9 @@
     <meta property="og:title" content="Wydania &amp; Dyskografia | HEXIT RELY">
     <meta property="og:description"
         content="Autorskie utwory, single oraz otwarte pakiety STEMS dla twórców i DJ-ów. Pobieraj ścieżki i twórz własne remiksy.">
-    <meta property="og:image" content="https://hexitrely.pl/hexit/harmony-cover.jpg">
+    <meta property="og:image" content="https://hexitrely.pl/hexit-og.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://hexitrely.pl/hexit-og.png">
 
     <!-- Stylesheets & Fonts -->
     <link rel="stylesheet" href="styles.css?v=20261024">
@@ -68,6 +70,11 @@
             </ul>
 
             <div class="nav-actions">
+                <div class="lang-switch" role="group" aria-label="Wybór języka / Language selection">
+                    <button class="lang-btn active" data-lang="pl" type="button" aria-pressed="true">PL</button>
+                    <span class="lang-sep">/</span>
+                    <button class="lang-btn" data-lang="en" type="button" aria-pressed="false">EN</button>
+                </div>
                 <div class="nav-socials">
                     <a href="https://www.youtube.com/channel/UCIpPTE3HsmUSAb-yfNybvSA" target="_blank" rel="noopener"
                         class="social-link" title="YouTube — Hexit Rely (Muzyka & Studio)">
@@ -135,8 +142,13 @@
 
                     <div class="release-info">
                         <div class="release-badge-row">
-                            <span class="release-pill pill-primary">Nowy Singiel</span>
+                            <span class="release-pill pill-primary" data-pl="Nowy Singiel" data-en="New Single">Nowy Singiel</span>
                             <span class="release-pill pill-stems">Mp3 Files</span>
+                            <span class="release-pill pill-youtube" title="Content ID Free • Dozwolone bezpłatnie w filmach na platformie YouTube">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16"><path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.022.26-.01.104c-.048.519-.119 1.023-.22 1.402a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.04.018-.256.008-.105c.05-.572.124-1.141.235-1.558a2.007 2.007 0 0 1 1.415-1.42c.487-.132 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z"/></svg>
+                                <span>No Copyright Music</span>
+                                <span class="pill-yt-tag">Free on YouTube</span>
+                            </span>
                             <span class="release-pill pill-meta">122 BPM &bull; D Major</span>
                             <span class="release-pill pill-meta">Orhestra / Classic</span>
                         </div>
@@ -145,11 +157,12 @@
                             <h2 class="release-title" style="font-size: var(--font-size-3xl);">
                                 <a href="wydanie-harmony.html" style="color: inherit; text-decoration: none;">Harmony</a>
                             </h2>
-                            <span class="release-artist">Hexit Rely &bull; Single &bull; Premiera: 2026</span>
+                            <span class="release-artist">Hexit Rely &bull; Single &bull; <span data-pl="Premiera: 2026" data-en="Release: 2026">Premiera: 2026</span></span>
                         </div>
 
                         <p class="release-desc">
-                            „Harmony” to utwór, który powstał w środku nocy z myśli o całkowitym relaksie, odmożdżeniu i odcięciu się od codziennych problemów oraz natłoku myśli. Na stronie wydania znajdziesz pełny odtwarzacz, widok Smartlink (Spotify, Apple, YouTube) oraz bezpośrednie pobranie ścieżek audio i tapet.
+                            <span class="lang-content-pl">„Harmony” to utwór, który powstał w środku nocy z myśli o całkowitym relaksie, odmożdżeniu i odcięciu się od codziennych problemów oraz natłoku myśli. Na stronie wydania znajdziesz pełny odtwarzacz, widok Smartlink (Spotify, Apple, YouTube) oraz bezpośrednie pobranie ścieżek audio i tapet.</span>
+                            <span class="lang-content-en" style="display:none;">"Harmony" is a track created in the dead of night, designed for total relaxation, clearing the mind, and unwinding from daily stress. On the release page you'll find the full web audio player, Smartlink streaming options, free STEM audio files, and wallpapers.</span>
                         </p>
 
                         <!-- Szybki Podgląd Audio -->
@@ -197,15 +210,20 @@
                 </div>
 
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: var(--space-8);">
-                                        <!-- Wydanie Muzyczne: Harmony -->
+                                                            <!-- Wydanie Muzyczne: Harmony -->
                     <div class="content-card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column;" data-release-slug="harmony">
                         <div style="position: relative; overflow: hidden; aspect-ratio: 1/1; background: #0a0908;">
                             <a href="wydanie-harmony.html">
                                 <img src="hexit/releases/harmony/Cover.png" alt="Harmony - Hexit Rely" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
                             </a>
                             <div style="position: absolute; top: 14px; left: 14px; display: flex; gap: 6px; flex-wrap: wrap;">
-                                <span class="release-pill pill-primary">Nowy Singiel</span>
+                                <span class="release-pill pill-primary" data-pl="Nowy Singiel" data-en="New Single">Nowy Singiel</span>
                                 <span class="release-pill pill-stems">Mp3 Files</span>
+                                <span class="release-pill pill-youtube" title="Content ID Free • Darmowe na YouTube">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 16 16"><path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.022.26-.01.104c-.048.519-.119 1.023-.22 1.402a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.04.018-.256.008-.105c.05-.572.124-1.141.235-1.558a2.007 2.007 0 0 1 1.415-1.42c.487-.132 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z"/></svg>
+                                    <span data-pl="No Copyright Music" data-en="No Copyright Music">No Copyright Music</span>
+                                    <span class="pill-yt-tag">YouTube</span>
+                                </span>
                             </div>
                         </div>
                         <div style="padding: var(--space-6); display: flex; flex-direction: column; flex: 1;">
@@ -214,12 +232,14 @@
                                 <a href="wydanie-harmony.html" style="color: inherit; text-decoration: none;">Harmony</a>
                             </h3>
                             <p style="font-size: var(--font-size-sm); color: var(--text-secondary); line-height: 1.6; margin-bottom: var(--space-6);">
-                                O czym jest „Harmony”?
-„Harmony” to utwór, który powstał w środku nocy, podczas jednej z tych ostrych, bezsennych nocy. Stworzyłem go z myśli o całkowitym relaksie, odmożdżeniu i odcięciu się od codziennych problemów oraz natłoku myśli.
+                                <span class="lang-content-pl">O czym jest „Harmony”?
+„Harmony” to utwór, który powstał w środku nocy, podczas jednej z tych ostrych, bezsennych nocy. Stworzyłem go z myśli o całkowitym relaksie, odmożdżeniu i odcięciu się od codziennych problemów oraz natłoku myśli.</span>
+                                <span class="lang-content-en" style="display:none;">What is &quot;Harmony&quot; about?
+&quot;Harmony&quot; was created in the dead of night, during one of those intense, sleepless nights. I composed it for total relaxation, clearing the mind, and unplugging from daily noise and stress.</span>
                             </p>
                             <div style="margin-top: auto; display: flex; gap: 10px;">
                                 <a href="wydanie-harmony.html" class="btn btn-primary btn-sm" style="width: 100%; text-align: center;">
-                                    Strona Wydania &rarr;
+                                    <span data-pl="Strona Wydania &rarr;" data-en="Release Page &rarr;">Strona Wydania &rarr;</span>
                                 </a>
                             </div>
                         </div>

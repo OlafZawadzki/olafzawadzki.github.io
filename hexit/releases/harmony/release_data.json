@@ -10,11 +10,33 @@
   "genre": "Orhestra / Classic",
   "badge_main": "Nowy Singiel",
   "badge_stems": "Mp3 Files",
+  "youtube_safe": true,
+  "badge_youtube": "No Copyright Music",
   "audio_file": "hexit/releases/harmony/Harmony.mp3",
   "cover_file": "hexit/releases/harmony/Cover.png",
   "stems_zip_file": "https://mega.nz/folder/xAgWyK7I#uesb6uoEq2cTSnuUtDfDyA",
   "pc_wall_file": "hexit/releases/harmony/Harmony clear bg.png",
   "phone_wall_file": "hexit/releases/harmony/Harmony 9-16.png",
+  "visual_assets": [
+    {
+      "title": "Oficjalna Okładka Utworu",
+      "format": "Format 1:1",
+      "desc": "Oryginalny artwork singla w bezstratnej jakości.",
+      "file": "hexit/releases/harmony/Cover.png"
+    },
+    {
+      "title": "Tapeta na Pulpit Komputera",
+      "format": "Format 16:9",
+      "desc": "Szerokokątna grafika wysokiej rozdzielczości na monitor.",
+      "file": "hexit/releases/harmony/Harmony clear bg.png"
+    },
+    {
+      "title": "Tapeta na Smartfon (Ekran blokady)",
+      "format": "Format 9:16",
+      "desc": "Dedykowana tapeta pionowa na ekrany telefonów (iOS / Android).",
+      "file": "hexit/releases/harmony/Harmony 9-16.png"
+    }
+  ],
   "link_spotify": "https://open.spotify.com/artist/4hcXADTFvPXtRxVTGYXW4I",
   "link_youtube": "https://www.youtube.com/channel/UCIpPTE3HsmUSAb-yfNybvSA",
   "link_apple": "",
@@ -25,6 +47,14 @@
   "full_desc_1": "O czym jest „Harmony”?\n„Harmony” to utwór, który powstał w środku nocy, podczas jednej z tych ostrych, bezsennych nocy. Stworzyłem go z myśli o całkowitym relaksie, odmożdżeniu i odcięciu się od codziennych problemów oraz natłoku myśli.\n\nMiał pomóc zasnąć mi – a teraz może pomóc również Tobie. Włącz, odpręż się i pozwól sobie na chwilę spokoju. ✨",
   "full_desc_2": "Podczas produkcji wykorzystałem głównie wtyczki takie jak bbc symphony labs oraz sample własnego autorstwa",
   "license_notice": "Licencja Creative Commons (CC BY-NC 4.0): Masz pełne prawo do bezpłatnego pobierania, cięcia sampli, tworzenia remiksów, grania w setach DJ-skich oraz wykorzystywania jako podkład w filmach. Wystarczy podać: Muzyka: Hexit Rely.",
+  "translations_en": {
+    "badge_main": "New Single",
+    "badge_youtube": "No Copyright Music",
+    "short_desc": "What is \"Harmony\" about?\n\"Harmony\" was created in the dead of night, during one of those intense, sleepless nights. I composed it for total relaxation, clearing the mind, and unplugging from daily noise and stress.",
+    "full_desc_1": "What is \"Harmony\" about?\n\"Harmony\" was created in the dead of night, during one of those intense, sleepless nights. I composed it for total relaxation, clearing the mind, and unplugging from daily noise and racing thoughts.\n\nIt was meant to help me fall asleep — and now it can help you too. Press play, unwind, and enjoy a moment of peace. ✨",
+    "full_desc_2": "During production, I mainly used orchestral plugins like BBC Symphony Labs along with custom organic field recordings and samples.",
+    "license_notice": "Creative Commons License (CC BY-NC 4.0): You have full permission to freely download, sample, remix, perform in DJ sets, and use as background music in videos. Just credit: Music: Hexit Rely."
+  },
   "stems_individual": [
     {
       "name": "Steams",
